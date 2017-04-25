@@ -18,7 +18,7 @@ This repository collects all module protocol manuals.
 * [VMB1USB revision 2](protocol_vmb1usb.pdf)
 * [VMB2BL revision 4](protocol_vmb2bl.pdf)
 * [VMB2BLE revision 4](protocol_vmb2ble.pdf)
-* [VMB2PBN ersion 7](protocol_vmb2pbn.pdf)
+* [VMB2PBN revision 7](protocol_vmb2pbn.pdf)
 * [VMB4DC revision 8](protocol_vmb4dc.pdf)
 * [VMB4PD revision 1](protocol_vmb4pd.pdf)
 * [VMB4RF revision 3](protocol_vmb4rf.pdf)
