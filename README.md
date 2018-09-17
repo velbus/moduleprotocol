@@ -22,6 +22,8 @@ This repository collects all module protocol manuals.
 * [VMB4AN revision 3](protocol_vmb4an.pdf)
 * [VMB4DC revision 8](protocol_vmb4dc.pdf)
 * [VMB4PD revision 1](protocol_vmb4pd.pdf)
+* [VMB4PD - IR](protocol_vmb4pd_ir.pdf)
+* [VMB4PD - IR Hexcodes](protocol_vmb4pd_ir_hexcodes.pdf)
 * [VMB4RF revision 3](protocol_vmb4rf.pdf)
 * [VMB4RY revision 4](protocol_vmb4ry.pdf)
 * [VMB4RYLD revision 5](protocol_vmb4ryld.pdf)
@@ -39,12 +41,15 @@ This repository collects all module protocol manuals.
 * [VMBGP4PIR revision 2](protocol_vmbgp4pir.pdf)
 * [VMBGPO/VMBGPTC revision 1](protocol_vmbgpo_vmbgptc.pdf)
 * [VMBGPOD revision 5](protocol_vmbgpod.pdf)
+* [VMBGPOD - IR](protocol_vmbgpod_ir.pdf)
+* [VMBGPOD - IR Hexcodes](protocol_vmbgpod_ir_hexcodes.pdf)
 * [VMBLCDWB revision 1](protocol_vmblcdwb.pdf)
 * [VMBMETEO revision 3](protocol_vmbmeteo.pdf)
 * [VMBPIRC revision 2](protocol_vmbpirc.pdf)
 * [VMBPIRM revision 1](protocol_vmbpirm.pdf)
 * [VMBPIRO revision 1](protocol_vmbpiro.pdf)
 * [VMBRSUSB revision 1](protocol_vmbrsusb.pdf)
+* [VMBVP01 revision 1](protocol_vmbvp01.pdf)
 
 ## List of modules and their ID
 
@@ -88,3 +93,9 @@ This repository collects all module protocol manuals.
 * 0x2F - [VMBDMI-R](protocol_vmbdmi_r.pdf)
 * 0x31 - [VMBMETEO](protocol_vmbmeteo.pdf)
 * 0x32 - [VMB4AN](protocol_vmb4an.pdf)
+* 0x33 - [VMBVP01](protocol_vmbvp01.pdf)
+* 0x34 - VMBEL1
+* 0x35 - VMBEL2
+* 0x36 - VMBEL4
+* 0x37 - VMBELO
+* 0x39 - VMBSIG
