@@ -99,8 +99,8 @@ This repository collects all module protocol manuals.
 * 0x36 - VMBEL4
 * 0x37 - VMBELO
 * 0x39 - VMBSIG
-* 0x3A - VMBGP1_2
-* 0x3B - VMBGP2_2
-* 0x3C - VMBGP4_2
-* 0x3D - VMBGPOD_2
-* 0x3E - VMBGP4PIR_2
+* 0x3A - VMBGP1-2
+* 0x3B - VMBGP2-2
+* 0x3C - VMBGP4-2
+* 0x3D - VMBGPOD-2
+* 0x3E - VMBGP4PIR-2
