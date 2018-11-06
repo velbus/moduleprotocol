@@ -4,7 +4,7 @@ This repository collects all module protocol manuals.
 ## Available manuals
 
 * [VMB1BL revision 4](protocol_vmb1bl.pdf)
-* [VMB1BLS revision 1](protocol_vmb1bls.pdf)
+* [VMB1BLS revision 2](protocol_vmb1bls.pdf)
 * [VMB1DM revision 5](protocol_vmb1dm.pdf)
 * [VMB1LED revision 3](protocol_vmb1led.pdf)
 * [VMB1RS revision 2](protocol_vmb1rs.pdf)
@@ -17,15 +17,15 @@ This repository collects all module protocol manuals.
 * [VMB1TSW revision 1](protocol_vmb1tsw.pdf)
 * [VMB1USB revision 2](protocol_vmb1usb.pdf)
 * [VMB2BL revision 4](protocol_vmb2bl.pdf)
-* [VMB2BLE revision 4](protocol_vmb2ble.pdf)
+* [VMB2BLE revision 5](protocol_vmb2ble.pdf)
 * [VMB2PBN revision 7](protocol_vmb2pbn.pdf)
 * [VMB4AN revision 3](protocol_vmb4an.pdf)
 * [VMB4DC revision 8](protocol_vmb4dc.pdf)
 * [VMB4PD revision 1](protocol_vmb4pd.pdf)
 * [VMB4PD - IR](protocol_vmb4pd_ir.pdf)
 * [VMB4PD - IR Hexcodes](protocol_vmb4pd_ir_hexcodes.pdf)
-* [VMB4RF revision 3](protocol_vmb4rf.pdf)
-* [VMB4RY revision 4](protocol_vmb4ry.pdf)
+* [VMB4RF revision 4](protocol_vmb4rf.pdf)
+* [VMB4RY revision 7](protocol_vmb4ry.pdf)
 * [VMB4RYLD revision 5](protocol_vmb4ryld.pdf)
 * [VMB4RYNO revision 5](protocol_vmb4ryno.pdf)
 * [VMB6IN revision 2](protocol_vmb6in.pdf)
@@ -39,7 +39,7 @@ This repository collects all module protocol manuals.
 * [VMBDMI-R revision 2](protocol_vmbdmi_r.pdf)
 * [VMBGP1/2/4 revision 2](protocol_vmbgp1_2_4.pdf)
 * [VMBGP4PIR revision 2](protocol_vmbgp4pir.pdf)
-* [VMBGPO/VMBGPTC revision 1](protocol_vmbgpo_vmbgptc.pdf)
+* [VMBGPO/VMBGPTC revision 2](protocol_vmbgpo_vmbgptc.pdf)
 * [VMBGPOD revision 5](protocol_vmbgpod.pdf)
 * [VMBGPOD - IR](protocol_vmbgpod_ir.pdf)
 * [VMBGPOD - IR Hexcodes](protocol_vmbgpod_ir_hexcodes.pdf)
@@ -47,7 +47,7 @@ This repository collects all module protocol manuals.
 * [VMBMETEO revision 3](protocol_vmbmeteo.pdf)
 * [VMBPIRC revision 2](protocol_vmbpirc.pdf)
 * [VMBPIRM revision 1](protocol_vmbpirm.pdf)
-* [VMBPIRO revision 1](protocol_vmbpiro.pdf)
+* [VMBPIRO revision 2](protocol_vmbpiro.pdf)
 * [VMBRSUSB revision 1](protocol_vmbrsusb.pdf)
 * [VMBVP01 revision 1](protocol_vmbvp01.pdf)
 
@@ -99,3 +99,8 @@ This repository collects all module protocol manuals.
 * 0x36 - VMBEL4
 * 0x37 - VMBELO
 * 0x39 - VMBSIG
+* 0x3A - VMBGP1_2
+* 0x3B - VMBGP2_2
+* 0x3C - VMBGP4_2
+* 0x3D - VMBGPOD_2
+* 0x3E - VMBGP4PIR_2
