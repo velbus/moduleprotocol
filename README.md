@@ -50,10 +50,10 @@ This repository collects all module protocol manuals.
 | 0x31 | VMBMETEO | [Module protocol revision 3](protocol_vmbmeteo.pdf)
 | 0x32 | VMB4AN | [Module protocol revision 3](protocol_vmb4an.pdf)
 | 0x33 | VMBVP01 | [Module protocol revision 1](protocol_vmbvp01.pdf)
-| 0x34 | VMBEL1 |
-| 0x35 | VMBEL2 |
-| 0x36 | VMBEL4 |
-| 0x37 | VMBELO |
+| 0x34 | VMBEL1 | [Module protocol revision 1](protocol_vmbel1_2_4.pdf)
+| 0x35 | VMBEL2 | [Module protocol revision 1](protocol_vmbel1_2_4.pdf)
+| 0x36 | VMBEL4 | [Module protocol revision 1](protocol_vmbel1_2_4.pdf)
+| 0x37 | VMBELO | [Module protocol revision 1](protocol_vmbelo.pdf)
 | 0x39 | VMBSIG |
 | 0x3A | VMBGP1-2 | [Module protocol revision 1](protocol_vmbgp1_2_4_ed2.pdf)
 | 0x3B | VMBGP2-2 | [Module protocol revision 1](protocol_vmbgp1_2_4_ed2.pdf)
