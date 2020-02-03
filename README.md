@@ -46,6 +46,7 @@ This repository collects all module protocol manuals.
 | 0x2C | VMBPIRO | [Module protocol revision 2](protocol_vmbpiro.pdf)
 | 0x2D | VMBGP4PIR | [Module protocol revision 2](protocol_vmbgp4pir.pdf)
 | 0x2E | VMB1BLS | [Module protocol revision 3](protocol_vmb1bls.pdf)
+| 0x30 | VMBRFR8S | [Module protocol revision 1](protocol_vmbrfr8s.pdf)
 | 0x2F | VMBDMI-R | [Module protocol revision 4](protocol_vmbdmi_r.pdf)
 | 0x31 | VMBMETEO | [Module protocol revision 3](protocol_vmbmeteo.pdf)
 | 0x32 | VMB4AN | [Module protocol revision 3](protocol_vmb4an.pdf)
