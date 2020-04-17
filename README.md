@@ -1,3 +1,8 @@
+# Forked repository!
+This is a forked repository from https://github.com/velbus/moduleprotocol
+
+The upstream repository contains the protocol pdf files and this README. I just added this first section to the README.
+
 # Velbus module protocol
 This repository collects all module protocol manuals.
 
