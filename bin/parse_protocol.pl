@@ -1,32 +1,33 @@
 #!/usr/bin/perl
 
-# Protocol pdf format:
-#   Every file has a footer with some extra information about the document.
-#   The file start with a frontpage where the module type and module text can be found.
-#   The next few page contains some sort of index that we don't need.
-#   After the index comes a list of messages that we need. Every messages start with a line that begins with no space and contains some fixed text like "reveived", "Transmit", ...
-#   After the list of messages comes the Memory Map. We don't need this information.
+my %global ;
 
-# file{PerFile}
-# file{PerMessageAddressType}
-#   {$MessageAddressType}{$file} .= $counter . " " ;
-# file{PerMessageAddressTypeDebug}
-# file{PerType}
-
-# file{RemoteMessage}
-#   {$CommandHex}{$CommandText}{$MessageType}
-# file{BroadcastMessage}
-#   {$CommandHex}{$CommandText}{$MessageType}
-# file{LocalMessage}
-#   {$CommandHex}{$CommandText}{$MessageType}
-
-our %global ;
+use Getopt::Long ;
+&GetOptions (
+             'verbose' => \$global{opts}{verbose} ,
+             'help' => \$global{opts}{help} ) or &print_help ;
 
 use Data::Dumper ;
 $Data::Dumper::Sortkeys = 1 ; # Sort the keys in the output
 $Data::Dumper::Deepcopy = 1 ; # Enable deep copies of structures
 $Data::Dumper::Indent = 1 ;   # Output in a reasonable style (but no array indexes)
 
+use lib "data" ;
+
+our %json ;
+
+use Hash::Merge qw( merge );
+use Velbus_data ;
+use Velbus_data_channels ;
+use Velbus_data_protocol_channels ;
+use Velbus_data_protocol_memory ;
+use Velbus_data_protocol_messages ;
+
+use JSON ;
+
+`mkdir -p txt` ;
+
+print "Convert pdf files to txt\n" ;
 # Convert the pdf's to text
 foreach my $pdf (sort `ls protocol*.pdf`) {
    chomp $pdf ;
@@ -40,20 +41,31 @@ foreach my $pdf (sort `ls protocol*.pdf`) {
    next if $pdf eq "protocol_vmbgpod_ir_hexcodes.pdf" ;
    next if $pdf eq "protocol_vmbrsusb.pdf" ;
 
-   # print "Convert to txt: $pdf\n" ;
-   `pdftotext -layout $pdf` ;
+   # Skip some duplicate protocol files
+   next if $pdf eq "protocol_vmb1tcw.pdf" ; # This is the same as protocol_vmb1tc.pdf
+   next if $pdf eq "protocol_vmb1tsw.pdf" ; # This is the same as protocol_vmb1ts.pdf
+
+   my $txt = $pdf ;
+   $txt =~ s/\.pdf/.txt/g ;
+   print "   - pdftotext -layout $pdf txt/$txt\n" if defined $global{opts}{verbose} ;
+   `pdftotext -layout $pdf txt/$txt` ;
 }
+
+print "\n" ;
+print "Read txt files\n" ;
 
 my %file ; # Contains all raw info read from the files
 
 # Loop all files and process the raw input.
-foreach my $file (sort `ls protocol*.txt`) {
+foreach my $file (sort `ls txt/protocol*.txt`) {
    chomp $file ;
-   #print "File: $file\n" ;
+   print "   - $file\n" if defined $global{opts}{verbose} ;
 
    open (FILE,"<$file") ;
    my @file = <FILE> ;
    close FILE ;
+
+   $file =~ s/txt\/// ;  # Remove the starting txt/ from file filename
 
    # First line of the file is the type of the module
    my $ModuleType = &clean (shift @file) ;
@@ -61,16 +73,21 @@ foreach my $file (sort `ls protocol*.txt`) {
       $ModuleType = "VMBGPx" ;
       shift @file ; # VMBGP2
       shift @file ; # VMBGP4
-   } elsif ( $ModuleType eq "VMBGP1-2" ) { # For VMBGPx-2: the text is split on 3 lines
+   } elsif ( $ModuleType eq "VMBEL1" ) { # For VMBEL1, VMBEL2 and VMBEL4: the text is split on 3 lines
+      $ModuleType = "VMBELx" ;
+      shift @file ; # VMBEL2
+      shift @file ; # VMBEL4:
+   } elsif ( $ModuleType eq "VMBGP1-2" ) { # For VMBGP1-2, VMBGP2-3 and VMBGP4:-2: the text is split on 3 lines
       $ModuleType = "VMBGPx-2" ;
       shift @file ; # VMBGP2-2
       shift @file ; # VMBGP4-2
-   } elsif ( $ModuleType eq "VMBGPO" ) { # For VMBGPO: the text is split on 3 lines
-      shift @file ;
-      shift @file ;
-   } elsif ( $ModuleType eq "VMBEL1" ) { # For VMBEL1: the text is split on 3 lines
-      shift @file ;
-      shift @file ;
+   } elsif ( $ModuleType eq "VMBGPO" ) { # For VMBGPO and VMBGPTC: the text is split on 3 lines
+      shift @file ; # &
+      shift @file ; # VMBGPTC
+   } elsif ( $ModuleType eq "VMBSIG" ) { # For VMBSIG, VMBUSBIP and VMCM3
+      $ModuleType = "VMBSIG-VMBUSBIP-VMCM3" ;
+      shift @file ; # VMBUSBIP
+      shift @file ; # VMCM3
    }
    $file{PerFile}{$file}{Info}{ModuleType} = $ModuleType ;
 
@@ -124,11 +141,14 @@ foreach my $file (sort `ls protocol*.txt`) {
          if ( $split[1] =~ /\((.+ priority)\)/ ) {
             $counter ++ ; # Incrementing the message counter
             $file{PerFile}{$file}{Messages}{$counter}{Prio} = $1 ;
+
             # The previous line is the tekst that belongs to this message
+            $previousline =~ s/\(build\d+ or higher\)// ; # Filter out some unwanted text
+            $previousline =~ s/\(build \d+ or higher\)// ; # Filter out some unwanted text
             $file{PerFile}{$file}{Messages}{$counter}{Info} = &clean($previousline) ;
 
          } else {
-            print "$file SID10-SID9 not correctly parsed: $line\n" ;
+            print "Error: SID10-SID9 not correctly parsed: $line\n" ;
          }
       # Filtering out the address
       } elsif ( $split[0] eq "SID8...SID1" ) {
@@ -145,25 +165,29 @@ foreach my $file (sort `ls protocol*.txt`) {
       } elsif ( $line =~ /Memory map:/i or
                 $line =~ /Memory map build/i ) {
          last ;
+
       } else {
          $previousline = $line ;
       }
    }
 }
 
+print "\n" ;
+print "Parse the data (1/2)\n" ;
+
 my %data ; # Contains al parsed data
-#print Dumper {%file} ;
 
 # Loop all the data we found in the files
 foreach my $file (sort keys(%{$file{PerFile}})) {
+   print "   - $file\n" if defined $global{opts}{verbose} ;
    my $ModuleType = $file{PerFile}{$file}{Info}{ModuleType} ; # Handier var
 
-   # Make sure we see each Module type only once
+   # Make sure we see each ModuleType only once
    if ( defined $file{PerType}{$ModuleType} ) {
-      print "Error: file $file: We already had type $ModuleType in file $file{PerType}{$ModuleType}{'$ModuleTypeHex'}{File}\n" ;
+      print "Error: file $file: We already had type $ModuleType in file $file{PerType}{$ModuleType}{File}\n" ;
       next ;
    } else {
-      $file{PerType}{$ModuleType}{'$ModuleTypeHex'}{File} = $file ; # Remember that we have seen the module
+      $file{PerType}{$ModuleType}{File} = $file ; # Remember that we have seen the module
    }
 
    # Loop all the messages
@@ -173,12 +197,12 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
            defined $file{PerFile}{$file}{Messages}{$counter}{Info} ) {
 
          my $MessageAddress = $file{PerFile}{$file}{Messages}{$counter}{MessageAddress} ; # Handier var
-         my $Info    = $file{PerFile}{$file}{Messages}{$counter}{Info} ;    # Handier var
+         my $Info           = $file{PerFile}{$file}{Messages}{$counter}{Info} ;           # Handier var
 
          # Parse the info in $MessageAddress to find the type of address: broadcast, local or remote
          my $MessageAddressType ;
          if ( $MessageAddress eq 'H’00’' ) {
-            $MessageAddressType = "broadcast" ;
+              $MessageAddressType = "broadcast" ;
          } elsif ( $MessageAddress =~ /^Address of the module/i or
                    $MessageAddress =~ /^Address set by hex switches/i or
                    $MessageAddress =~ /^Module Address/i or
@@ -229,7 +253,9 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
             # First databyte contains the type of message
             if ( $line =~ /DATABYTE1/ ) {
                if ( $line =~ /DATABYTE1=(.+) \(H’(..)’\)/ or
-                    $line =~ /DATABYTE1=(.+) \(0x(.+)\)/ ) {
+                    $line =~ /DATABYTE1 (.+) \(H’(..)’\)/ or
+                    $line =~ /DATABYTE1=(.+) \(0x(.+)\)/ or
+                    $line =~ /DATABYTE1=(COMMAND_CANCEL_INHIBIT) \(0(17)\)/) {
                   my $CommandText = $1 ;
                   my $CommandHex  = $2 ;
                   # Some text corrections so we have the same text for the different modules
@@ -241,10 +267,11 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                   $file{PerFile}{$file}{Messages}{$counter}{CommandText} = $CommandText ;
                   $file{PerFile}{$file}{Messages}{$counter}{CommandHex}  = $CommandHex ;
 
-                  #$file{PerMessageHex}{$CommandHex}{$file} .= $counter . " " ;
-                  $file{PerMessageAddressType}{$MessageAddressType}{$file} .= $counter . " " ; # Remember the messags per AdressType
+                  # Remember the message per AdressType
+                  $file{PerMessageAddressType}{$MessageAddressType}{$file} .= $counter . " " ;
+
                   # Remember per file the $CommandHex. We use this to quickly find message 'FF'.
-                  # We need to make sure that the 'FF' message is for the local module and not for connected sesnros.
+                  # We need to make sure that the 'FF' message is for the local module and not for connected sensors
                   if ( $MessageAddressType eq "local" ) {
                      $file{PerCommandHex}{$file}{$CommandHex} .= $counter . " " ;
                   }
@@ -253,7 +280,7 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                   # Ignore
                   #  DATABYTE1: <SOF-SID10...SID0-RTR-IDE-r0-DLC3...0-DATABYTE1...DATABYTEn-CRC14...CRC1-CRCDEL-ACK-ACKDEL-
                } else {
-                  print "$file Error DATABYTE1 format: $line\n" ;
+                  print "Error: DATABYTE1 format not recognized: $line\n" ;
                }
             } else {
                if ( $line =~ /DATABYTE(\d)=(.+)/ ) {
@@ -278,16 +305,17 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
    }
 }
 
+print "\n" ;
+print "Parse the data (2/2)\n" ;
+
 # Loop all the data we found in the files a second time.
 # We search for MessageHex FF to find out the ModuleTypeHex.
 # This time we will sort the data per CommandHex. We do this to filter out the broadcast messages.
-open (OUTPUT,">Velbus_data_protocol_auto.pm") ;
-print OUTPUT "# This is a big list of all Velbus module related info.\n" ;
-print OUTPUT "# Most of the info comes from the protocol pdf files you can download.\n" ;
-print OUTPUT "# Script pdf2txt.pl is used to extract the message information.\n" ;
-print OUTPUT "\n" ;
+`mkdir -p out` ;
 
 foreach my $file (sort keys(%{$file{PerFile}})) {
+   print "   - $file\n" if defined $global{opts}{verbose} ;
+
    my $ModuleType    = $file{PerFile}{$file}{Info}{ModuleType} ; # Handier var
    my $ModuleTypeHex ;
 
@@ -312,13 +340,7 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
             #}
 
             if ( defined $file{PerHexType}{$ModuleTypeHex} ) {
-               # For protocol_vmb1tcw.txt and protocol_vmb1tc.txt we both have 0E but this is normal since these are the same mofule with an other color
-               # For protocol_vmb1tsw.txt and protocol_vmb1ts.txt we both have 0C but this is normal since these are the same mofule with an other color
-               if ( $file eq "protocol_vmb1tcw.txt"  or
-                    $file eq "protocol_vmb1tsw.txt" ) {
-               } else {
-                  print "Mhh, we have ModuleTypeHex=$ModuleTypeHex for $file, but we already have that ModuleTypeHex in $file{PerHexType}{$ModuleTypeHex}!\n" ;
-               }
+               print "Error: we have ModuleTypeHex=$ModuleTypeHex for $file, but we already have that ModuleTypeHex in $file{PerHexType}{$ModuleTypeHex}!\n" ;
                next ;
             }
             $file{PerHexType}{$ModuleTypeHex} = $file ; # Remember all the Hex Module Types
@@ -366,18 +388,18 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                %{$file{ModuleType}{'1F'}} = %{$file{ModuleType}{'1E'}} ;
                %{$file{ModuleType}{'20'}} = %{$file{ModuleType}{'1E'}} ;
 
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1E'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1E'}{Type} = \"VMBGP1\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1E'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1E'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1F'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1F'}{Type} = \"VMBGP2\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1F'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'1F'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'20'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'20'}{Type} = \"VMBGP4\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'20'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'20'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
+               $json{ModuleTypes}{'1E'}{File} = "$file" ;
+               $json{ModuleTypes}{'1E'}{Type} = "VMBGP1" ;
+               $json{ModuleTypes}{'1E'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'1E'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'1F'}{File} = "$file" ;
+               $json{ModuleTypes}{'1F'}{Type} = "VMBGP2" ;
+               $json{ModuleTypes}{'1F'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'1F'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'20'}{File} = "$file" ;
+               $json{ModuleTypes}{'20'}{Type} = "VMBGP4" ;
+               $json{ModuleTypes}{'20'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'20'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
 
             # VMBEL1 = 34
             # VMBEL2 = 35
@@ -385,18 +407,19 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
             } elsif ( $ModuleTypeHex eq "34" ) {
                %{$file{ModuleType}{'35'}} = %{$file{ModuleType}{'34'}} ;
                %{$file{ModuleType}{'36'}} = %{$file{ModuleType}{'34'}} ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'34'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'34'}{Type} = \"VMBEL1\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'34'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'34'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'35'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'35'}{Type} = \"VMBEL2\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'35'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'35'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'36'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'36'}{Type} = \"VMBEL4\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'36'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'36'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
+
+               $json{ModuleTypes}{'34'}{File} = "$file" ;
+               $json{ModuleTypes}{'34'}{Type} = "VMBEL1" ;
+               $json{ModuleTypes}{'34'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'34'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'35'}{File} = "$file" ;
+               $json{ModuleTypes}{'35'}{Type} = "VMBEL2" ;
+               $json{ModuleTypes}{'35'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'35'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'36'}{File} = "$file" ;
+               $json{ModuleTypes}{'36'}{Type} = "VMBEL4" ;
+               $json{ModuleTypes}{'36'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'36'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
 
             # VMBGP1-2 = 3A
             # VMBGP2-2 = 3B
@@ -404,31 +427,52 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
             } elsif ( $ModuleTypeHex eq "3C" ) {
                %{$file{ModuleType}{'3A'}} = %{$file{ModuleType}{'3C'}} ;
                %{$file{ModuleType}{'3B'}} = %{$file{ModuleType}{'3C'}} ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3A'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3A'}{Type} = \"VMBGP1-2\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3A'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3A'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3B'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3B'}{Type} = \"VMBGP2-2\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3B'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3B'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3C'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3C'}{Type} = \"VMBGP4-2\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3C'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'3C'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
+
+               $json{ModuleTypes}{'3A'}{File} = "$file" ;
+               $json{ModuleTypes}{'3A'}{Type} = "VMBGP1-2" ;
+               $json{ModuleTypes}{'3A'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'3A'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'3B'}{File} = "$file" ;
+               $json{ModuleTypes}{'3B'}{Type} = "VMBGP2-2" ;
+               $json{ModuleTypes}{'3B'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'3B'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'3C'}{File} = "$file" ;
+               $json{ModuleTypes}{'3C'}{Type} = "VMBGP4-2" ;
+               $json{ModuleTypes}{'3C'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'3C'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+
+            # VMBSIG = 39
+            # VMBUSBIP = 40
+            # VMCM3 = 3F
+            } elsif ( $ModuleTypeHex eq "3F" ) {
+               %{$file{ModuleType}{'39'}} = %{$file{ModuleType}{'3F'}} ;
+               %{$file{ModuleType}{'3F'}} = %{$file{ModuleType}{'3F'}} ;
+
+               $json{ModuleTypes}{'40'}{File} = "$file" ;
+               $json{ModuleTypes}{'40'}{Type} = "VMBSIG" ;
+               $json{ModuleTypes}{'40'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'40'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'3F'}{File} = "$file" ;
+               $json{ModuleTypes}{'3F'}{Type} = "VMBUSBIP" ;
+               $json{ModuleTypes}{'3F'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'3F'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $json{ModuleTypes}{'39'}{File} = "$file" ;
+               $json{ModuleTypes}{'39'}{Type} = "VMCM3" ;
+               $json{ModuleTypes}{'39'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{'39'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
 
             } else {
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'$ModuleTypeHex'}{File} = \"$file\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'$ModuleTypeHex'}{Type} = \"$ModuleType\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'$ModuleTypeHex'}{Info} = \"$file{PerFile}{$file}{Info}{ModuleText}\" ;\n" ;
-               print OUTPUT "\$global{Cons}{ModuleTypes}{'$ModuleTypeHex'}{Version} = \"$file{PerFile}{$file}{Info}{Edition}\" ;\n" ;
+               $json{ModuleTypes}{$ModuleTypeHex}{File} = "$file" ;
+               $json{ModuleTypes}{$ModuleTypeHex}{Type} = "$ModuleType" ;
+               $json{ModuleTypes}{$ModuleTypeHex}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
+               $json{ModuleTypes}{$ModuleTypeHex}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
             }
 
          } else {
-            print "Error $ModuleType: no matching FF command: $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text}\n" ;
+            print "Error: $ModuleType: no matching FF command: $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text}\n" ;
          }
       } else {
-         print "Error no DATABYTE2 found in $file for message counter $counter\n" ;
+         print "Error: no DATABYTE2 found in $file for message counter $counter\n" ;
       }
    } else {
       print "Error: no message FF in $file found!\n" ;
@@ -465,64 +509,94 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
    }
 }
 
-#print Dumper %{$file{PerCommandHexLocal}} ;
+print "\n" ;
+print "Save the data\n" ;
 
+# Per module and message
 foreach my $ModuleTypeHex (sort keys %{$file{PerCommandHexLocal}}) {
    foreach my $CommandHex (sort keys %{$file{PerCommandHexLocal}{$ModuleTypeHex}}) {
       if ( defined $file{PerCommandHexBroadcast}{$CommandHex} ) {
       } else {
          my @Name = sort keys %{$file{PerCommandHexLocal}{$ModuleTypeHex}{$CommandHex}{CommandText}} ;
          my @Info = sort keys %{$file{PerCommandHexLocal}{$ModuleTypeHex}{$CommandHex}{Info}} ;
-         my @Prio = sort keys %{$file{PerCommandHexLocal}{$ModuleTypeHex}{$CommandHex}{Prio}} ;
+         my @Prio = sort keys %{$file{PerCommandHexLocal}{$ModuleTypeHex}{$CommandHex}{Prio}} ; # TODO: waht if we have different Prio for 1 command?
 
          my $Name = join ";", @Name ;
          my $Info = join ";", @Info ;
          my $Prio = join ";", @Prio    ;
 
-         print OUTPUT "\$global{Cons}{ModuleTypes}{'$ModuleTypeHex'}{Messages}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-         print OUTPUT "\$global{Cons}{ModuleTypes}{'$ModuleTypeHex'}{Messages}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-         print OUTPUT "\$global{Cons}{ModuleTypes}{'$ModuleTypeHex'}{Messages}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
+         $json{ModuleTypes}{$ModuleTypeHex}{Messages}{$CommandHex}{Name} = "$Name" ;
+         $json{ModuleTypes}{$ModuleTypeHex}{Messages}{$CommandHex}{Info} = "$Info" ;
+         $json{ModuleTypes}{$ModuleTypeHex}{Messages}{$CommandHex}{Prio} = "$Prio" ;
 
          # VMBGP1 = 1E: from pdf file
          # VMBGP2 = 1F: ??
          # VMBGP4 = 20: from my bus
          if ( $ModuleTypeHex eq "1E" ) {
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'1F'}{Messages}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'1F'}{Messages}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'1F'}{Messages}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'20'}{Messages}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'20'}{Messages}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'20'}{Messages}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
+            $json{ModuleTypes}{'1F'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'1F'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'1F'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $json{ModuleTypes}{'20'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'20'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'20'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
 
          # VMBEL1 = 34
          # VMBEL2 = 35
          # VMBEL4 = 36
          } elsif ( $ModuleTypeHex eq "34" ) {
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'35'}{Messages}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'35'}{Messages}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'35'}{Messages}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'36'}{Messages}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'36'}{Messages}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'36'}{Messages}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
+            $json{ModuleTypes}{'35'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'35'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'35'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $json{ModuleTypes}{'36'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'36'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'36'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
 
          # VMBGP1-2 = 3A
          # VMBGP2-2 = 3B
          # VMBGP4-2 = 3C
          } elsif ( $ModuleTypeHex eq "3C" ) {
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'3A'}{Messages}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'3A'}{Messages}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'3A'}{Messages}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'3B'}{Messages}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'3B'}{Messages}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-            print OUTPUT "\$global{Cons}{ModuleTypes}{'3B'}{Messages}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
+            $json{ModuleTypes}{'3A'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'3A'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'3A'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $json{ModuleTypes}{'3B'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'3B'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'3B'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+
+         # VMBSIG = 39
+         # VMBUSBIP = 40
+         # VMCM3 = 3F
+         } elsif ( $ModuleTypeHex eq "3F" ) {
+            $json{ModuleTypes}{'39'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'39'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'39'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $json{ModuleTypes}{'40'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $json{ModuleTypes}{'40'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $json{ModuleTypes}{'40'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
          }
       }
    }
 }
 
-#print Dumper \%{$file{PerCommandHexBroadcast}} ;
-print OUTPUT "\n" ;
+# Extra information per module
+foreach my $ModuleTypeHex (sort keys %{$file{ModuleType}}) {
+   foreach my $info (sort keys %{$file{ModuleType}{$ModuleTypeHex}}) {
+      $json{ModuleTypes}{$ModuleTypeHex}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
+      if ( $ModuleTypeHex eq "1E" ) {
+         $json{ModuleTypes}{'1F'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
+         $file{Cons}{ModuleType}{'20'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
+      }
+      if ( $ModuleTypeHex eq "34" ) {
+         $json{ModuleTypes}{'34'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
+         $json{ModuleTypes}{'35'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
+      }
+      if ( $ModuleTypeHex eq "3C" ) {
+         $json{ModuleTypes}{'3A'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
+         $json{ModuleTypes}{'3B'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
+      }
+   }
+}
 
+# Broadcast messages
 foreach my $CommandHex (sort keys %{$file{PerCommandHexBroadcast}}) {
    my @Name = sort keys %{$file{PerCommandHexBroadcast}{$CommandHex}{CommandText}} ;
    my @Info = sort keys %{$file{PerCommandHexBroadcast}{$CommandHex}{Info}} ;
@@ -532,31 +606,19 @@ foreach my $CommandHex (sort keys %{$file{PerCommandHexBroadcast}}) {
    my $Info = join ";", @Info ;
    my $Prio = join ";", @Prio    ;
 
-   print OUTPUT "\$global{Cons}{MessagesBroadCast}{'$CommandHex'}{Name} = \"$Name\" ;\n" ;
-   print OUTPUT "\$global{Cons}{MessagesBroadCast}{'$CommandHex'}{Info} = \"$Info\" ;\n" ;
-   print OUTPUT "\$global{Cons}{MessagesBroadCast}{'$CommandHex'}{Prio} = \"$Prio\" ;\n" ;
+   $json{MessagesBroadCast}{$CommandHex}{Name} = "$Name" ;
+   $json{MessagesBroadCast}{$CommandHex}{Info} = "$Info" ;
+   $json{MessagesBroadCast}{$CommandHex}{Prio} = "$Prio" ;
 }
 
-print OUTPUT "\n" ;
+#delete $json{ModuleGeneral} ;
 
-foreach my $ModuleTypeHex (sort keys %{$file{ModuleType}}) {
-   foreach my $info (sort keys %{$file{ModuleType}{$ModuleTypeHex}}) {
-      print OUTPUT "\$file{Cons}{ModuleType}{'$ModuleTypeHex'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;\n" ;
-      if ( $ModuleTypeHex eq "1E" ) {
-         print OUTPUT "\$file{Cons}{ModuleType}{'1F'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;\n" ;
-         print OUTPUT "\$file{Cons}{ModuleType}{'20'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;\n" ;
-      }
-      if ( $ModuleTypeHex eq "34" ) {
-         print OUTPUT "\$file{Cons}{ModuleType}{'34'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;\n" ;
-         print OUTPUT "\$file{Cons}{ModuleType}{'35'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;\n" ;
-      }
-      if ( $ModuleTypeHex eq "3C" ) {
-         print OUTPUT "\$file{Cons}{ModuleType}{'3A'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;\n" ;
-         print OUTPUT "\$file{Cons}{ModuleType}{'3B'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;\n" ;
-      }
-   }
-}
-
+# Save the data in json format
+open (OUTPUT,">","out/protocol.json") ;
+my $json = JSON->new->allow_nonref;
+$json->canonical(1) ;
+$json->pretty(1) ;
+print OUTPUT $json->encode( \%json) ;
 close OUTPUT ;
 
 sub clean () {
