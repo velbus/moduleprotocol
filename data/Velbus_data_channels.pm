@@ -33,7 +33,7 @@ $json{ChannelTypes}{Divider}{openHAB}{ItemType} = "Number" ;
 
 $json{ChannelTypes}{Dimmer}{Get}{Message} = "" ;
 $json{ChannelTypes}{Dimmer}{Set}{Match}{'\d+\.?\d*'}{Message} = "07" ; # &dim_value
-$json{ChannelTypes}{Dimmer}{Set}{Match}{'\d+'}{Action} = "LEVEL" ; # &dim_value, Default Action = $Match
+$json{ChannelTypes}{Dimmer}{Set}{Match}{'\d+\.?\d*'}{Action} = "LEVEL" ; # &dim_value, Default Action = $Match
 $json{ChannelTypes}{Dimmer}{Set}{Match}{ON}{Message} = "07" ; # &dim_value
 $json{ChannelTypes}{Dimmer}{Set}{Match}{ON}{Action} = "LEVEL" ; # &dim_value, Default Action = $Match
 $json{ChannelTypes}{Dimmer}{Set}{Match}{OFF}{Message} = "07" ; # &dim_value
