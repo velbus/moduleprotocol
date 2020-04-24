@@ -114,10 +114,8 @@
                   "Action" : "LEVEL",
                   "Message" : "07"
                },
-               "\\d+" : {
-                  "Action" : "LEVEL"
-               },
                "\\d+\\.?\\d*" : {
+                  "Action" : "LEVEL",
                   "Message" : "07"
                }
             }
