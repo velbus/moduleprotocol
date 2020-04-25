@@ -1659,7 +1659,7 @@
    "ModuleTypes" : {
       "01" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Push button 1",
@@ -1840,7 +1840,7 @@
       },
       "02" : {
          "BuildWeek" : "5",
-         "Buildyear" : "4",
+         "BuildYear" : "4",
          "Channels" : {
             "01" : {
                "Name" : "Relay",
@@ -1974,7 +1974,7 @@
       },
       "03" : {
          "BuildWeek" : "5",
-         "Buildyear" : "4",
+         "BuildYear" : "4",
          "ChannelNumbers" : {
             "Name" : {
                "Map" : {
@@ -2127,7 +2127,7 @@
       },
       "05" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Push button 1",
@@ -2300,7 +2300,7 @@
       },
       "07" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dimmer",
@@ -2466,7 +2466,7 @@
       },
       "08" : {
          "BuildWeek" : "8",
-         "Buildyear" : "7",
+         "BuildYear" : "7",
          "Channels" : {
             "01" : {
                "Name" : "Relay 1",
@@ -2671,7 +2671,7 @@
       },
       "09" : {
          "BuildWeek" : "5",
-         "Buildyear" : "4",
+         "BuildYear" : "4",
          "ChannelNumbers" : {
             "Name" : {
                "Map" : {
@@ -2842,7 +2842,7 @@
       },
       "0A" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "File" : "protocol_vmb8ir.txt",
          "Info" : "Infrared remote control receiver module",
          "MemoryMap" : "5",
@@ -2970,7 +2970,7 @@
       },
       "0B" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Push button 1",
@@ -3211,7 +3211,7 @@
       },
       "0C" : {
          "BuildWeek" : "8",
-         "Buildyear" : "7",
+         "BuildYear" : "7",
          "Channels" : {
             "01" : {
                "Name" : "Temperature",
@@ -3520,7 +3520,7 @@
       },
       "0E" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "File" : "protocol_vmb1tc.txt",
          "Info" : "TemperatureController Module",
          "Memory" : {
@@ -3695,7 +3695,7 @@
       },
       "0F" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dimmer",
@@ -3861,7 +3861,7 @@
       },
       "10" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Relay 1",
@@ -4286,7 +4286,7 @@
       },
       "11" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Relay 1",
@@ -4711,7 +4711,7 @@
       },
       "12" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dimmer 1",
@@ -5050,7 +5050,7 @@
       },
       "13" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "File" : "protocol_vmblcdwb.txt",
          "Info" : "Multi page push button module",
          "MemoryMap" : "5",
@@ -5213,7 +5213,7 @@
       },
       "14" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dimmer",
@@ -5359,7 +5359,7 @@
       },
       "15" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dimmer",
@@ -5764,7 +5764,7 @@
       },
       "16" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Push button 1",
@@ -6189,7 +6189,7 @@
       },
       "17" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Push button 1",
@@ -6614,7 +6614,7 @@
       },
       "18" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Push button 1",
@@ -7039,7 +7039,7 @@
       },
       "1A" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "File" : "protocol_vmb4rf.txt",
          "Info" : "Wireless remote control receiver module",
          "Memory" : {
@@ -8176,7 +8176,7 @@
       },
       "1B" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Relay",
@@ -8601,7 +8601,7 @@
       },
       "1D" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Blind 1",
@@ -9019,7 +9019,7 @@
       "1E" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -9680,7 +9680,7 @@
       "1F" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -10341,7 +10341,7 @@
       "20" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -11002,7 +11002,7 @@
       "21" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -11762,7 +11762,7 @@
       },
       "22" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Push button 1",
@@ -12376,7 +12376,7 @@
       "28" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -13142,7 +13142,7 @@
       },
       "29" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Relay",
@@ -13564,7 +13564,7 @@
       },
       "2A" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dark output",
@@ -13994,7 +13994,7 @@
       },
       "2B" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dark output",
@@ -14425,7 +14425,7 @@
       "2C" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Map" : {
@@ -14922,7 +14922,7 @@
       "2D" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -15599,7 +15599,7 @@
       },
       "2E" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Blind",
@@ -16009,7 +16009,7 @@
       },
       "2F" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Dimmer",
@@ -16414,7 +16414,7 @@
       },
       "30" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "File" : "protocol_vmbrfr8s.txt",
          "Info" : "8 channel RF receiver module",
          "MemoryMap" : "5",
@@ -16573,7 +16573,7 @@
       "31" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "SensorNumber" : {
                "Map" : {
@@ -17231,7 +17231,7 @@
       "32" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "ConvertChannel" : {
                "Convert" : "hex"
@@ -17889,7 +17889,7 @@
       },
       "33" : {
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "Channels" : {
             "01" : {
                "Name" : "Motion 1",
@@ -18300,7 +18300,7 @@
       "34" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex"
@@ -18959,7 +18959,7 @@
       "35" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex"
@@ -19618,7 +19618,7 @@
       "36" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex"
@@ -20277,7 +20277,7 @@
       "37" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex"
@@ -21252,7 +21252,7 @@
       "3A" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -21913,7 +21913,7 @@
       "3B" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -22574,7 +22574,7 @@
       "3C" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -23235,7 +23235,7 @@
       "3D" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
@@ -23996,7 +23996,7 @@
       "3E" : {
          "AllChannelStatus" : "FF",
          "BuildWeek" : "7",
-         "Buildyear" : "6",
+         "BuildYear" : "6",
          "ChannelNumbers" : {
             "Name" : {
                "Convert" : "hex",
