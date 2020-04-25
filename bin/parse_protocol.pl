@@ -16,6 +16,18 @@ use lib "data" ;
 
 our %json ;
 
+# Helper function needed for Velbus_data_protocol_memory.pm
+# This is copied from velserver/lib/Velbus/Velbus_helper.pm
+# Needed in Velbus_data_protocol_memory
+sub hex_to_dec {
+   my $hex = $_[0] ;
+   return hex ($hex) ;
+}
+sub dec_to_4hex {
+   my $dec = $_[0] ;
+   return sprintf ("%04X",$dec) ;
+}
+
 use Hash::Merge qw( merge );
 use Velbus_data ;
 use Velbus_data_channels ;
