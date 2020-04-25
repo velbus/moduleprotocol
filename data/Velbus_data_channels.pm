@@ -178,8 +178,8 @@ foreach my $ChannelType (sort keys %{$json{ChannelTypes}}) {
             $json{ChannelTypes}{$ChannelType}{Module}{$ModuleType}{Action}{Get} = "yes" ;
          } else {
             foreach my $Message (split ",", $json{ChannelTypes}{$ChannelType}{Get}{Message}) {
-               if ( defined $json{ModuleTypes}{$ModuleType}{Message}{$Message} and
-                    defined $json{ModuleTypes}{$ModuleType}{Message}{$Message}{Data} ) {
+               if ( defined $json{ModuleTypes}{$ModuleType}{Messages}{$Message} and
+                    defined $json{ModuleTypes}{$ModuleType}{Messages}{$Message}{Data} ) {
                   $json{ChannelTypes}{$ChannelType}{Module}{$ModuleType}{Action}{Get} = "yes" ;
                } else {
                   # print "NO MESSAGE: ChannelType=$ChannelType, ModuleType=$ModuleType, Message=$Message\n" ;
@@ -191,7 +191,7 @@ foreach my $ChannelType (sort keys %{$json{ChannelTypes}}) {
       if ( defined $json{ChannelTypes}{$ChannelType}{Set} ) {
          foreach my $Match (sort keys %{$json{ChannelTypes}{$ChannelType}{Set}{Match}} ) {
             my $Message = $json{ChannelTypes}{$ChannelType}{Set}{Match}{$Match}{Message} ;
-            if ( defined $json{ModuleTypes}{$ModuleType}{Message}{$Message} or $Message eq "" ) {
+            if ( defined $json{ModuleTypes}{$ModuleType}{Messages}{$Message} or $Message eq "" ) {
                $json{ChannelTypes}{$ChannelType}{Module}{$ModuleType}{Action}{Set} = "yes" ;
             } else {
                # print "NO SET: ChannelType=$ChannelType, ModuleType=$ModuleType, Match=$Match, Message=$Message\n" ;
