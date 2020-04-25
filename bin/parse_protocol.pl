@@ -362,28 +362,28 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
             if ( defined $file{PerFile}{$file}{Messages}{$counter}{byte} ) {
                # For VMB1TSW (0C) this is wrong in the protocol files
                if ( $ModuleTypeHex eq "0C" ) {
-                  $file{ModuleType}{$ModuleTypeHex}{SerialHigh} = "4" ;
-                  $file{ModuleType}{$ModuleTypeHex}{SerialLow}  = "5" ;
-                  $file{ModuleType}{$ModuleTypeHex}{MemoryMap}  = "6" ;
-                  $file{ModuleType}{$ModuleTypeHex}{BuildYear}  = "7" ;
-                  $file{ModuleType}{$ModuleTypeHex}{BuildWeek}  = "8" ;
+                  $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{SerialHigh} = "4" ;
+                  $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{SerialLow}  = "5" ;
+                  $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{MemoryMap}  = "6" ;
+                  $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{BuildYear}  = "7" ;
+                  $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{BuildWeek}  = "8" ;
 
                } else {
                   foreach my $DATABYTE (sort keys %{$file{PerFile}{$file}{Messages}{$counter}{byte}}) {
                      next if $DATABYTE eq "2" ;
                      if ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Memorymap version/ or
                           $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Memory map version/ ) {
-                        $file{ModuleType}{$ModuleTypeHex}{MemoryMap} = $DATABYTE ;
+                        $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{MemoryMap} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /High byte of serial number/ or
                                $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Serial number high/ ) {
-                        $file{ModuleType}{$ModuleTypeHex}{SerialHigh} = $DATABYTE ;
+                        $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{SerialHigh} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Low byte of serial number/ or
                                $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Serial number low/ ) {
-                        $file{ModuleType}{$ModuleTypeHex}{SerialLow} = $DATABYTE ;
+                        $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{SerialLow} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Build year/i ) {
-                        $file{ModuleType}{$ModuleTypeHex}{BuildYear} = $DATABYTE ;
+                        $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{BuildYear} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Build week/i ) {
-                        $file{ModuleType}{$ModuleTypeHex}{BuildWeek} = $DATABYTE ;
+                        $file{ModuleType}{$ModuleTypeHex}{Messages}{FF}{Data}{BuildWeek} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /don’t care/i ) {
                      } else {
                         #print "Warning: DATABYTE=$DATABYTE = \"$file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text}\" in $file\n" ;
