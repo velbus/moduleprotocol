@@ -365,7 +365,7 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                   $file{ModuleType}{$ModuleTypeHex}{SerialHigh} = "4" ;
                   $file{ModuleType}{$ModuleTypeHex}{SerialLow}  = "5" ;
                   $file{ModuleType}{$ModuleTypeHex}{MemoryMap}  = "6" ;
-                  $file{ModuleType}{$ModuleTypeHex}{Buildyear}  = "7" ;
+                  $file{ModuleType}{$ModuleTypeHex}{BuildYear}  = "7" ;
                   $file{ModuleType}{$ModuleTypeHex}{BuildWeek}  = "8" ;
 
                } else {
@@ -381,7 +381,7 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                                $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Serial number low/ ) {
                         $file{ModuleType}{$ModuleTypeHex}{SerialLow} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Build year/i ) {
-                        $file{ModuleType}{$ModuleTypeHex}{Buildyear} = $DATABYTE ;
+                        $file{ModuleType}{$ModuleTypeHex}{BuildYear} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /Build week/i ) {
                         $file{ModuleType}{$ModuleTypeHex}{BuildWeek} = $DATABYTE ;
                      } elsif ( $file{PerFile}{$file}{Messages}{$counter}{byte}{$DATABYTE}{text} =~ /don’t care/i ) {
