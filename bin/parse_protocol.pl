@@ -47,7 +47,7 @@ $year = $year+1900 ;
 $mon += 1 ;
 $mon  = "0" . $mon  if $mon  < 10 ;
 $mday = "0" . $mday if $mday < 10 ;
-print "$json{Version}\n" ;
+$json{Version} = "$year$mon$mday" ;
 
 `mkdir -p txt` ;
 
