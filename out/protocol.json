@@ -1696,6 +1696,38 @@
          "Info" : "8-Channel Push Button Module",
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the push button status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -1889,6 +1921,29 @@
                "Prio" : "Low"
             },
             "FB" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "00000000" : {
+                              "Value" : "OFF"
+                           },
+                           "00000001" : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the relay status",
                "Name" : "COMMAND_RELAY_STATUS",
                "Prio" : "Low"
@@ -1989,6 +2044,36 @@
                "Prio" : "Low"
             },
             "EC" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "03" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "00000000" : {
+                              "Value" : "Blinds off"
+                           },
+                           "00000001" : {
+                              "Channel" : "01",
+                              "Value" : "Blind 1 up",
+                              "openHAB" : "0"
+                           },
+                           "00000010" : {
+                              "Channel" : "01",
+                              "Value" : "Blind 1 down",
+                              "openHAB" : "100"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the blind status",
                "Name" : "COMMAND_BLIND_STATUS",
                "Prio" : "Low"
@@ -2077,6 +2162,38 @@
          "Info" : "6-Channel Input Module",
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the input status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -2215,6 +2332,26 @@
                "Prio" : "High"
             },
             "0F" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits dimmer slider status",
                "Name" : "COMMAND_SLIDER_STATUS",
                "Prio" : "High"
@@ -2260,6 +2397,26 @@
                "Prio" : "Low"
             },
             "EE" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the dimmer status",
                "Name" : "COMMAND_DIMMER_STATUS",
                "Prio" : "Low"
@@ -2451,6 +2608,47 @@
                "Prio" : "Low"
             },
             "FB" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           },
+                           "00000010" : {
+                              "Channel" : "02"
+                           },
+                           "00000100" : {
+                              "Channel" : "03"
+                           },
+                           "00001000" : {
+                              "Channel" : "04"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "00000000" : {
+                              "Value" : "OFF"
+                           },
+                           "00000001" : {
+                              "Value" : "ON"
+                           },
+                           "00000010" : {
+                              "Value" : "ON"
+                           },
+                           "00000100" : {
+                              "Value" : "ON"
+                           },
+                           "00001000" : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the relay status",
                "Name" : "COMMAND_RELAY_STATUS",
                "Prio" : "Low"
@@ -2556,6 +2754,49 @@
                "Prio" : "Low"
             },
             "EC" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "03" : {
+                              "Channel" : "01"
+                           },
+                           "0C" : {
+                              "Channel" : "02"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "00000000" : {
+                              "Value" : "Blinds off"
+                           },
+                           "00000001" : {
+                              "Channel" : "01",
+                              "Value" : "Blind 1 up",
+                              "openHAB" : "0"
+                           },
+                           "00000010" : {
+                              "Channel" : "01",
+                              "Value" : "Blind 1 down",
+                              "openHAB" : "100"
+                           },
+                           "00000100" : {
+                              "Channel" : "02",
+                              "Value" : "Blind 2 up",
+                              "openHAB" : "0"
+                           },
+                           "00001000" : {
+                              "Channel" : "02",
+                              "Value" : "Blind 2 down",
+                              "openHAB" : "100"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the blind status",
                "Name" : "COMMAND_BLIND_STATUS",
                "Prio" : "Low"
@@ -2782,6 +3023,38 @@
          "Info" : "PUSH BUTTON AND TIMER PANEL",
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the push button status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -3121,6 +3394,58 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "01"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "01",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat",
                "Info" : "Transmit the sensor status (Build 0949)",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -3416,6 +3741,26 @@
                "Prio" : "High"
             },
             "0F" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits dimmer slider status",
                "Name" : "COMMAND_SLIDER_STATUS",
                "Prio" : "High"
@@ -3461,6 +3806,26 @@
                "Prio" : "Low"
             },
             "EE" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the dimmer status",
                "Name" : "COMMAND_DIMMER_STATUS",
                "Prio" : "Low"
@@ -3872,6 +4237,44 @@
                "Prio" : "Low"
             },
             "FB" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           },
+                           "00000010" : {
+                              "Channel" : "02"
+                           },
+                           "00000100" : {
+                              "Channel" : "03"
+                           },
+                           "00001000" : {
+                              "Channel" : "04"
+                           },
+                           "00010000" : {
+                              "Channel" : "05"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%......00" : {
+                              "Value" : "OFF"
+                           },
+                           "%......01" : {
+                              "Value" : "ON"
+                           },
+                           "%......11" : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the relay status",
                "Name" : "COMMAND_RELAY_STATUS",
                "Prio" : "Low"
@@ -4261,6 +4664,44 @@
                "Prio" : "Low"
             },
             "FB" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           },
+                           "00000010" : {
+                              "Channel" : "02"
+                           },
+                           "00000100" : {
+                              "Channel" : "03"
+                           },
+                           "00001000" : {
+                              "Channel" : "04"
+                           },
+                           "00010000" : {
+                              "Channel" : "05"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%......00" : {
+                              "Value" : "OFF"
+                           },
+                           "%......01" : {
+                              "Value" : "ON"
+                           },
+                           "%......11" : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the relay status",
                "Name" : "COMMAND_RELAY_STATUS",
                "Prio" : "Low"
@@ -4434,6 +4875,35 @@
                "Prio" : "High"
             },
             "07" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           },
+                           "02" : {
+                              "Channel" : "02"
+                           },
+                           "04" : {
+                              "Channel" : "03"
+                           },
+                           "08" : {
+                              "Channel" : "04"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Set dim channel value command received",
                "Name" : "COMMAND_SET_DIMVALUE",
                "Prio" : "High"
@@ -4489,6 +4959,35 @@
                "Prio" : "High"
             },
             "B8" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           },
+                           "00000010" : {
+                              "Channel" : "02"
+                           },
+                           "00000100" : {
+                              "Channel" : "03"
+                           },
+                           "00001000" : {
+                              "Channel" : "04"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the dimmer channel status",
                "Name" : "COMMAND_DIMMERCONTROLLER_STATUS",
                "Prio" : "Low"
@@ -4770,6 +5269,26 @@
                "Prio" : "High"
             },
             "0F" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits dimmer slider status",
                "Name" : "COMMAND_SLIDER_STATUS",
                "Prio" : "High"
@@ -5104,6 +5623,26 @@
                "Prio" : "High"
             },
             "0F" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits dimmer slider status",
                "Name" : "COMMAND_SLIDER_STATUS",
                "Prio" : "High"
@@ -5149,6 +5688,26 @@
                "Prio" : "High"
             },
             "B8" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the dimmer status",
                "Name" : "COMMAND_DIMMERCONTROLLER_STATUS",
                "Prio" : "Low"
@@ -5484,6 +6043,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -5879,6 +6470,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -6274,6 +6897,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -7917,6 +8572,44 @@
                "Prio" : "Low"
             },
             "FB" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           },
+                           "00000010" : {
+                              "Channel" : "02"
+                           },
+                           "00000100" : {
+                              "Channel" : "03"
+                           },
+                           "00001000" : {
+                              "Channel" : "04"
+                           },
+                           "00010000" : {
+                              "Channel" : "05"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%......00" : {
+                              "Value" : "OFF"
+                           },
+                           "%......01" : {
+                              "Value" : "ON"
+                           },
+                           "%......11" : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the relay status",
                "Name" : "COMMAND_RELAY_STATUS",
                "Prio" : "Low"
@@ -8288,6 +8981,29 @@
                "Prio" : "Low"
             },
             "EC" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           },
+                           "02" : {
+                              "Channel" : "02"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the blind status",
                "Name" : "COMMAND_BLIND_STATUS",
                "Prio" : "Low"
@@ -8639,6 +9355,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -8809,11 +9557,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -9197,6 +10018,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -9367,11 +10220,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -9755,6 +10681,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -9925,11 +10883,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -10413,6 +11444,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -10583,11 +11646,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -11045,6 +12181,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -11085,6 +12253,46 @@
                "Prio" : "Low"
             },
             "BE" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%........" : {
+                              "Convert" : "Divider",
+                              "Name" : "Divider"
+                           }
+                        }
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Counter"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Counter"
+                           }
+                        }
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Counter"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Counter"
+                           }
+                        }
+                     }
+                  }
+               },
                "Info" : "Transmits the counter status",
                "Name" : "COMMAND_COUNTER_STATUS",
                "Prio" : "Low"
@@ -11120,6 +12328,19 @@
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -11601,6 +12822,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -11616,6 +12869,12 @@
                "Prio" : "High"
             },
             "AC" : {
+               "Data" : {
+                  "PerMessage" : {
+                     "Channel" : "99",
+                     "Convert" : "MemoText"
+                  }
+               },
                "Info" : "Memo text received",
                "Name" : "COMMAND_TEXT",
                "Prio" : "Low"
@@ -11771,11 +13030,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status ",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -12222,6 +13554,41 @@
                "Prio" : "Low"
             },
             "FB" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           },
+                           "00000010" : {
+                              "Channel" : "02"
+                           },
+                           "00000100" : {
+                              "Channel" : "03"
+                           },
+                           "00001000" : {
+                              "Channel" : "04"
+                           },
+                           "00010000" : {
+                              "Channel" : "05"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "00000000" : {
+                              "Value" : "OFF"
+                           },
+                           "00000001" : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the relay status",
                "Name" : "COMMAND_RELAY_STATUS",
                "Prio" : "Low"
@@ -12503,6 +13870,36 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "Name" : "Sensor",
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        }
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        }
+                     }
+                  }
+               },
+               "General" : "PirOutput",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -12573,6 +13970,22 @@
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:7"
+                           }
+                        },
+                        "Name" : "Sensor"
+                     }
+                  },
+                  "PerMessage" : {
+                     "Convert" : "LightSensor"
+                  }
+               },
+               "General" : "LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -12889,6 +14302,36 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "Name" : "Sensor",
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        }
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        }
+                     }
+                  }
+               },
+               "General" : "PirOutput",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -12959,6 +14402,22 @@
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:7"
+                           }
+                        },
+                        "Name" : "Sensor"
+                     }
+                  },
+                  "PerMessage" : {
+                     "Convert" : "LightSensor"
+                  }
+               },
+               "General" : "LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -13291,6 +14750,36 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "Name" : "Sensor",
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        }
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        }
+                     }
+                  }
+               },
+               "General" : "PirOutput",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -13391,6 +14880,22 @@
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Sensor"
+                     }
+                  },
+                  "PerMessage" : {
+                     "Convert" : "LightSensor"
+                  }
+               },
+               "General" : "LightSensorChannelStatus8",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -13777,6 +15282,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -13957,11 +15494,87 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  },
+                  "PerMessage" : {
+                     "Convert" : "LightSensor"
+                  }
+               },
+               "General" : "ButtonChannelStatus LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -14386,6 +15999,26 @@
                "Prio" : "Low"
             },
             "EC" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the blind status",
                "Name" : "COMMAND_BLIND_STATUS",
                "Prio" : "Low"
@@ -14678,6 +16311,26 @@
                "Prio" : "High"
             },
             "0F" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "01" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits dimmer slider status",
                "Name" : "COMMAND_SLIDER_STATUS",
                "Prio" : "High"
@@ -14723,6 +16376,26 @@
                "Prio" : "High"
             },
             "B8" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the dimmer status",
                "Name" : "COMMAND_DIMMERCONTROLLER_STATUS",
                "Prio" : "Low"
@@ -15442,6 +17115,36 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "Name" : "Sensor",
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        }
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        }
+                     }
+                  }
+               },
+               "General" : "PirOutput",
                "Info" : "Transmits the alarm output switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -15462,6 +17165,11 @@
                "Prio" : "Low"
             },
             "AC" : {
+               "Data" : {
+                  "PerMessage" : {
+                     "Convert" : "SensorNumber"
+                  }
+               },
                "Info" : "Transmit the rain, light and wind value as a text string",
                "Name" : "COMMAND_TEXT",
                "Prio" : "Low"
@@ -16016,11 +17724,44 @@
                "Prio" : "High"
             },
             "A9" : {
+               "Data" : {
+                  "Name" : "SensorType",
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel"
+                           }
+                        }
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%......00" : {
+                              "Value" : "Voltage"
+                           },
+                           "%......01" : {
+                              "Value" : "Current"
+                           },
+                           "%......10" : {
+                              "Value" : "Resistance"
+                           },
+                           "%......11" : {
+                              "Value" : "Period"
+                           }
+                        }
+                     }
+                  }
+               },
                "Info" : "Transmit the sensor raw value",
                "Name" : "COMMAND_SENSOR_RAW_DATA",
                "Prio" : "Low"
             },
             "AC" : {
+               "Data" : {
+                  "PerMessage" : {
+                     "Convert" : "SensorNumber"
+                  }
+               },
                "Info" : "Transmit the sensor value as a text string",
                "Name" : "COMMAND_TEXT",
                "Prio" : "Low"
@@ -16471,6 +18212,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -16758,6 +18531,52 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%........" : {
+                              "Channel" : "18"
+                           },
+                           "%0......." : {
+                              "Value" : "OFF"
+                           },
+                           "%1......." : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Relay"
+                     }
+                  }
+               },
+               "General" : "ButtonPress OpenCollectorChannelStatus124",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -16858,6 +18677,116 @@
                "Prio" : "Low"
             },
             "D4" : {
+               "Data" : {
+                  "Channel" : "97",
+                  "PerByte:3" : {
+                     "0" : {
+                        "Match" : {
+                           "%0......." : {
+                              "Value" : "Default palette"
+                           },
+                           "%1......." : {
+                              "Value" : "Custom palette"
+                           }
+                        },
+                        "Name" : "Background"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.......1" : {
+                              "Value" : "left"
+                           },
+                           "%......1." : {
+                              "Value" : "top"
+                           },
+                           "%.....1.." : {
+                              "Value" : "right"
+                           },
+                           "%....1..." : {
+                              "Value" : "bottom"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%...(.....)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Palette",
+                              "Value" : "Palette"
+                           },
+                           "%.00....." : {
+                              "Value" : "Default palette"
+                           },
+                           "%.01....." : {
+                              "Value" : "Custom color with lowest priority"
+                           },
+                           "%.10....." : {
+                              "Value" : "Custom color with mid priority"
+                           },
+                           "%.11....." : {
+                              "Value" : "Custom color with highest priority"
+                           },
+                           "%0......." : {
+                              "Value" : "not blinking"
+                           },
+                           "%1......." : {
+                              "Value" : "blinking"
+                           }
+                        }
+                     }
+                  },
+                  "PerByte:5" : {
+                     "0" : {
+                        "Match" : {
+                           "........" : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Palette"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.(.......)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Saturation"
+                           },
+                           "%0......." : {
+                              "Name" : "Color",
+                              "Value" : "RGB-color"
+                           },
+                           "%1......." : {
+                              "Name" : "Color",
+                              "Value" : "White"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Red"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Green"
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Blue"
+                     }
+                  }
+               },
+               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -16938,11 +18867,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "09"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "09",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -17001,6 +19003,9 @@
                "Info" : "Module status request command received",
                "Name" : "COMMAND_MODULE_STATUS_REQUEST",
                "Prio" : "Low"
+            },
+            "FB" : {
+               "Data" : "yes"
             },
             "FC" : {
                "Info" : "Write data to memory command received",
@@ -17187,6 +19192,52 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%........" : {
+                              "Channel" : "18"
+                           },
+                           "%0......." : {
+                              "Value" : "OFF"
+                           },
+                           "%1......." : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Relay"
+                     }
+                  }
+               },
+               "General" : "ButtonPress OpenCollectorChannelStatus124",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -17287,6 +19338,116 @@
                "Prio" : "Low"
             },
             "D4" : {
+               "Data" : {
+                  "Channel" : "97",
+                  "PerByte:3" : {
+                     "0" : {
+                        "Match" : {
+                           "%0......." : {
+                              "Value" : "Default palette"
+                           },
+                           "%1......." : {
+                              "Value" : "Custom palette"
+                           }
+                        },
+                        "Name" : "Background"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.......1" : {
+                              "Value" : "left"
+                           },
+                           "%......1." : {
+                              "Value" : "top"
+                           },
+                           "%.....1.." : {
+                              "Value" : "right"
+                           },
+                           "%....1..." : {
+                              "Value" : "bottom"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%...(.....)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Palette",
+                              "Value" : "Palette"
+                           },
+                           "%.00....." : {
+                              "Value" : "Default palette"
+                           },
+                           "%.01....." : {
+                              "Value" : "Custom color with lowest priority"
+                           },
+                           "%.10....." : {
+                              "Value" : "Custom color with mid priority"
+                           },
+                           "%.11....." : {
+                              "Value" : "Custom color with highest priority"
+                           },
+                           "%0......." : {
+                              "Value" : "not blinking"
+                           },
+                           "%1......." : {
+                              "Value" : "blinking"
+                           }
+                        }
+                     }
+                  },
+                  "PerByte:5" : {
+                     "0" : {
+                        "Match" : {
+                           "........" : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Palette"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.(.......)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Saturation"
+                           },
+                           "%0......." : {
+                              "Name" : "Color",
+                              "Value" : "RGB-color"
+                           },
+                           "%1......." : {
+                              "Name" : "Color",
+                              "Value" : "White"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Red"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Green"
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Blue"
+                     }
+                  }
+               },
+               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -17367,11 +19528,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "09"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "09",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -17430,6 +19664,9 @@
                "Info" : "Module status request command received",
                "Name" : "COMMAND_MODULE_STATUS_REQUEST",
                "Prio" : "Low"
+            },
+            "FB" : {
+               "Data" : "yes"
             },
             "FC" : {
                "Info" : "Write data to memory command received",
@@ -17616,6 +19853,52 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%........" : {
+                              "Channel" : "18"
+                           },
+                           "%0......." : {
+                              "Value" : "OFF"
+                           },
+                           "%1......." : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Relay"
+                     }
+                  }
+               },
+               "General" : "ButtonPress OpenCollectorChannelStatus124",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -17716,6 +19999,116 @@
                "Prio" : "Low"
             },
             "D4" : {
+               "Data" : {
+                  "Channel" : "97",
+                  "PerByte:3" : {
+                     "0" : {
+                        "Match" : {
+                           "%0......." : {
+                              "Value" : "Default palette"
+                           },
+                           "%1......." : {
+                              "Value" : "Custom palette"
+                           }
+                        },
+                        "Name" : "Background"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.......1" : {
+                              "Value" : "left"
+                           },
+                           "%......1." : {
+                              "Value" : "top"
+                           },
+                           "%.....1.." : {
+                              "Value" : "right"
+                           },
+                           "%....1..." : {
+                              "Value" : "bottom"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%...(.....)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Palette",
+                              "Value" : "Palette"
+                           },
+                           "%.00....." : {
+                              "Value" : "Default palette"
+                           },
+                           "%.01....." : {
+                              "Value" : "Custom color with lowest priority"
+                           },
+                           "%.10....." : {
+                              "Value" : "Custom color with mid priority"
+                           },
+                           "%.11....." : {
+                              "Value" : "Custom color with highest priority"
+                           },
+                           "%0......." : {
+                              "Value" : "not blinking"
+                           },
+                           "%1......." : {
+                              "Value" : "blinking"
+                           }
+                        }
+                     }
+                  },
+                  "PerByte:5" : {
+                     "0" : {
+                        "Match" : {
+                           "........" : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Palette"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.(.......)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Saturation"
+                           },
+                           "%0......." : {
+                              "Name" : "Color",
+                              "Value" : "RGB-color"
+                           },
+                           "%1......." : {
+                              "Name" : "Color",
+                              "Value" : "White"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Red"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Green"
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Blue"
+                     }
+                  }
+               },
+               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -17796,11 +20189,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "09"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "09",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -17859,6 +20325,9 @@
                "Info" : "Module status request command received",
                "Name" : "COMMAND_MODULE_STATUS_REQUEST",
                "Prio" : "Low"
+            },
+            "FB" : {
+               "Data" : "yes"
             },
             "FC" : {
                "Info" : "Write data to memory command received",
@@ -18289,6 +20758,52 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%........" : {
+                              "Channel" : "42"
+                           },
+                           "%0......." : {
+                              "Value" : "OFF"
+                           },
+                           "%1......." : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Relay"
+                     }
+                  }
+               },
+               "General" : "ButtonPress OpenCollectorChannelStatusO",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -18319,6 +20834,12 @@
                "Prio" : "High"
             },
             "AC" : {
+               "Data" : {
+                  "PerMessage" : {
+                     "Channel" : "99",
+                     "Convert" : "MemoText"
+                  }
+               },
                "Info" : "Memo text received",
                "Name" : "COMMAND_TEXT",
                "Prio" : "Low"
@@ -18394,6 +20915,116 @@
                "Prio" : "Low"
             },
             "D4" : {
+               "Data" : {
+                  "Channel" : "97",
+                  "PerByte:3" : {
+                     "0" : {
+                        "Match" : {
+                           "%0......." : {
+                              "Value" : "Default palette"
+                           },
+                           "%1......." : {
+                              "Value" : "Custom palette"
+                           }
+                        },
+                        "Name" : "Background"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.......1" : {
+                              "Value" : "left"
+                           },
+                           "%......1." : {
+                              "Value" : "top"
+                           },
+                           "%.....1.." : {
+                              "Value" : "right"
+                           },
+                           "%....1..." : {
+                              "Value" : "bottom"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%...(.....)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Palette",
+                              "Value" : "Palette"
+                           },
+                           "%.00....." : {
+                              "Value" : "Default palette"
+                           },
+                           "%.01....." : {
+                              "Value" : "Custom color with lowest priority"
+                           },
+                           "%.10....." : {
+                              "Value" : "Custom color with mid priority"
+                           },
+                           "%.11....." : {
+                              "Value" : "Custom color with highest priority"
+                           },
+                           "%0......." : {
+                              "Value" : "not blinking"
+                           },
+                           "%1......." : {
+                              "Value" : "blinking"
+                           }
+                        }
+                     }
+                  },
+                  "PerByte:5" : {
+                     "0" : {
+                        "Match" : {
+                           "........" : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Palette"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%.(.......)" : {
+                              "Convert" : "Decimal",
+                              "Name" : "Saturation"
+                           },
+                           "%0......." : {
+                              "Name" : "Color",
+                              "Value" : "RGB-color"
+                           },
+                           "%1......." : {
+                              "Name" : "Color",
+                              "Value" : "White"
+                           }
+                        }
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Red"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Green"
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Decimal"
+                           }
+                        },
+                        "Name" : "Blue"
+                     }
+                  }
+               },
+               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -18474,11 +21105,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "33"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "33",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -18537,6 +21241,9 @@
                "Info" : "Module status request command received",
                "Name" : "COMMAND_MODULE_STATUS_REQUEST",
                "Prio" : "Low"
+            },
+            "FB" : {
+               "Data" : "yes"
             },
             "FC" : {
                "Info" : "Write data to memory command received",
@@ -18925,6 +21632,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -19095,11 +21834,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -19483,6 +22295,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -19653,11 +22497,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -20041,6 +22958,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -20211,11 +23160,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "10",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -20699,6 +23721,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -20869,11 +23923,84 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -21261,6 +24388,38 @@
          },
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
+               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -21441,11 +24600,87 @@
                "Prio" : "Low"
             },
             "EA" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34"
+                           },
+                           "%.000...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Safe temp mode (anti frost)",
+                              "openHAB" : "4"
+                           },
+                           "%.001...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Night mode",
+                              "openHAB" : "3"
+                           },
+                           "%.010...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Day mode",
+                              "openHAB" : "2"
+                           },
+                           "%.100...." : {
+                              "Name" : "ThermostatMode",
+                              "Value" : "Comfort mode",
+                              "openHAB" : "1"
+                           },
+                           "%0......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Heater mode",
+                              "openHAB" : "0"
+                           },
+                           "%1......." : {
+                              "Name" : "ThermostatCoHeMode",
+                              "Value" : "Cooler mode",
+                              "openHAB" : "1"
+                           }
+                        },
+                        "Name" : "Operating mode"
+                     },
+                     "3" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8",
+                              "Name" : "ThermostatChannel"
+                           }
+                        }
+                     },
+                     "4" : {
+                        "Match" : {
+                           "%." : {
+                              "Channel" : "34",
+                              "Convert" : "Temperature"
+                           }
+                        },
+                        "Name" : "ThermostatTarget"
+                     }
+                  }
+               },
+               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
             },
             "ED" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "ChannelBitStatus:8"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  },
+                  "PerMessage" : {
+                     "Convert" : "LightSensor"
+                  }
+               },
+               "General" : "ButtonChannelStatus LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
