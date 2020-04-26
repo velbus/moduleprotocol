@@ -337,6 +337,7 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
       my $counter = $counter[-1] ; # Take the last occurence of the command, this should be the one for the most recent firmware
 
       if ( defined $file{PerFile}{$file}{Messages}{$counter} ) {
+         # filter out all possible formats for DATABYTE2
          if ( $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} =~ /.+_TYPE.+\(H’(..)’\)/i or
               $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} =~ /.+ TYPE.+\(H’(..)’\)/i or
               $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} =~ /.+.+\(H’(..)’\)/i or
@@ -358,7 +359,7 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
             $file{PerHexType}{$ModuleTypeHex} = $file ; # Remember all the Hex Module Types
             $file{PerFile}{$file}{Info}{ModuleTypeHex} = $ModuleTypeHex ; # Remember the Hex value per ModuleType
 
-            # Step 1: Search for extra info
+            # Step 1: Search for extra info in the FF message
             if ( defined $file{PerFile}{$file}{Messages}{$counter}{byte} ) {
                # For VMB1TSW (0C) this is wrong in the protocol files
                if ( $ModuleTypeHex eq "0C" ) {
@@ -392,7 +393,13 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                }
             }
 
-            # Step 2: copy the found data to similar modules & print the output
+            # Step 2: Save relevant data
+            $file{ModuleType}{$ModuleTypeHex}{File}    = $file ;
+            $file{ModuleType}{$ModuleTypeHex}{Type}    = $ModuleType ;
+            $file{ModuleType}{$ModuleTypeHex}{Info}    = $file{PerFile}{$file}{Info}{ModuleText} ;
+            $file{ModuleType}{$ModuleTypeHex}{Version} = $file{PerFile}{$file}{Info}{Edition} ;
+
+            # Step 3: copy the found data to similar modules
             # VMBGP1 = 1E: from pdf file
             # VMBGP2 = 1F: ??
             # VMBGP4 = 20: from my bus
@@ -400,18 +407,9 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                %{$file{ModuleType}{'1F'}} = %{$file{ModuleType}{'1E'}} ;
                %{$file{ModuleType}{'20'}} = %{$file{ModuleType}{'1E'}} ;
 
-               $json{ModuleTypes}{'1E'}{File} = "$file" ;
-               $json{ModuleTypes}{'1E'}{Type} = "VMBGP1" ;
-               $json{ModuleTypes}{'1E'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'1E'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'1F'}{File} = "$file" ;
-               $json{ModuleTypes}{'1F'}{Type} = "VMBGP2" ;
-               $json{ModuleTypes}{'1F'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'1F'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'20'}{File} = "$file" ;
-               $json{ModuleTypes}{'20'}{Type} = "VMBGP4" ;
-               $json{ModuleTypes}{'20'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'20'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $file{ModuleType}{'1E'}{Type} = "VMBGP1" ;
+               $file{ModuleType}{'1F'}{Type} = "VMBGP2" ;
+               $file{ModuleType}{'20'}{Type} = "VMBGP4" ;
 
             # VMBEL1 = 34
             # VMBEL2 = 35
@@ -420,18 +418,9 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                %{$file{ModuleType}{'35'}} = %{$file{ModuleType}{'34'}} ;
                %{$file{ModuleType}{'36'}} = %{$file{ModuleType}{'34'}} ;
 
-               $json{ModuleTypes}{'34'}{File} = "$file" ;
-               $json{ModuleTypes}{'34'}{Type} = "VMBEL1" ;
-               $json{ModuleTypes}{'34'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'34'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'35'}{File} = "$file" ;
-               $json{ModuleTypes}{'35'}{Type} = "VMBEL2" ;
-               $json{ModuleTypes}{'35'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'35'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'36'}{File} = "$file" ;
-               $json{ModuleTypes}{'36'}{Type} = "VMBEL4" ;
-               $json{ModuleTypes}{'36'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'36'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $file{ModuleType}{'34'}{Type} = "VMBEL1" ;
+               $file{ModuleType}{'35'}{Type} = "VMBEL2" ;
+               $file{ModuleType}{'36'}{Type} = "VMBEL4" ;
 
             # VMBGP1-2 = 3A
             # VMBGP2-2 = 3B
@@ -440,44 +429,20 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                %{$file{ModuleType}{'3A'}} = %{$file{ModuleType}{'3C'}} ;
                %{$file{ModuleType}{'3B'}} = %{$file{ModuleType}{'3C'}} ;
 
-               $json{ModuleTypes}{'3A'}{File} = "$file" ;
-               $json{ModuleTypes}{'3A'}{Type} = "VMBGP1-2" ;
-               $json{ModuleTypes}{'3A'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'3A'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'3B'}{File} = "$file" ;
-               $json{ModuleTypes}{'3B'}{Type} = "VMBGP2-2" ;
-               $json{ModuleTypes}{'3B'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'3B'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'3C'}{File} = "$file" ;
-               $json{ModuleTypes}{'3C'}{Type} = "VMBGP4-2" ;
-               $json{ModuleTypes}{'3C'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'3C'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $file{ModuleType}{'3A'}{Type} = "VMBGP1-2" ;
+               $file{ModuleType}{'3B'}{Type} = "VMBGP2-2" ;
+               $file{ModuleType}{'3C'}{Type} = "VMBGP4-2" ;
 
             # VMBSIG = 39
             # VMBUSBIP = 40
             # VMCM3 = 3F
             } elsif ( $ModuleTypeHex eq "3F" ) {
                %{$file{ModuleType}{'39'}} = %{$file{ModuleType}{'3F'}} ;
-               %{$file{ModuleType}{'3F'}} = %{$file{ModuleType}{'3F'}} ;
+               %{$file{ModuleType}{'40'}} = %{$file{ModuleType}{'3F'}} ;
 
-               $json{ModuleTypes}{'40'}{File} = "$file" ;
-               $json{ModuleTypes}{'40'}{Type} = "VMBSIG" ;
-               $json{ModuleTypes}{'40'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'40'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'3F'}{File} = "$file" ;
-               $json{ModuleTypes}{'3F'}{Type} = "VMBUSBIP" ;
-               $json{ModuleTypes}{'3F'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'3F'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-               $json{ModuleTypes}{'39'}{File} = "$file" ;
-               $json{ModuleTypes}{'39'}{Type} = "VMCM3" ;
-               $json{ModuleTypes}{'39'}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{'39'}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
-
-            } else {
-               $json{ModuleTypes}{$ModuleTypeHex}{File} = "$file" ;
-               $json{ModuleTypes}{$ModuleTypeHex}{Type} = "$ModuleType" ;
-               $json{ModuleTypes}{$ModuleTypeHex}{Info} = "$file{PerFile}{$file}{Info}{ModuleText}" ;
-               $json{ModuleTypes}{$ModuleTypeHex}{Version} = "$file{PerFile}{$file}{Info}{Edition}" ;
+               $file{ModuleType}{'39'}{Type} = "VMCM3" ;
+               $file{ModuleType}{'3F'}{Type} = "VMBUSBIP" ;
+               $file{ModuleType}{'40'}{Type} = "VMBSIG" ;
             }
 
          } else {
@@ -537,53 +502,53 @@ foreach my $ModuleTypeHex (sort keys %{$file{PerCommandHexLocal}}) {
          my $Info = join ";", @Info ;
          my $Prio = join ";", @Prio    ;
 
-         $json{ModuleTypes}{$ModuleTypeHex}{Messages}{$CommandHex}{Name} = "$Name" ;
-         $json{ModuleTypes}{$ModuleTypeHex}{Messages}{$CommandHex}{Info} = "$Info" ;
-         $json{ModuleTypes}{$ModuleTypeHex}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+         $file{ModuleType}{$ModuleTypeHex}{Messages}{$CommandHex}{Name} = "$Name" ;
+         $file{ModuleType}{$ModuleTypeHex}{Messages}{$CommandHex}{Info} = "$Info" ;
+         $file{ModuleType}{$ModuleTypeHex}{Messages}{$CommandHex}{Prio} = "$Prio" ;
 
          # VMBGP1 = 1E: from pdf file
          # VMBGP2 = 1F: ??
          # VMBGP4 = 20: from my bus
          if ( $ModuleTypeHex eq "1E" ) {
-            $json{ModuleTypes}{'1F'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'1F'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'1F'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
-            $json{ModuleTypes}{'20'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'20'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'20'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'1F'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'1F'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'1F'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'20'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'20'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'20'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
 
          # VMBEL1 = 34
          # VMBEL2 = 35
          # VMBEL4 = 36
          } elsif ( $ModuleTypeHex eq "34" ) {
-            $json{ModuleTypes}{'35'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'35'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'35'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
-            $json{ModuleTypes}{'36'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'36'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'36'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'35'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'35'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'35'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'36'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'36'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'36'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
 
          # VMBGP1-2 = 3A
          # VMBGP2-2 = 3B
          # VMBGP4-2 = 3C
          } elsif ( $ModuleTypeHex eq "3C" ) {
-            $json{ModuleTypes}{'3A'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'3A'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'3A'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
-            $json{ModuleTypes}{'3B'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'3B'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'3B'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'3A'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'3A'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'3A'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'3B'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'3B'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'3B'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
 
          # VMBSIG = 39
          # VMBUSBIP = 40
          # VMCM3 = 3F
          } elsif ( $ModuleTypeHex eq "3F" ) {
-            $json{ModuleTypes}{'39'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'39'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'39'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
-            $json{ModuleTypes}{'40'}{Messages}{$CommandHex}{Name} = "$Name" ;
-            $json{ModuleTypes}{'40'}{Messages}{$CommandHex}{Info} = "$Info" ;
-            $json{ModuleTypes}{'40'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'39'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'39'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'39'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
+            $file{ModuleType}{'40'}{Messages}{$CommandHex}{Name} = "$Name" ;
+            $file{ModuleType}{'40'}{Messages}{$CommandHex}{Info} = "$Info" ;
+            $file{ModuleType}{'40'}{Messages}{$CommandHex}{Prio} = "$Prio" ;
          }
       }
    }
@@ -593,18 +558,18 @@ foreach my $ModuleTypeHex (sort keys %{$file{PerCommandHexLocal}}) {
 foreach my $ModuleTypeHex (sort keys %{$file{ModuleType}}) {
    foreach my $info (sort keys %{$file{ModuleType}{$ModuleTypeHex}}) {
       $json{ModuleTypes}{$ModuleTypeHex}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
-      if ( $ModuleTypeHex eq "1E" ) {
-         $json{ModuleTypes}{'1F'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
-         $file{Cons}{ModuleType}{'20'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
-      }
-      if ( $ModuleTypeHex eq "34" ) {
-         $json{ModuleTypes}{'34'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
-         $json{ModuleTypes}{'35'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
-      }
-      if ( $ModuleTypeHex eq "3C" ) {
-         $json{ModuleTypes}{'3A'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
-         $json{ModuleTypes}{'3B'}{$info} = $file{ModuleType}{$ModuleTypeHex}{$info} ;
-      }
+      #if ( $ModuleTypeHex eq "1E" ) {
+      #   $json{ModuleTypes}{'1F'}{$info} = $json{ModuleTypes}{$ModuleTypeHex}{$info} ;
+      #   $json{ModuleTypes}{'20'}{$info} = $json{ModuleTypes}{$ModuleTypeHex}{$info} ;
+      #}
+      #if ( $ModuleTypeHex eq "34" ) {
+      #   $json{ModuleTypes}{'34'}{$info} = $json{ModuleTypes}{$ModuleTypeHex}{$info} ;
+      #   $json{ModuleTypes}{'35'}{$info} = $json{ModuleTypes}{$ModuleTypeHex}{$info} ;
+      #}
+      #if ( $ModuleTypeHex eq "3C" ) {
+      #   $json{ModuleTypes}{'3A'}{$info} = $json{ModuleTypes}{$ModuleTypeHex}{$info} ;
+      #   $json{ModuleTypes}{'3B'}{$info} = $json{ModuleTypes}{$ModuleTypeHex}{$info} ;
+      #}
    }
 }
 
@@ -622,8 +587,6 @@ foreach my $CommandHex (sort keys %{$file{PerCommandHexBroadcast}}) {
    $json{MessagesBroadCast}{$CommandHex}{Info} = "$Info" ;
    $json{MessagesBroadCast}{$CommandHex}{Prio} = "$Prio" ;
 }
-
-#delete $json{ModuleGeneral} ;
 
 # Save the data in json format
 open (OUTPUT,">","out/protocol.json") ;
