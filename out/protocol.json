@@ -52,7 +52,7 @@
          "Get" : {
             "Message" : "00"
          },
-         "Modules" : "",
+         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,33,34,35,36,37,3A,3B,3C,3D,3E",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -71,7 +71,7 @@
          "Get" : {
             "Message" : "BE"
          },
-         "Modules" : "",
+         "Modules" : "22",
          "openHAB" : {
             "ItemIcon" : "chart",
             "ItemType" : "Number"
@@ -82,7 +82,7 @@
          "Get" : {
             "Message" : "BE"
          },
-         "Modules" : "",
+         "Modules" : "22",
          "openHAB" : {
             "ItemIcon" : "chart",
             "ItemType" : "Number"
@@ -93,7 +93,7 @@
          "Get" : {
             "Message" : "BE"
          },
-         "Modules" : "",
+         "Modules" : "22",
          "openHAB" : {
             "ItemIcon" : "chart",
             "ItemType" : "Number"
@@ -102,6 +102,38 @@
       "Dimmer" : {
          "Get" : {
             "Message" : ""
+         },
+         "Module" : {
+            "07" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "0F" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "12" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "14" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "15" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2F" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            }
          },
          "Modules" : "07,0F,12,14,15,2F",
          "Set" : {
@@ -131,7 +163,7 @@
          "Get" : {
             "Message" : "BE"
          },
-         "Modules" : "",
+         "Modules" : "22",
          "openHAB" : {
             "ItemType" : "Number"
          }
@@ -166,7 +198,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "[012]" : {
@@ -210,7 +242,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -262,7 +294,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -312,7 +344,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                ".+" : {
@@ -355,7 +387,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -401,7 +433,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -447,7 +479,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -493,7 +525,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -539,7 +571,7 @@
                }
             }
          },
-         "Modules" : "",
+         "Modules" : "34,35,36,37",
          "Set" : {
             "Match" : {
                "\\d+" : {
@@ -570,7 +602,7 @@
          "Get" : {
             "Message" : "AC"
          },
-         "Modules" : "21,28,37,3D",
+         "Modules" : "28,37",
          "Set" : {
             "Match" : {
                ".*" : {
@@ -620,6 +652,98 @@
          "Get" : {
             "Message" : ""
          },
+         "Module" : {
+            "0C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1F" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "20" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "21" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "28" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "31" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "34" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "35" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "36" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "37" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3A" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3B" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            }
+         },
          "Modules" : "0C,1E,1F,20,21,28,2C,2D,31,34,35,36,37,3A,3B,3C,3D,3E",
          "openHAB" : {
             "ItemIcon" : "temperature",
@@ -638,7 +762,99 @@
          "Get" : {
             "Message" : ""
          },
-         "Modules" : "",
+         "Module" : {
+            "0C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1F" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "20" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "21" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "28" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "31" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "34" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "35" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "36" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "37" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3A" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3B" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            }
+         },
+         "Modules" : "0C,1E,1F,20,21,28,2C,2D,31,34,35,36,37,3A,3B,3C,3D,3E",
          "Set" : {
             "Match" : {
                "[01]" : {
@@ -657,7 +873,99 @@
          "Get" : {
             "Message" : ""
          },
-         "Modules" : "",
+         "Module" : {
+            "0C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1F" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "20" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "21" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "28" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "31" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "34" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "35" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "36" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "37" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3A" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3B" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            }
+         },
+         "Modules" : "0C,1E,1F,20,21,28,2C,2D,31,34,35,36,37,3A,3B,3C,3D,3E",
          "Set" : {
             "Match" : {
                "[1234]+" : {
@@ -676,7 +984,99 @@
          "Get" : {
             "Message" : ""
          },
-         "Modules" : "",
+         "Module" : {
+            "0C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "1F" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "20" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "21" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "28" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "2D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "31" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "34" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "35" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "36" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "37" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3A" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3B" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3C" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3D" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            },
+            "3E" : {
+               "Action" : {
+                  "Get" : "yes"
+               }
+            }
+         },
+         "Modules" : "0C,1E,1F,20,21,28,2C,2D,31,34,35,36,37,3A,3B,3C,3D,3E",
          "Set" : {
             "Match" : {
                "[\\d.]+" : {
