@@ -40,8 +40,8 @@ sub clean () {
 
 use Hash::Merge qw( merge );
 use Velbus_data ;
+use Velbus_data_protocol_channels ; # Before Velbus_data_channels!
 use Velbus_data_channels ;
-use Velbus_data_protocol_channels ;
 use Velbus_data_protocol_memory ;
 use Velbus_data_protocol_messages ;
 
