@@ -39,12 +39,6 @@ sub clean () {
 }
 
 use Hash::Merge qw( merge );
-use Velbus_data ;
-use Velbus_data_protocol_channels ; # Before Velbus_data_channels!
-use Velbus_data_channels ;
-use Velbus_data_protocol_memory ;
-use Velbus_data_protocol_messages ;
-
 use JSON ;
 
 # Add a version to the json
@@ -591,6 +585,27 @@ foreach my $Command (sort keys %{$file{PerCommandBroadcast}}) {
    $json{MessagesBroadCast}{$Command}{Name} = "$Name" ;
    $json{MessagesBroadCast}{$Command}{Info} = "$Info" ;
    $json{MessagesBroadCast}{$Command}{Prio} = "$Prio" ;
+}
+
+# Add the extra data files
+# Order is important!
+foreach my $file (
+      "data/Velbus_data_protocol_memory.pm",
+      "data/Velbus_data_protocol_messages.pm",
+      "data/Velbus_data_protocol_channels.pm",
+      "data/Velbus_data_channels.pm",
+      "data/Velbus_data.pm"
+   ) {
+
+   if ( -f $file ) {
+      open (FILE,"<",$file) ;
+      my @lines = <FILE>;
+      close FILE ;
+      my $command = join "", @lines ;
+      eval $command ;
+   } else {
+      print "ERROR: file $file not found!\n" ;
+   }
 }
 
 # Save the data in json format
