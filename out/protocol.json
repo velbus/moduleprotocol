@@ -986,6 +986,9 @@
          "Modules" : "28,37",
          "Set" : {
             "Match" : {
+               "" : {
+                  "Message" : "AC"
+               },
                ".*" : {
                   "Message" : "AC"
                }
