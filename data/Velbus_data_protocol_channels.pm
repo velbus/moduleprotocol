@@ -657,16 +657,20 @@ foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
       }
       #delete $json{ModuleTypes}{$ModuleType}{General}  ;
    }
-   foreach my $Channel (sort keys %{$json{ModuleTypes}{$ModuleType}{Channels}}) {
-      if ( defined $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ) {
-         my $ChannelType = $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ;
-         if ( $ChannelType eq "Temperature" ) {
-            $json{ModuleTypes}{$ModuleType}{TemperatureChannel} = $Channel ;
+   if ( $json{ModuleTypes}{$ModuleType}{Channels} ) {
+      foreach my $Channel (sort keys %{$json{ModuleTypes}{$ModuleType}{Channels}}) {
+         if ( defined $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ) {
+            my $ChannelType = $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ;
+            if ( $ChannelType eq "Temperature" ) {
+               $json{ModuleTypes}{$ModuleType}{TemperatureChannel} = $Channel ;
+            }
+            $json{ChannelTypes}{$ChannelType}{ModulesList}{$ModuleType} = "yes" ;
+         } else {
+            print "ERROR: no TYPE for ModuleType=$ModuleType, Channel = $Channel\n" ;
          }
-         $json{ChannelTypes}{$ChannelType}{ModulesList}{$ModuleType} = "yes" ;
-      } else {
-         print "ERROR: no TYPE for ModuleType=$ModuleType, Channel = $Channel\n" ;
       }
+   } else {
+      #print "No channels for ModuleType=$ModuleType=$json{ModuleTypes}{$ModuleType}{Type} ($json{ModuleTypes}{$ModuleType}{Info})\n" ;
    }
 }
 
