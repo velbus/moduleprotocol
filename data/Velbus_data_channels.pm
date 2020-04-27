@@ -47,6 +47,7 @@ $json{ChannelTypes}{LightSensor}{openHAB}{ItemStateFormat} = "[%.0f]" ;
 
 $json{ChannelTypes}{Memo}{Get}{Message} = "AC" ;
 $json{ChannelTypes}{Memo}{Set}{Match}{'.*'}{Message} = "AC" ; # &send_memo
+$json{ChannelTypes}{Memo}{Set}{Match}{''}{Message} = "AC" ; # &send_memo: allow empty message
 $json{ChannelTypes}{Memo}{Modules} = "28,37" ; # This is the only ChannelType where we set the list of Modules manually because there is no channel for Memo. TODO: Create a channel for Memo so we can send and receive memo text remotely
 $json{ChannelTypes}{Memo}{openHAB}{ItemType} = "String" ;
 
