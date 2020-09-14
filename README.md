@@ -60,6 +60,7 @@ This repository collects all module protocol manuals.
 | 0x35 | VMBEL2 | [Module protocol revision 3](protocol_vmbel1_2_4.pdf)
 | 0x36 | VMBEL4 | [Module protocol revision 3](protocol_vmbel1_2_4.pdf)
 | 0x37 | VMBELO | [Module protocol revision 4](protocol_vmbelo.pdf)
+| 0x38 | VMBELPIR | [Module protocol revision 2](protocol_vmbelpir.pdf)
 | 0x39 | VMBSIG | [Module protocol revision 3](protocol_vmbsig_vmbusbip_vmcm3.pdf)
 | 0x3A | VMBGP1-2 | [Module protocol revision 2](protocol_vmbgp1_2_4_ed2.pdf)
 | 0x3B | VMBGP2-2 | [Module protocol revision 2](protocol_vmbgp1_2_4_ed2.pdf)
@@ -68,6 +69,8 @@ This repository collects all module protocol manuals.
 | 0x3E | VMBGP4PIR-2 | [Module protocol revision 1](protocol_vmbgp4pir_ed2.pdf)
 | 0x3F | VMCM3 | [Module protocol revision 3](protocol_vmbsig_vmbusbip_vmcm3.pdf)
 | 0x40 | VMBUSBIP | [Module protocol revision 3](protocol_vmbsig_vmbusbip_vmcm3.pdf)
+| 0x41 | VMB1RYS | [Module protocol revision 1](protocol_vmb1rys.pdf)
+| 0x42 | VMBKP | [Module protocol revision 1](protocol_vmbkp.pdf)
 
 ## Other manuals
 
