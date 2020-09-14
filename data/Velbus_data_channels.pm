@@ -33,7 +33,7 @@ $json{ChannelTypes}{Divider}{openHAB}{ItemType} = "Number" ;
 
 $json{ChannelTypes}{Dimmer}{Get}{Message} = "" ;
 $json{ChannelTypes}{Dimmer}{Set}{Match}{'\d+\.?\d*'}{Message} = "07" ; # &dim_value
-$json{ChannelTypes}{Dimmer}{Set}{Match}{'\d+'}{Action} = "LEVEL" ; # &dim_value, Default Action = $Match
+$json{ChannelTypes}{Dimmer}{Set}{Match}{'\d+\.?\d*'}{Action} = "LEVEL" ; # &dim_value, Default Action = $Match
 $json{ChannelTypes}{Dimmer}{Set}{Match}{ON}{Message} = "07" ; # &dim_value
 $json{ChannelTypes}{Dimmer}{Set}{Match}{ON}{Action} = "LEVEL" ; # &dim_value, Default Action = $Match
 $json{ChannelTypes}{Dimmer}{Set}{Match}{OFF}{Message} = "07" ; # &dim_value
@@ -47,6 +47,7 @@ $json{ChannelTypes}{LightSensor}{openHAB}{ItemStateFormat} = "[%.0f]" ;
 
 $json{ChannelTypes}{Memo}{Get}{Message} = "AC" ;
 $json{ChannelTypes}{Memo}{Set}{Match}{'.*'}{Message} = "AC" ; # &send_memo
+$json{ChannelTypes}{Memo}{Set}{Match}{''}{Message} = "AC" ; # &send_memo: allow empty message
 $json{ChannelTypes}{Memo}{Modules} = "28,37" ; # This is the only ChannelType where we set the list of Modules manually because there is no channel for Memo. TODO: Create a channel for Memo so we can send and receive memo text remotely
 $json{ChannelTypes}{Memo}{openHAB}{ItemType} = "String" ;
 
@@ -178,8 +179,8 @@ foreach my $ChannelType (sort keys %{$json{ChannelTypes}}) {
             $json{ChannelTypes}{$ChannelType}{Module}{$ModuleType}{Action}{Get} = "yes" ;
          } else {
             foreach my $Message (split ",", $json{ChannelTypes}{$ChannelType}{Get}{Message}) {
-               if ( defined $json{ModuleTypes}{$ModuleType}{Message}{$Message} and
-                    defined $json{ModuleTypes}{$ModuleType}{Message}{$Message}{Data} ) {
+               if ( defined $json{ModuleTypes}{$ModuleType}{Messages}{$Message} and
+                    defined $json{ModuleTypes}{$ModuleType}{Messages}{$Message}{Data} ) {
                   $json{ChannelTypes}{$ChannelType}{Module}{$ModuleType}{Action}{Get} = "yes" ;
                } else {
                   # print "NO MESSAGE: ChannelType=$ChannelType, ModuleType=$ModuleType, Message=$Message\n" ;
@@ -191,7 +192,7 @@ foreach my $ChannelType (sort keys %{$json{ChannelTypes}}) {
       if ( defined $json{ChannelTypes}{$ChannelType}{Set} ) {
          foreach my $Match (sort keys %{$json{ChannelTypes}{$ChannelType}{Set}{Match}} ) {
             my $Message = $json{ChannelTypes}{$ChannelType}{Set}{Match}{$Match}{Message} ;
-            if ( defined $json{ModuleTypes}{$ModuleType}{Message}{$Message} or $Message eq "" ) {
+            if ( defined $json{ModuleTypes}{$ModuleType}{Messages}{$Message} or $Message eq "" ) {
                $json{ChannelTypes}{$ChannelType}{Module}{$ModuleType}{Action}{Set} = "yes" ;
             } else {
                # print "NO SET: ChannelType=$ChannelType, ModuleType=$ModuleType, Match=$Match, Message=$Message\n" ;
