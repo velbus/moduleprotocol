@@ -41,8 +41,15 @@ $json{ModuleTypes}{'11'}{Channels}{"05"}{Type} = "Relay" ;
 # 1-channel relay module: VMB1RYNO
 $json{ModuleTypes}{'1B'}{General} = "Relay1" ;
 
-# VMB1RYNOS (29): 1 channel relay module
+# 1 channel relay module: VMB1RYNOS
 $json{ModuleTypes}{'29'}{General} = "Relay1" ;
+
+# 1 channel relay module: VMB1RYS
+$json{ModuleTypes}{'41'}{General} = "Relay1" ;
+$json{ModuleTypes}{'41'}{Channels}{"05"}{Name} = "Virtual relay" ;
+$json{ModuleTypes}{'41'}{Channels}{"05"}{Type} = "Relay" ;
+$json{ModuleTypes}{'41'}{Channels}{"06"}{Name} = "Input button" ;
+$json{ModuleTypes}{'41'}{Channels}{"06"}{Type} = "Button" ;
 
 ################### Dimmers: Channel names
 # 1-channel 0(1)-10V control: VMB1DM
@@ -127,8 +134,33 @@ $json{ModuleTypes}{'35'}{General} = "TouchEdgeLit Touch2 TouchBEL124Temperature"
 # VMBEL1 (36): Edge-lit one, two or four touch buttons module
 $json{ModuleTypes}{'36'}{General} = "TouchEdgeLit Touch4 TouchBEL124Temperature" ;
 
-# MBELO (37): Edge-lit touch panel with Oled display)
+# VMBELO (37): Edge-lit touch panel with Oled display
 $json{ModuleTypes}{'37'}{General} = "TouchEdgeLit TouchO TouchBELOTemperature" ;
+
+# VMBELPIR (38): Edge-lit Motion detector with one touch button module
+$json{ModuleTypes}{'38'}{General} = "TouchEdgeLit TouchBEL124Temperature" ;
+$json{ModuleTypes}{'38'}{ChannelNumbers}{Name}{Convert} = "hex" ;
+$json{ModuleTypes}{'38'}{AllChannelStatus} = "FF" ;
+$json{ModuleTypes}{'38'}{ThermostatAddr} = "0" ;
+$json{ModuleTypes}{'38'}{Channels}{"01"}{Name} = "Push button" ;
+$json{ModuleTypes}{'38'}{Channels}{"01"}{Type} = "Button" ;
+$json{ModuleTypes}{'38'}{Channels}{"02"}{Name} = "Virtual button" ;
+$json{ModuleTypes}{'38'}{Channels}{"02"}{Type} = "Button" ;
+$json{ModuleTypes}{'38'}{Channels}{"03"}{Name} = "Dark output" ;
+$json{ModuleTypes}{'38'}{Channels}{"03"}{Type} = "Sensor" ;
+$json{ModuleTypes}{'38'}{Channels}{"04"}{Name} = "Light output" ;
+$json{ModuleTypes}{'38'}{Channels}{"04"}{Type} = "Sensor" ;
+$json{ModuleTypes}{'38'}{Channels}{"05"}{Name} = "Motion output" ;
+$json{ModuleTypes}{'38'}{Channels}{"05"}{Type} = "Sensor" ;
+$json{ModuleTypes}{'38'}{Channels}{"06"}{Name} = "Motion output 1 (LD)" ;
+$json{ModuleTypes}{'38'}{Channels}{"06"}{Type} = "Sensor" ;
+$json{ModuleTypes}{'38'}{Channels}{"07"}{Name} = "Motion output 2 (LD)" ;
+$json{ModuleTypes}{'38'}{Channels}{"07"}{Type} = "Sensor" ;
+$json{ModuleTypes}{'38'}{Channels}{"08"}{Name} = "Absence output" ;
+$json{ModuleTypes}{'38'}{Channels}{"08"}{Type} = "Sensor" ;
+
+$json{ModuleTypes}{'38'}{Channels}{"99"}{Name} = "Light value" ;
+$json{ModuleTypes}{'38'}{Channels}{"99"}{Type} = "LightSensor" ;
 
 # VMBGP1-2 (3A): One, two or four touch buttons module (ed2)
 $json{ModuleTypes}{'3A'}{General} = "Touch1 Touch124Temperature" ;
