@@ -1833,894 +1833,6 @@
          "Prio" : "Low"
       }
    },
-   "ModuleGeneral" : {
-      "Messages" : {
-         "ButtonChannelStatus" : {
-            "Data" : {
-               "PerByte" : {
-                  "0" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "ChannelBitStatus:8"
-                        }
-                     },
-                     "Name" : "Button"
-                  }
-               }
-            }
-         },
-         "ButtonPress" : {
-            "Data" : {
-               "PerByte" : {
-                  "0" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Channel",
-                           "Value" : "pressed"
-                        }
-                     },
-                     "Name" : "Button"
-                  },
-                  "1" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Channel",
-                           "Value" : "released"
-                        }
-                     },
-                     "Name" : "Button"
-                  },
-                  "2" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Channel",
-                           "Value" : "longpressed"
-                        }
-                     },
-                     "Name" : "Button"
-                  }
-               }
-            }
-         },
-         "EdgeLit" : {
-            "Data" : {
-               "Channel" : "97",
-               "PerByte:3" : {
-                  "0" : {
-                     "Match" : {
-                        "%0......." : {
-                           "Value" : "Default palette"
-                        },
-                        "%1......." : {
-                           "Value" : "Custom palette"
-                        }
-                     },
-                     "Name" : "Background"
-                  },
-                  "1" : {
-                     "Match" : {
-                        "%.......1" : {
-                           "Value" : "left"
-                        },
-                        "%......1." : {
-                           "Value" : "top"
-                        },
-                        "%.....1.." : {
-                           "Value" : "right"
-                        },
-                        "%....1..." : {
-                           "Value" : "bottom"
-                        }
-                     }
-                  },
-                  "2" : {
-                     "Match" : {
-                        "%...(.....)" : {
-                           "Convert" : "Decimal",
-                           "Name" : "Palette",
-                           "Value" : "Palette"
-                        },
-                        "%.00....." : {
-                           "Value" : "Default palette"
-                        },
-                        "%.01....." : {
-                           "Value" : "Custom color with lowest priority"
-                        },
-                        "%.10....." : {
-                           "Value" : "Custom color with mid priority"
-                        },
-                        "%.11....." : {
-                           "Value" : "Custom color with highest priority"
-                        },
-                        "%0......." : {
-                           "Value" : "not blinking"
-                        },
-                        "%1......." : {
-                           "Value" : "blinking"
-                        }
-                     }
-                  }
-               },
-               "PerByte:5" : {
-                  "0" : {
-                     "Match" : {
-                        "........" : {
-                           "Convert" : "Decimal"
-                        }
-                     },
-                     "Name" : "Palette"
-                  },
-                  "1" : {
-                     "Match" : {
-                        "%.(.......)" : {
-                           "Convert" : "Decimal",
-                           "Name" : "Saturation"
-                        },
-                        "%0......." : {
-                           "Name" : "Color",
-                           "Value" : "RGB-color"
-                        },
-                        "%1......." : {
-                           "Name" : "Color",
-                           "Value" : "White"
-                        }
-                     }
-                  },
-                  "2" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Decimal"
-                        }
-                     },
-                     "Name" : "Red"
-                  },
-                  "3" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Decimal"
-                        }
-                     },
-                     "Name" : "Green"
-                  },
-                  "4" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Decimal"
-                        }
-                     },
-                     "Name" : "Blue"
-                  }
-               }
-            }
-         },
-         "LightSensorChannelStatus7" : {
-            "Data" : {
-               "PerByte" : {
-                  "0" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "ChannelBitStatus:7"
-                        }
-                     },
-                     "Name" : "Sensor"
-                  }
-               },
-               "PerMessage" : {
-                  "Convert" : "LightSensor"
-               }
-            }
-         },
-         "LightSensorChannelStatus8" : {
-            "Data" : {
-               "PerByte" : {
-                  "0" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "ChannelBitStatus:8"
-                        }
-                     },
-                     "Name" : "Sensor"
-                  }
-               },
-               "PerMessage" : {
-                  "Convert" : "LightSensor"
-               }
-            }
-         },
-         "OpenCollectorChannelStatus124" : {
-            "Data" : {
-               "PerByte" : {
-                  "3" : {
-                     "Match" : {
-                        "%........" : {
-                           "Channel" : "18"
-                        },
-                        "%0......." : {
-                           "Value" : "OFF"
-                        },
-                        "%1......." : {
-                           "Value" : "ON"
-                        }
-                     },
-                     "Name" : "Relay"
-                  }
-               }
-            }
-         },
-         "OpenCollectorChannelStatusO" : {
-            "Data" : {
-               "PerByte" : {
-                  "3" : {
-                     "Match" : {
-                        "%........" : {
-                           "Channel" : "42"
-                        },
-                        "%0......." : {
-                           "Value" : "OFF"
-                        },
-                        "%1......." : {
-                           "Value" : "ON"
-                        }
-                     },
-                     "Name" : "Relay"
-                  }
-               }
-            }
-         },
-         "PirOutput" : {
-            "Data" : {
-               "Name" : "Sensor",
-               "PerByte" : {
-                  "0" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Channel",
-                           "Value" : "pressed"
-                        }
-                     }
-                  },
-                  "1" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Channel",
-                           "Value" : "released"
-                        }
-                     }
-                  },
-                  "2" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Channel",
-                           "Value" : "longpressed"
-                        }
-                     }
-                  }
-               }
-            }
-         },
-         "Thermostat" : {
-            "Data" : {
-               "PerByte" : {
-                  "0" : {
-                     "Match" : {
-                        "%.000...." : {
-                           "Name" : "ThermostatMode",
-                           "Value" : "Safe temp mode (anti frost)",
-                           "openHAB" : "4"
-                        },
-                        "%.001...." : {
-                           "Name" : "ThermostatMode",
-                           "Value" : "Night mode",
-                           "openHAB" : "3"
-                        },
-                        "%.010...." : {
-                           "Name" : "ThermostatMode",
-                           "Value" : "Day mode",
-                           "openHAB" : "2"
-                        },
-                        "%.100...." : {
-                           "Name" : "ThermostatMode",
-                           "Value" : "Comfort mode",
-                           "openHAB" : "1"
-                        },
-                        "%0......." : {
-                           "Name" : "ThermostatCoHeMode",
-                           "Value" : "Heater mode",
-                           "openHAB" : "0"
-                        },
-                        "%1......." : {
-                           "Name" : "ThermostatCoHeMode",
-                           "Value" : "Cooler mode",
-                           "openHAB" : "1"
-                        }
-                     },
-                     "Name" : "Operating mode"
-                  },
-                  "4" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "Temperature"
-                        }
-                     },
-                     "Name" : "ThermostatTarget"
-                  }
-               }
-            }
-         },
-         "ThermostatChannelTouch" : {
-            "Data" : {
-               "PerByte" : {
-                  "3" : {
-                     "Match" : {
-                        "%." : {
-                           "Convert" : "ChannelBitStatus:8",
-                           "Name" : "ThermostatChannel"
-                        }
-                     }
-                  }
-               }
-            }
-         }
-      },
-      "PIR" : {
-         "Channels" : {
-            "01" : {
-               "Name" : "Dark output",
-               "Type" : "Sensor"
-            },
-            "02" : {
-               "Name" : "Light output",
-               "Type" : "Sensor"
-            },
-            "03" : {
-               "Name" : "Motion output 1",
-               "Type" : "Sensor"
-            },
-            "04" : {
-               "Name" : "Motion output 1 (LD)",
-               "Type" : "Sensor"
-            },
-            "05" : {
-               "Name" : "Motion output 2",
-               "Type" : "Sensor"
-            },
-            "06" : {
-               "Name" : "Motion output 2 (LD)",
-               "Type" : "Sensor"
-            }
-         }
-      },
-      "Relay1" : {
-         "Channels" : {
-            "01" : {
-               "Name" : "Relay",
-               "Type" : "Relay"
-            },
-            "02" : {
-               "Name" : "Virtual relay 1",
-               "Type" : "Relay"
-            },
-            "03" : {
-               "Name" : "Virtual relay 2",
-               "Type" : "Relay"
-            },
-            "04" : {
-               "Name" : "Virtual relay 3",
-               "Type" : "Relay"
-            },
-            "05" : {
-               "Name" : "Virtual relay 4",
-               "Type" : "Relay"
-            }
-         }
-      },
-      "Relay4" : {
-         "Channels" : {
-            "01" : {
-               "Name" : "Relay 1",
-               "Type" : "Relay"
-            },
-            "02" : {
-               "Name" : "Relay 2",
-               "Type" : "Relay"
-            },
-            "03" : {
-               "Name" : "Relay 3",
-               "Type" : "Relay"
-            },
-            "04" : {
-               "Name" : "Relay 4",
-               "Type" : "Relay"
-            }
-         }
-      },
-      "Touch1" : {
-         "AllChannelStatus" : "FF",
-         "ChannelNumbers" : {
-            "Name" : {
-               "Convert" : "hex"
-            }
-         },
-         "Channels" : {
-            "01" : {
-               "Name" : "Push button 1",
-               "Type" : "Button"
-            },
-            "02" : {
-               "Name" : "Virtual button 2",
-               "Type" : "Button"
-            },
-            "03" : {
-               "Name" : "Virtual button 3",
-               "Type" : "Button"
-            },
-            "04" : {
-               "Name" : "Virtual button 4",
-               "Type" : "Button"
-            },
-            "05" : {
-               "Name" : "Virtual button 5",
-               "Type" : "Button"
-            },
-            "06" : {
-               "Name" : "Virtual button 6",
-               "Type" : "Button"
-            },
-            "07" : {
-               "Name" : "Virtual button 7",
-               "Type" : "Button"
-            },
-            "08" : {
-               "Name" : "Virtual button 8",
-               "Type" : "Button"
-            }
-         },
-         "ThermostatAddr" : "0"
-      },
-      "Touch124Temperature" : {
-         "ChannelNumbers" : {
-            "Name" : {
-               "Map" : {
-                  "09" : "10"
-               }
-            }
-         },
-         "Channels" : {
-            "10" : {
-               "Name" : "Temperature",
-               "Type" : "Temperature"
-            },
-            "11" : {
-               "Name" : "Heater",
-               "Type" : "ThermostatChannel"
-            },
-            "12" : {
-               "Name" : "Boost",
-               "Type" : "ThermostatChannel"
-            },
-            "13" : {
-               "Name" : "Pump",
-               "Type" : "ThermostatChannel"
-            },
-            "14" : {
-               "Name" : "Cooler",
-               "Type" : "ThermostatChannel"
-            },
-            "15" : {
-               "Name" : "Alarm 1",
-               "Type" : "ThermostatChannel"
-            },
-            "16" : {
-               "Name" : "Alarm 2",
-               "Type" : "ThermostatChannel"
-            },
-            "17" : {
-               "Name" : "Alarm 3",
-               "Type" : "ThermostatChannel"
-            },
-            "18" : {
-               "Name" : "Alarm 4",
-               "Type" : "ThermostatChannel"
-            }
-         }
-      },
-      "Touch2" : {
-         "AllChannelStatus" : "FF",
-         "ChannelNumbers" : {
-            "Name" : {
-               "Convert" : "hex"
-            }
-         },
-         "Channels" : {
-            "01" : {
-               "Name" : "Push button 1",
-               "Type" : "Button"
-            },
-            "02" : {
-               "Name" : "Push button 2",
-               "Type" : "Button"
-            },
-            "03" : {
-               "Name" : "Virtual button 3",
-               "Type" : "Button"
-            },
-            "04" : {
-               "Name" : "Virtual button 4",
-               "Type" : "Button"
-            },
-            "05" : {
-               "Name" : "Virtual button 5",
-               "Type" : "Button"
-            },
-            "06" : {
-               "Name" : "Virtual button 6",
-               "Type" : "Button"
-            },
-            "07" : {
-               "Name" : "Virtual button 7",
-               "Type" : "Button"
-            },
-            "08" : {
-               "Name" : "Virtual button 8",
-               "Type" : "Button"
-            }
-         },
-         "ThermostatAddr" : "0"
-      },
-      "Touch4" : {
-         "AllChannelStatus" : "FF",
-         "ChannelNumbers" : {
-            "Name" : {
-               "Convert" : "hex"
-            }
-         },
-         "Channels" : {
-            "01" : {
-               "Name" : "Push button 1",
-               "Type" : "Button"
-            },
-            "02" : {
-               "Name" : "Push button 2",
-               "Type" : "Button"
-            },
-            "03" : {
-               "Name" : "Push button 3",
-               "Type" : "Button"
-            },
-            "04" : {
-               "Name" : "Push button 4",
-               "Type" : "Button"
-            },
-            "05" : {
-               "Name" : "Virtual button 5",
-               "Type" : "Button"
-            },
-            "06" : {
-               "Name" : "Virtual button 6",
-               "Type" : "Button"
-            },
-            "07" : {
-               "Name" : "Virtual button 7",
-               "Type" : "Button"
-            },
-            "08" : {
-               "Name" : "Virtual button 8",
-               "Type" : "Button"
-            }
-         },
-         "ThermostatAddr" : "0"
-      },
-      "TouchBEL124Temperature" : {
-         "Channels" : {
-            "09" : {
-               "Name" : "Temperature",
-               "Type" : "Temperature"
-            },
-            "10" : {
-               "Name" : "Heater",
-               "Type" : "ThermostatChannel"
-            },
-            "11" : {
-               "Name" : "Boost",
-               "Type" : "ThermostatChannel"
-            },
-            "12" : {
-               "Name" : "Pump",
-               "Type" : "ThermostatChannel"
-            },
-            "13" : {
-               "Name" : "Cooler",
-               "Type" : "ThermostatChannel"
-            },
-            "14" : {
-               "Name" : "Alarm 1",
-               "Type" : "ThermostatChannel"
-            },
-            "15" : {
-               "Name" : "Alarm 2",
-               "Type" : "ThermostatChannel"
-            },
-            "16" : {
-               "Name" : "Alarm 3",
-               "Type" : "ThermostatChannel"
-            },
-            "17" : {
-               "Name" : "Alarm 4",
-               "Type" : "ThermostatChannel"
-            },
-            "18" : {
-               "Name" : "Output",
-               "Type" : "Relay"
-            }
-         }
-      },
-      "TouchBELOTemperature" : {
-         "Channels" : {
-            "33" : {
-               "Name" : "Temperature",
-               "Type" : "Temperature"
-            },
-            "34" : {
-               "Name" : "Heater",
-               "Type" : "ThermostatChannel"
-            },
-            "35" : {
-               "Name" : "Boost",
-               "Type" : "ThermostatChannel"
-            },
-            "36" : {
-               "Name" : "Pump",
-               "Type" : "ThermostatChannel"
-            },
-            "37" : {
-               "Name" : "Cooler",
-               "Type" : "ThermostatChannel"
-            },
-            "38" : {
-               "Name" : "Alarm 1",
-               "Type" : "ThermostatChannel"
-            },
-            "39" : {
-               "Name" : "Alarm 2",
-               "Type" : "ThermostatChannel"
-            },
-            "40" : {
-               "Name" : "Alarm 3",
-               "Type" : "ThermostatChannel"
-            },
-            "41" : {
-               "Name" : "Alarm 4",
-               "Type" : "ThermostatChannel"
-            },
-            "42" : {
-               "Name" : "Output",
-               "Type" : "Relay"
-            }
-         }
-      },
-      "TouchEdgeLit" : {
-         "Channels" : {
-            "97" : {
-               "Name" : "Edge Lit",
-               "Type" : "EdgeLit"
-            }
-         }
-      },
-      "TouchO" : {
-         "AllChannelStatus" : "FF",
-         "ChannelNumbers" : {
-            "Name" : {
-               "Convert" : "hex"
-            }
-         },
-         "Channels" : {
-            "01" : {
-               "Name" : "Push button 1",
-               "Type" : "Button"
-            },
-            "02" : {
-               "Name" : "Push button 2",
-               "Type" : "Button"
-            },
-            "03" : {
-               "Name" : "Push button 3",
-               "Type" : "Button"
-            },
-            "04" : {
-               "Name" : "Push button 4",
-               "Type" : "Button"
-            },
-            "05" : {
-               "Name" : "Push button 5",
-               "Type" : "Button"
-            },
-            "06" : {
-               "Name" : "Push button 6",
-               "Type" : "Button"
-            },
-            "07" : {
-               "Name" : "Push button 7",
-               "Type" : "Button"
-            },
-            "08" : {
-               "Name" : "Push button 8",
-               "Type" : "Button"
-            },
-            "09" : {
-               "Name" : "Push button 9",
-               "Type" : "Button"
-            },
-            "10" : {
-               "Name" : "Push button 10",
-               "Type" : "Button"
-            },
-            "11" : {
-               "Name" : "Push button 11",
-               "Type" : "Button"
-            },
-            "12" : {
-               "Name" : "Push button 12",
-               "Type" : "Button"
-            },
-            "13" : {
-               "Name" : "Push button 13",
-               "Type" : "Button"
-            },
-            "14" : {
-               "Name" : "Push button 14",
-               "Type" : "Button"
-            },
-            "15" : {
-               "Name" : "Push button 15",
-               "Type" : "Button"
-            },
-            "16" : {
-               "Name" : "Push button 16",
-               "Type" : "Button"
-            },
-            "17" : {
-               "Name" : "Push button 17",
-               "Type" : "Button"
-            },
-            "18" : {
-               "Name" : "Push button 18",
-               "Type" : "Button"
-            },
-            "19" : {
-               "Name" : "Push button 19",
-               "Type" : "Button"
-            },
-            "20" : {
-               "Name" : "Push button 10",
-               "Type" : "Button"
-            },
-            "21" : {
-               "Name" : "Push button 21",
-               "Type" : "Button"
-            },
-            "22" : {
-               "Name" : "Push button 22",
-               "Type" : "Button"
-            },
-            "23" : {
-               "Name" : "Push button 23",
-               "Type" : "Button"
-            },
-            "24" : {
-               "Name" : "Push button 24",
-               "Type" : "Button"
-            },
-            "25" : {
-               "Name" : "Push button 25",
-               "Type" : "Button"
-            },
-            "26" : {
-               "Name" : "Push button 26",
-               "Type" : "Button"
-            },
-            "27" : {
-               "Name" : "Push button 27",
-               "Type" : "Button"
-            },
-            "28" : {
-               "Name" : "Push button 28",
-               "Type" : "Button"
-            },
-            "29" : {
-               "Name" : "Push button 29",
-               "Type" : "Button"
-            },
-            "30" : {
-               "Name" : "Push button 30",
-               "Type" : "Button"
-            },
-            "31" : {
-               "Name" : "Push button 31",
-               "Type" : "Button"
-            },
-            "32" : {
-               "Name" : "Push button 32",
-               "Type" : "Button"
-            },
-            "98" : {
-               "Name" : "Memo Text",
-               "Type" : "Memo"
-            }
-         },
-         "ThermostatAddr" : "3"
-      },
-      "TouchOTemperature" : {
-         "ChannelNumbers" : {
-            "Name" : {
-               "Map" : {
-                  "21" : "34"
-               }
-            }
-         },
-         "Channels" : {
-            "34" : {
-               "Name" : "Temperature",
-               "Type" : "Temperature"
-            },
-            "35" : {
-               "Name" : "Heater",
-               "Type" : "ThermostatChannel"
-            },
-            "36" : {
-               "Name" : "Boost",
-               "Type" : "ThermostatChannel"
-            },
-            "37" : {
-               "Name" : "Pump",
-               "Type" : "ThermostatChannel"
-            },
-            "38" : {
-               "Name" : "Cooler",
-               "Type" : "ThermostatChannel"
-            },
-            "39" : {
-               "Name" : "Alarm 1",
-               "Type" : "ThermostatChannel"
-            },
-            "40" : {
-               "Name" : "Alarm 2",
-               "Type" : "ThermostatChannel"
-            },
-            "41" : {
-               "Name" : "Alarm 3",
-               "Type" : "ThermostatChannel"
-            },
-            "42" : {
-               "Name" : "Alarm 4",
-               "Type" : "ThermostatChannel"
-            }
-         }
-      },
-      "TouchPIR" : {
-         "Channels" : {
-            "05" : {
-               "Name" : "Dark/Light output",
-               "Type" : "Sensor"
-            },
-            "06" : {
-               "Name" : "Motion output",
-               "Type" : "Sensor"
-            },
-            "07" : {
-               "Name" : "Light Depending motion",
-               "Type" : "Sensor"
-            },
-            "08" : {
-               "Name" : "Absence output",
-               "Type" : "Sensor"
-            },
-            "99" : {
-               "Name" : "Light value",
-               "Type" : "LightSensor"
-            }
-         }
-      }
-   },
    "ModuleTypes" : {
       "01" : {
          "Channels" : {
@@ -2792,7 +1904,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the push button status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -3258,7 +2369,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the input status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -4119,7 +3229,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the push button status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -4510,7 +3619,6 @@
                      }
                   }
                },
-               "General" : "Thermostat",
                "Info" : "Transmit the sensor status (Build 0949)",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -7139,7 +6247,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -7566,7 +6673,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -7993,7 +7099,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -10451,7 +9556,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -10681,7 +9785,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -10699,7 +9802,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -11114,7 +10216,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -11344,7 +10445,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -11362,7 +10462,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -11777,7 +10876,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -12007,7 +11105,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -12025,7 +11122,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -12540,7 +11636,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -12770,7 +11865,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -12788,7 +11882,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -13277,7 +12370,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -13405,7 +12497,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -13918,7 +13009,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -14154,7 +13244,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -14172,7 +13261,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status ",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -14964,7 +14052,6 @@
                      }
                   }
                },
-               "General" : "PirOutput",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -15050,7 +14137,6 @@
                      "Convert" : "LightSensor"
                   }
                },
-               "General" : "LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -15396,7 +14482,6 @@
                      }
                   }
                },
-               "General" : "PirOutput",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -15482,7 +14567,6 @@
                      "Convert" : "LightSensor"
                   }
                },
-               "General" : "LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -15844,7 +14928,6 @@
                      }
                   }
                },
-               "General" : "PirOutput",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -15960,7 +15043,6 @@
                      "Convert" : "LightSensor"
                   }
                },
-               "General" : "LightSensorChannelStatus8",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -16378,7 +15460,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -16618,7 +15699,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -16639,7 +15719,6 @@
                      "Convert" : "LightSensor"
                   }
                },
-               "General" : "ButtonChannelStatus LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -18209,7 +17288,6 @@
                      }
                   }
                },
-               "General" : "PirOutput",
                "Info" : "Transmits the alarm output switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -19308,7 +18386,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -19641,7 +18718,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress OpenCollectorChannelStatus124",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -19851,7 +18927,6 @@
                      }
                   }
                },
-               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -19991,7 +19066,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -20009,7 +19083,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -20302,7 +19375,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress OpenCollectorChannelStatus124",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -20512,7 +19584,6 @@
                      }
                   }
                },
-               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -20652,7 +19723,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -20670,7 +19740,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -20963,7 +20032,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress OpenCollectorChannelStatus124",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -21173,7 +20241,6 @@
                      }
                   }
                },
-               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -21313,7 +20380,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -21331,7 +20397,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -21868,7 +20933,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress OpenCollectorChannelStatusO",
                "Info" : "Transmits the channel switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -22089,7 +21153,6 @@
                      }
                   }
                },
-               "General" : "EdgeLit",
                "Info" : "Set Custom Color command received;Set Edge Color command received",
                "Name" : "COMMAND_SET_PB_BACKLIGHT",
                "Prio" : "Low"
@@ -22229,7 +21292,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -22247,7 +21309,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -23114,7 +22175,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -23344,7 +22404,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -23362,7 +22421,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -23777,7 +22835,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -24007,7 +23064,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -24025,7 +23081,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -24440,7 +23495,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -24670,7 +23724,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -24688,7 +23741,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -25203,7 +24255,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -25433,7 +24484,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -25451,7 +24501,6 @@
                      }
                   }
                },
-               "General" : "ButtonChannelStatus",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -25870,7 +24919,6 @@
                      }
                   }
                },
-               "General" : "ButtonPress",
                "Info" : "Transmits the channel switch status;Transmits the sensor output switch status",
                "Name" : "COMMAND_OUTPUT_STATUS;COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -26110,7 +25158,6 @@
                      }
                   }
                },
-               "General" : "Thermostat ThermostatChannelTouch",
                "Info" : "Transmit the sensor status",
                "Name" : "COMMAND_TEMP_SENSOR_STATUS",
                "Prio" : "Low"
@@ -26131,7 +25178,6 @@
                      "Convert" : "LightSensor"
                   }
                },
-               "General" : "ButtonChannelStatus LightSensorChannelStatus7",
                "Info" : "Transmits the module status",
                "Name" : "COMMAND_MODULE_STATUS",
                "Prio" : "Low"
@@ -26708,5 +25754,5 @@
          "Version" : "edition 1"
       }
    },
-   "Version" : "20200914"
+   "Version" : "20201223"
 }
