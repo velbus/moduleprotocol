@@ -712,4 +712,6 @@ foreach my $ChannelType (sort keys %{$json{ChannelTypes}} ) {
    delete $json{ChannelTypes}{$ChannelType}{ModulesList} ;
 }
 
+delete $json{ModuleGeneral} ;
+
 return 1 ;
