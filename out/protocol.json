@@ -8413,7 +8413,7 @@
          },
          "File" : "protocol_vmb1ryno.txt",
          "General" : "Relay1",
-         "Info" : "4 channel relay module with direct load connections",
+         "Info" : "Single channel relay module with potential-free changeover contact for",
          "Memory" : {
             "1" : {
                "Address" : {
