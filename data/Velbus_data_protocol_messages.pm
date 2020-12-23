@@ -555,7 +555,7 @@ foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
                %{$json{ModuleTypes}{$ModuleType}{Messages}{$MessageType}} = %{ merge( \%{$json{ModuleTypes}{$ModuleType}{Messages}{$MessageType}}, \%{$json{ModuleGeneral}{Messages}{$GeneralType}} ) };
             }
          }
-         #delete $json{ModuleTypes}{$ModuleType}{Messages}{$MessageType}{General} ;
+         delete $json{ModuleTypes}{$ModuleType}{Messages}{$MessageType}{General} ;
       }
    }
 }
