@@ -56,7 +56,7 @@ $json{ModuleTypes}{'18'}{Memory}{1}{ModuleName} = "03C0-03FF" ;
 # VMB4RF
 $json{ModuleTypes}{'1A'}{MemoryMatch}{1}{Build}   = ">= 1409" ;
 $json{ModuleTypes}{'1A'}{MemoryMatch}{1}{Version} = "1" ;
-$json{ModuleTypes}{'1A'}{Memory}{1}{ModuleName} = "02C0-03FF" ;
+$json{ModuleTypes}{'1A'}{Memory}{1}{ModuleName} = "02C0-02FF" ;
 
 # VMB1RYNO
 $json{ModuleTypes}{'1B'}{MemoryMatch}{1}{Build}   = ">= 1409" ;
