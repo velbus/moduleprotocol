@@ -2669,7 +2669,6 @@
             }
          },
          "File" : "protocol_vmb4ry.txt",
-         "General" : "Relay4",
          "Info" : "4 channel relay module",
          "Messages" : {
             "00" : {
@@ -4080,7 +4079,6 @@
             }
          },
          "File" : "protocol_vmb4ryld.txt",
-         "General" : "Relay4",
          "Info" : "4 channel relay module with direct load connections",
          "Memory" : {
             "1" : {
@@ -4507,7 +4505,6 @@
             }
          },
          "File" : "protocol_vmb4ryno.txt",
-         "General" : "Relay4",
          "Info" : "4 channel relay module with normal open contacts",
          "Memory" : {
             "1" : {
@@ -7644,7 +7641,6 @@
             }
          },
          "File" : "protocol_vmb1ryno.txt",
-         "General" : "Relay1",
          "Info" : "Single channel relay module with potential-free changeover contact for",
          "Memory" : {
             "1" : {
@@ -8547,7 +8543,6 @@
             }
          },
          "File" : "protocol_vmbgp1_2_4.txt",
-         "General" : "Touch1 Touch124Temperature",
          "Info" : "One, two or four touch buttons module",
          "Memory" : {
             "1" : {
@@ -9207,7 +9202,6 @@
             }
          },
          "File" : "protocol_vmbgp1_2_4.txt",
-         "General" : "Touch2 Touch124Temperature",
          "Info" : "One, two or four touch buttons module",
          "Memory" : {
             "1" : {
@@ -9867,7 +9861,6 @@
             }
          },
          "File" : "protocol_vmbgp1_2_4.txt",
-         "General" : "Touch4 Touch124Temperature",
          "Info" : "One, two or four touch buttons module",
          "Memory" : {
             "1" : {
@@ -10627,7 +10620,6 @@
             }
          },
          "File" : "protocol_vmbgpo_vmbgptc.txt",
-         "General" : "TouchO TouchOTemperature",
          "Info" : "Touch panel with Oled display",
          "Memory" : {
             "1" : {
@@ -12000,7 +11992,6 @@
             }
          },
          "File" : "protocol_vmbgpod.txt",
-         "General" : "TouchO TouchOTemperature",
          "Info" : "Touch panel with Oled display",
          "Memory" : {
             "1" : {
@@ -12609,7 +12600,6 @@
             }
          },
          "File" : "protocol_vmb1rynos.txt",
-         "General" : "Relay1",
          "Info" : "1 channel relay module",
          "Memory" : {
             "1" : {
@@ -13045,7 +13035,6 @@
             }
          },
          "File" : "protocol_vmbpirm.txt",
-         "General" : "PIR",
          "Info" : "Mini PIR detector module",
          "Memory" : {
             "1" : {
@@ -13475,7 +13464,6 @@
             }
          },
          "File" : "protocol_vmbpirc.txt",
-         "General" : "PIR",
          "Info" : "Ceiling PIR detector module",
          "Memory" : {
             "1" : {
@@ -13921,7 +13909,6 @@
             }
          },
          "File" : "protocol_vmbpiro.txt",
-         "General" : "PIR",
          "Info" : "Outdoor PIR detector module",
          "Memory" : {
             "1" : {
@@ -14451,7 +14438,6 @@
             }
          },
          "File" : "protocol_vmbgp4pir.txt",
-         "General" : "Touch4 Touch124Temperature TouchPIR",
          "Info" : "Four touch buttons with PIR detector module",
          "Memory" : {
             "1" : {
@@ -17839,7 +17825,6 @@
             }
          },
          "File" : "protocol_vmbel1_2_4.txt",
-         "General" : "TouchEdgeLit Touch1 TouchBEL124Temperature",
          "Info" : "Edge-lit one, two or four touch buttons module",
          "Memory" : {
             "1" : {
@@ -18496,7 +18481,6 @@
             }
          },
          "File" : "protocol_vmbel1_2_4.txt",
-         "General" : "TouchEdgeLit Touch2 TouchBEL124Temperature",
          "Info" : "Edge-lit one, two or four touch buttons module",
          "Memory" : {
             "1" : {
@@ -19153,7 +19137,6 @@
             }
          },
          "File" : "protocol_vmbel1_2_4.txt",
-         "General" : "TouchEdgeLit Touch4 TouchBEL124Temperature",
          "Info" : "Edge-lit one, two or four touch buttons module",
          "Memory" : {
             "1" : {
@@ -19910,7 +19893,6 @@
             }
          },
          "File" : "protocol_vmbelo.txt",
-         "General" : "TouchEdgeLit TouchO TouchBELOTemperature",
          "Info" : "Edge-lit touch panel with Oled display",
          "Memory" : {
             "1" : {
@@ -20726,7 +20708,6 @@
             }
          },
          "File" : "protocol_vmbelpir.txt",
-         "General" : "TouchEdgeLit TouchBEL124Temperature",
          "Info" : "Edge-lit Motion detector with one touch button module",
          "Messages" : {
             "00" : {
@@ -21166,7 +21147,6 @@
             }
          },
          "File" : "protocol_vmbgp1_2_4_ed2.txt",
-         "General" : "Touch1 Touch124Temperature",
          "Info" : "One, two or four touch buttons module  (ed2)",
          "Memory" : {
             "1" : {
@@ -21826,7 +21806,6 @@
             }
          },
          "File" : "protocol_vmbgp1_2_4_ed2.txt",
-         "General" : "Touch2 Touch124Temperature",
          "Info" : "One, two or four touch buttons module  (ed2)",
          "Memory" : {
             "1" : {
@@ -22486,7 +22465,6 @@
             }
          },
          "File" : "protocol_vmbgp1_2_4_ed2.txt",
-         "General" : "Touch4 Touch124Temperature",
          "Info" : "One, two or four touch buttons module  (ed2)",
          "Memory" : {
             "1" : {
@@ -23246,7 +23224,6 @@
             }
          },
          "File" : "protocol_vmbgpod_ed2.txt",
-         "General" : "TouchO TouchOTemperature",
          "Info" : "Touch panel with Oled display  (ed2)",
          "Memory" : {
             "1" : {
@@ -23910,7 +23887,6 @@
             }
          },
          "File" : "protocol_vmbgp4pir_ed2.txt",
-         "General" : "Touch4 Touch124Temperature TouchPIR",
          "Info" : "Four touch buttons with PIR detector module  (ed2)",
          "Memory" : {
             "1" : {
@@ -24656,7 +24632,6 @@
             }
          },
          "File" : "protocol_vmb1rys.txt",
-         "General" : "Relay1",
          "Info" : "1 channel relay module",
          "Messages" : {
             "00" : {
@@ -24986,5 +24961,5 @@
          "Version" : "edition 1"
       }
    },
-   "Version" : "20201224"
+   "Version" : "20201225"
 }
