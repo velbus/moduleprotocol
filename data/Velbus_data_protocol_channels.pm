@@ -687,7 +687,7 @@ foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
          }
       }
       # Delete internal info from the json
-      #delete $json{ModuleTypes}{$ModuleType}{General} ;
+      delete $json{ModuleTypes}{$ModuleType}{General} ;
    }
    if ( $json{ModuleTypes}{$ModuleType}{Channels} ) {
       foreach my $Channel (sort keys %{$json{ModuleTypes}{$ModuleType}{Channels}}) {
