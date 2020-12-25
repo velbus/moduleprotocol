@@ -1837,34 +1837,42 @@
       "01" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Push button 8",
                "Type" : "Button"
             }
@@ -2019,6 +2027,7 @@
       "02" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Relay",
                "Type" : "Relay"
             }
@@ -2162,6 +2171,7 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Blind",
                "Type" : "Blind"
             }
@@ -2310,26 +2320,32 @@
       "05" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             }
@@ -2484,6 +2500,7 @@
       "07" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Dimmer",
                "Type" : "Dimmer"
             }
@@ -2652,18 +2669,22 @@
       "08" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Relay 1",
                "Type" : "Relay"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Relay 2",
                "Type" : "Relay"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Relay 3",
                "Type" : "Relay"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Relay 4",
                "Type" : "Relay"
             }
@@ -2866,10 +2887,12 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Blind 1",
                "Type" : "Blind"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Blind 2",
                "Type" : "Blind"
             }
@@ -3161,34 +3184,42 @@
       "0B" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Push button 8",
                "Type" : "Button"
             }
@@ -3403,6 +3434,7 @@
       "0C" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             }
@@ -3890,6 +3922,7 @@
       "0F" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Dimmer",
                "Type" : "Dimmer"
             }
@@ -4058,22 +4091,27 @@
       "10" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Relay 1",
                "Type" : "Relay"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Relay 2",
                "Type" : "Relay"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Relay 3",
                "Type" : "Relay"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Relay 4",
                "Type" : "Relay"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay",
                "Type" : "Relay"
             }
@@ -4484,22 +4522,27 @@
       "11" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Relay 1",
                "Type" : "Relay"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Relay 2",
                "Type" : "Relay"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Relay 3",
                "Type" : "Relay"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Relay 4",
                "Type" : "Relay"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay",
                "Type" : "Relay"
             }
@@ -4910,18 +4953,22 @@
       "12" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Dimmer 1",
                "Type" : "Dimmer"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Dimmer 2",
                "Type" : "Dimmer"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Dimmer 3",
                "Type" : "Dimmer"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Dimmer 4",
                "Type" : "Dimmer"
             }
@@ -5416,6 +5463,7 @@
       "14" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Dimmer",
                "Type" : "Dimmer"
             }
@@ -5564,6 +5612,7 @@
       "15" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Dimmer",
                "Type" : "Dimmer"
             }
@@ -5971,34 +6020,42 @@
       "16" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Push button 8",
                "Type" : "Button"
             }
@@ -6397,34 +6454,42 @@
       "17" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             }
@@ -6823,34 +6888,42 @@
       "18" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             }
@@ -7620,22 +7693,27 @@
       "1B" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Relay",
                "Type" : "Relay"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 1",
                "Type" : "Relay"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 2",
                "Type" : "Relay"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 3",
                "Type" : "Relay"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 4",
                "Type" : "Relay"
             }
@@ -8046,10 +8124,12 @@
       "1D" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Blind 1",
                "Type" : "Blind"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Blind 2",
                "Type" : "Blind"
             }
@@ -8474,38 +8554,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -9133,38 +9222,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -9792,38 +9890,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -10451,134 +10558,167 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Push button 8",
                "Type" : "Button"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Push button 9",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "11" : {
+               "Editable" : "yes",
                "Name" : "Push button 11",
                "Type" : "Button"
             },
             "12" : {
+               "Editable" : "yes",
                "Name" : "Push button 12",
                "Type" : "Button"
             },
             "13" : {
+               "Editable" : "yes",
                "Name" : "Push button 13",
                "Type" : "Button"
             },
             "14" : {
+               "Editable" : "yes",
                "Name" : "Push button 14",
                "Type" : "Button"
             },
             "15" : {
+               "Editable" : "yes",
                "Name" : "Push button 15",
                "Type" : "Button"
             },
             "16" : {
+               "Editable" : "yes",
                "Name" : "Push button 16",
                "Type" : "Button"
             },
             "17" : {
+               "Editable" : "yes",
                "Name" : "Push button 17",
                "Type" : "Button"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Push button 18",
                "Type" : "Button"
             },
             "19" : {
+               "Editable" : "yes",
                "Name" : "Push button 19",
                "Type" : "Button"
             },
             "20" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "21" : {
+               "Editable" : "yes",
                "Name" : "Push button 21",
                "Type" : "Button"
             },
             "22" : {
+               "Editable" : "yes",
                "Name" : "Push button 22",
                "Type" : "Button"
             },
             "23" : {
+               "Editable" : "yes",
                "Name" : "Push button 23",
                "Type" : "Button"
             },
             "24" : {
+               "Editable" : "yes",
                "Name" : "Push button 24",
                "Type" : "Button"
             },
             "25" : {
+               "Editable" : "yes",
                "Name" : "Push button 25",
                "Type" : "Button"
             },
             "26" : {
+               "Editable" : "yes",
                "Name" : "Push button 26",
                "Type" : "Button"
             },
             "27" : {
+               "Editable" : "yes",
                "Name" : "Push button 27",
                "Type" : "Button"
             },
             "28" : {
+               "Editable" : "yes",
                "Name" : "Push button 28",
                "Type" : "Button"
             },
             "29" : {
+               "Editable" : "yes",
                "Name" : "Push button 29",
                "Type" : "Button"
             },
             "30" : {
+               "Editable" : "yes",
                "Name" : "Push button 30",
                "Type" : "Button"
             },
             "31" : {
+               "Editable" : "yes",
                "Name" : "Push button 31",
                "Type" : "Button"
             },
             "32" : {
+               "Editable" : "yes",
                "Name" : "Push button 32",
                "Type" : "Button"
             },
             "34" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -11201,34 +11341,42 @@
       "22" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "ButtonCounter"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "ButtonCounter"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "ButtonCounter"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "ButtonCounter"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             }
@@ -11823,134 +11971,167 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Push button 8",
                "Type" : "Button"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Push button 9",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "11" : {
+               "Editable" : "yes",
                "Name" : "Push button 11",
                "Type" : "Button"
             },
             "12" : {
+               "Editable" : "yes",
                "Name" : "Push button 12",
                "Type" : "Button"
             },
             "13" : {
+               "Editable" : "yes",
                "Name" : "Push button 13",
                "Type" : "Button"
             },
             "14" : {
+               "Editable" : "yes",
                "Name" : "Push button 14",
                "Type" : "Button"
             },
             "15" : {
+               "Editable" : "yes",
                "Name" : "Push button 15",
                "Type" : "Button"
             },
             "16" : {
+               "Editable" : "yes",
                "Name" : "Push button 16",
                "Type" : "Button"
             },
             "17" : {
+               "Editable" : "yes",
                "Name" : "Push button 17",
                "Type" : "Button"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Push button 18",
                "Type" : "Button"
             },
             "19" : {
+               "Editable" : "yes",
                "Name" : "Push button 19",
                "Type" : "Button"
             },
             "20" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "21" : {
+               "Editable" : "yes",
                "Name" : "Push button 21",
                "Type" : "Button"
             },
             "22" : {
+               "Editable" : "yes",
                "Name" : "Push button 22",
                "Type" : "Button"
             },
             "23" : {
+               "Editable" : "yes",
                "Name" : "Push button 23",
                "Type" : "Button"
             },
             "24" : {
+               "Editable" : "yes",
                "Name" : "Push button 24",
                "Type" : "Button"
             },
             "25" : {
+               "Editable" : "yes",
                "Name" : "Push button 25",
                "Type" : "Button"
             },
             "26" : {
+               "Editable" : "yes",
                "Name" : "Push button 26",
                "Type" : "Button"
             },
             "27" : {
+               "Editable" : "yes",
                "Name" : "Push button 27",
                "Type" : "Button"
             },
             "28" : {
+               "Editable" : "yes",
                "Name" : "Push button 28",
                "Type" : "Button"
             },
             "29" : {
+               "Editable" : "yes",
                "Name" : "Push button 29",
                "Type" : "Button"
             },
             "30" : {
+               "Editable" : "yes",
                "Name" : "Push button 30",
                "Type" : "Button"
             },
             "31" : {
+               "Editable" : "yes",
                "Name" : "Push button 31",
                "Type" : "Button"
             },
             "32" : {
+               "Editable" : "yes",
                "Name" : "Push button 32",
                "Type" : "Button"
             },
             "34" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -12579,22 +12760,27 @@
       "29" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Relay",
                "Type" : "Relay"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 1",
                "Type" : "Relay"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 2",
                "Type" : "Relay"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 3",
                "Type" : "Relay"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 4",
                "Type" : "Relay"
             }
@@ -13868,42 +14054,52 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Dark output",
                "Type" : "Sensor"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Light output",
                "Type" : "Sensor"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Motion output 1",
                "Type" : "Sensor"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Motion output 1 (LD)",
                "Type" : "Sensor"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Motion output 2",
                "Type" : "Sensor"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Motion output 2 (LD)",
                "Type" : "Sensor"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Low alarm",
                "Type" : "Sensor"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "High alarm",
                "Type" : "Sensor"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
             "99" : {
+               "Editable" : "yes",
                "Name" : "Light value",
                "Type" : "LightSensor"
             }
@@ -14365,18 +14561,22 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
@@ -14397,6 +14597,7 @@
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -15032,6 +15233,7 @@
       "2E" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Blind",
                "Type" : "Blind"
             }
@@ -15444,6 +15646,7 @@
       "2F" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Dimmer",
                "Type" : "Dimmer"
             }
@@ -16021,50 +16224,62 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Frost alarm",
                "Type" : "Sensor"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Heat alarm",
                "Type" : "Sensor"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Rain alarm",
                "Type" : "Sensor"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Dawn alarm",
                "Type" : "Sensor"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Dusk alarm",
                "Type" : "Sensor"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Sun alarm",
                "Type" : "Sensor"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Wind alarm",
                "Type" : "Sensor"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Storm alarm",
                "Type" : "Sensor"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
             "11" : {
+               "Editable" : "yes",
                "Name" : "Rainfall",
                "Type" : "SensorNumber"
             },
             "12" : {
+               "Editable" : "yes",
                "Name" : "Illuminance",
                "Type" : "SensorNumber"
             },
             "13" : {
+               "Editable" : "yes",
                "Name" : "Wind speed",
                "Type" : "SensorNumber"
             }
@@ -16682,50 +16897,62 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Alarm 1",
                "Type" : "Sensor"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Alarm 2",
                "Type" : "Sensor"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Alarm 3",
                "Type" : "Sensor"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Alarm 4",
                "Type" : "Sensor"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Alarm 5",
                "Type" : "Sensor"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Alarm 6",
                "Type" : "Sensor"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Alarm 7",
                "Type" : "Sensor"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Alarm 8",
                "Type" : "Sensor"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Sensor 1",
                "Type" : "SensorNumber"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Sensor 2",
                "Type" : "SensorNumber"
             },
             "11" : {
+               "Editable" : "yes",
                "Name" : "Sensor 3",
                "Type" : "SensorNumber"
             },
             "12" : {
+               "Editable" : "yes",
                "Name" : "Sensor 4",
                "Type" : "SensorNumber"
             }
@@ -17748,38 +17975,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -17816,6 +18052,7 @@
                "Type" : "ThermostatChannel"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Output",
                "Type" : "Relay"
             },
@@ -18404,38 +18641,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -18472,6 +18718,7 @@
                "Type" : "ThermostatChannel"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Output",
                "Type" : "Relay"
             },
@@ -19060,38 +19307,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -19128,6 +19384,7 @@
                "Type" : "ThermostatChannel"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Output",
                "Type" : "Relay"
             },
@@ -19716,130 +19973,162 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Push button 8",
                "Type" : "Button"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Push button 9",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "11" : {
+               "Editable" : "yes",
                "Name" : "Push button 11",
                "Type" : "Button"
             },
             "12" : {
+               "Editable" : "yes",
                "Name" : "Push button 12",
                "Type" : "Button"
             },
             "13" : {
+               "Editable" : "yes",
                "Name" : "Push button 13",
                "Type" : "Button"
             },
             "14" : {
+               "Editable" : "yes",
                "Name" : "Push button 14",
                "Type" : "Button"
             },
             "15" : {
+               "Editable" : "yes",
                "Name" : "Push button 15",
                "Type" : "Button"
             },
             "16" : {
+               "Editable" : "yes",
                "Name" : "Push button 16",
                "Type" : "Button"
             },
             "17" : {
+               "Editable" : "yes",
                "Name" : "Push button 17",
                "Type" : "Button"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Push button 18",
                "Type" : "Button"
             },
             "19" : {
+               "Editable" : "yes",
                "Name" : "Push button 19",
                "Type" : "Button"
             },
             "20" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "21" : {
+               "Editable" : "yes",
                "Name" : "Push button 21",
                "Type" : "Button"
             },
             "22" : {
+               "Editable" : "yes",
                "Name" : "Push button 22",
                "Type" : "Button"
             },
             "23" : {
+               "Editable" : "yes",
                "Name" : "Push button 23",
                "Type" : "Button"
             },
             "24" : {
+               "Editable" : "yes",
                "Name" : "Push button 24",
                "Type" : "Button"
             },
             "25" : {
+               "Editable" : "yes",
                "Name" : "Push button 25",
                "Type" : "Button"
             },
             "26" : {
+               "Editable" : "yes",
                "Name" : "Push button 26",
                "Type" : "Button"
             },
             "27" : {
+               "Editable" : "yes",
                "Name" : "Push button 27",
                "Type" : "Button"
             },
             "28" : {
+               "Editable" : "yes",
                "Name" : "Push button 28",
                "Type" : "Button"
             },
             "29" : {
+               "Editable" : "yes",
                "Name" : "Push button 29",
                "Type" : "Button"
             },
             "30" : {
+               "Editable" : "yes",
                "Name" : "Push button 30",
                "Type" : "Button"
             },
             "31" : {
+               "Editable" : "yes",
                "Name" : "Push button 31",
                "Type" : "Button"
             },
             "32" : {
+               "Editable" : "yes",
                "Name" : "Push button 32",
                "Type" : "Button"
             },
@@ -19848,6 +20137,7 @@
                "Type" : "Temperature"
             },
             "34" : {
+               "Editable" : "yes",
                "Name" : "Heater",
                "Type" : "ThermostatChannel"
             },
@@ -19880,6 +20170,7 @@
                "Type" : "ThermostatChannel"
             },
             "42" : {
+               "Editable" : "yes",
                "Name" : "Output",
                "Type" : "Relay"
             },
@@ -20627,10 +20918,12 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Virtual button",
                "Type" : "Button"
             },
@@ -20695,6 +20988,7 @@
                "Type" : "ThermostatChannel"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Output",
                "Type" : "Relay"
             },
@@ -21078,38 +21372,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -21737,38 +22040,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -22396,38 +22708,47 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Virtual button 8",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -23055,134 +23376,167 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Push button 5",
                "Type" : "Button"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Push button 6",
                "Type" : "Button"
             },
             "07" : {
+               "Editable" : "yes",
                "Name" : "Push button 7",
                "Type" : "Button"
             },
             "08" : {
+               "Editable" : "yes",
                "Name" : "Push button 8",
                "Type" : "Button"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Push button 9",
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "11" : {
+               "Editable" : "yes",
                "Name" : "Push button 11",
                "Type" : "Button"
             },
             "12" : {
+               "Editable" : "yes",
                "Name" : "Push button 12",
                "Type" : "Button"
             },
             "13" : {
+               "Editable" : "yes",
                "Name" : "Push button 13",
                "Type" : "Button"
             },
             "14" : {
+               "Editable" : "yes",
                "Name" : "Push button 14",
                "Type" : "Button"
             },
             "15" : {
+               "Editable" : "yes",
                "Name" : "Push button 15",
                "Type" : "Button"
             },
             "16" : {
+               "Editable" : "yes",
                "Name" : "Push button 16",
                "Type" : "Button"
             },
             "17" : {
+               "Editable" : "yes",
                "Name" : "Push button 17",
                "Type" : "Button"
             },
             "18" : {
+               "Editable" : "yes",
                "Name" : "Push button 18",
                "Type" : "Button"
             },
             "19" : {
+               "Editable" : "yes",
                "Name" : "Push button 19",
                "Type" : "Button"
             },
             "20" : {
+               "Editable" : "yes",
                "Name" : "Push button 10",
                "Type" : "Button"
             },
             "21" : {
+               "Editable" : "yes",
                "Name" : "Push button 21",
                "Type" : "Button"
             },
             "22" : {
+               "Editable" : "yes",
                "Name" : "Push button 22",
                "Type" : "Button"
             },
             "23" : {
+               "Editable" : "yes",
                "Name" : "Push button 23",
                "Type" : "Button"
             },
             "24" : {
+               "Editable" : "yes",
                "Name" : "Push button 24",
                "Type" : "Button"
             },
             "25" : {
+               "Editable" : "yes",
                "Name" : "Push button 25",
                "Type" : "Button"
             },
             "26" : {
+               "Editable" : "yes",
                "Name" : "Push button 26",
                "Type" : "Button"
             },
             "27" : {
+               "Editable" : "yes",
                "Name" : "Push button 27",
                "Type" : "Button"
             },
             "28" : {
+               "Editable" : "yes",
                "Name" : "Push button 28",
                "Type" : "Button"
             },
             "29" : {
+               "Editable" : "yes",
                "Name" : "Push button 29",
                "Type" : "Button"
             },
             "30" : {
+               "Editable" : "yes",
                "Name" : "Push button 30",
                "Type" : "Button"
             },
             "31" : {
+               "Editable" : "yes",
                "Name" : "Push button 31",
                "Type" : "Button"
             },
             "32" : {
+               "Editable" : "yes",
                "Name" : "Push button 32",
                "Type" : "Button"
             },
             "34" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -23814,18 +24168,22 @@
          },
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Push button 1",
                "Type" : "Button"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Push button 2",
                "Type" : "Button"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Push button 3",
                "Type" : "Button"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Push button 4",
                "Type" : "Button"
             },
@@ -23846,6 +24204,7 @@
                "Type" : "Button"
             },
             "10" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
@@ -24607,26 +24966,32 @@
       "41" : {
          "Channels" : {
             "01" : {
+               "Editable" : "yes",
                "Name" : "Relay",
                "Type" : "Relay"
             },
             "02" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 1",
                "Type" : "Relay"
             },
             "03" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 2",
                "Type" : "Relay"
             },
             "04" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay 3",
                "Type" : "Relay"
             },
             "05" : {
+               "Editable" : "yes",
                "Name" : "Virtual relay",
                "Type" : "Relay"
             },
             "06" : {
+               "Editable" : "yes",
                "Name" : "Input button",
                "Type" : "Button"
             }
