@@ -678,40 +678,45 @@ $json{ModuleGeneral}{PIR}{Channels}{"05"}{Type} = "Sensor" ;
 $json{ModuleGeneral}{PIR}{Channels}{"06"}{Name} = "Motion output 2 (LD)" ;
 $json{ModuleGeneral}{PIR}{Channels}{"06"}{Type} = "Sensor" ;
 
-# Merge the {General} information
-# Find the TemperatureChannel
 foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
+   # Merge the {General} information
    if ( defined $json{ModuleTypes}{$ModuleType}{General} ) {
       foreach my $GeneralType (split " ", $json{ModuleTypes}{$ModuleType}{General} ) { # No sort!
          if ( defined $json{ModuleGeneral}{$GeneralType} ) {
             %{$json{ModuleTypes}{$ModuleType}} = %{ merge( \%{$json{ModuleTypes}{$ModuleType}}, \%{$json{ModuleGeneral}{$GeneralType}} ) };
          }
       }
-      #delete $json{ModuleTypes}{$ModuleType}{General}  ;
+      # Delete internal info from the json
+      #delete $json{ModuleTypes}{$ModuleType}{General} ;
    }
    if ( $json{ModuleTypes}{$ModuleType}{Channels} ) {
       foreach my $Channel (sort keys %{$json{ModuleTypes}{$ModuleType}{Channels}}) {
          if ( defined $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ) {
             my $ChannelType = $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ;
+
+            # Remember the Temperature channel for the module
             if ( $ChannelType eq "Temperature" ) {
                $json{ModuleTypes}{$ModuleType}{TemperatureChannel} = $Channel ;
             }
-            $json{ChannelTypes}{$ChannelType}{ModulesList}{$ModuleType} = "yes" ;
+
+            $json{ChannelTypes}{$ChannelType}{ModulesList}{$ModuleType} = "yes" ;  # Remember the channel types per module
          } else {
             print "ERROR: no TYPE for ModuleType=$ModuleType, Channel = $Channel\n" ;
          }
       }
    } else {
-      #print "No channels for ModuleType=$ModuleType=$json{ModuleTypes}{$ModuleType}{Type} ($json{ModuleTypes}{$ModuleType}{Info})\n" ;
+      print "No channels for ModuleType=$ModuleType=$json{ModuleTypes}{$ModuleType}{Type} ($json{ModuleTypes}{$ModuleType}{Info})\n" if defined $global{opts}{verbose} ;
    }
 }
 
 foreach my $ChannelType (sort keys %{$json{ChannelTypes}} ) {
    my $Modules = join ",", sort keys %{$json{ChannelTypes}{$ChannelType}{ModulesList}} ;
    $json{ChannelTypes}{$ChannelType}{Modules} = $Modules ;
+   # Delete internal info from the json
    delete $json{ChannelTypes}{$ChannelType}{ModulesList} ;
 }
 
+# Delete internal info from the json
 delete $json{ModuleGeneral} ;
 
 return 1 ;
