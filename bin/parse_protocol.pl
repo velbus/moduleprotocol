@@ -5,7 +5,21 @@ my %global ;
 use Getopt::Long ;
 &GetOptions (
              'verbose' => \$global{opts}{verbose} ,
+             'skiptxt' => \$global{opts}{skiptxt} ,
              'help' => \$global{opts}{help} ) or &print_help ;
+
+sub print_help {
+   print "Possible options:\n" ;
+   print "\n" ;
+   print "  -v[erbose]: be more verbose\n" ;
+   print "  -k[iptxt]: skip converting pdf to txt\n" ;
+   print "  -h[elp]: this message\n" ;
+   print "\n" ;
+
+   exit 1 ;
+}
+
+&print_help if $global{opts}{help} ;
 
 use Data::Dumper ;
 $Data::Dumper::Sortkeys = 1 ; # Sort the keys in the output
@@ -51,28 +65,30 @@ $json{Version} = "$year$mon$mday" ;
 
 `mkdir -p txt` ;
 
-print "Convert pdf files to txt\n" ;
-# Convert the pdf's to text
-foreach my $pdf (sort `ls protocol*.pdf`) {
-   chomp $pdf ;
+if ( ! $global{opts}{skiptxt} ) {
+   print "Convert pdf files to txt\n" ;
+   # Convert the pdf's to text
+   foreach my $pdf (sort `ls protocol*.pdf`) {
+      chomp $pdf ;
 
-   # skip pdf's that are not protocol files
-   next if $pdf eq "protocol_vmb1rs.pdf" ;
-   next if $pdf eq "protocol_vmb1usb.pdf" ;
-   next if $pdf eq "protocol_vmb4pd_ir.pdf" ;
-   next if $pdf eq "protocol_vmb4pd_ir_hexcodes.pdf" ;
-   next if $pdf eq "protocol_vmbgpod_ir.pdf" ;
-   next if $pdf eq "protocol_vmbgpod_ir_hexcodes.pdf" ;
-   next if $pdf eq "protocol_vmbrsusb.pdf" ;
+      # skip pdf's that are not protocol files
+      next if $pdf eq "protocol_vmb1rs.pdf" ;
+      next if $pdf eq "protocol_vmb1usb.pdf" ;
+      next if $pdf eq "protocol_vmb4pd_ir.pdf" ;
+      next if $pdf eq "protocol_vmb4pd_ir_hexcodes.pdf" ;
+      next if $pdf eq "protocol_vmbgpod_ir.pdf" ;
+      next if $pdf eq "protocol_vmbgpod_ir_hexcodes.pdf" ;
+      next if $pdf eq "protocol_vmbrsusb.pdf" ;
 
-   # Skip some duplicate protocol files
-   next if $pdf eq "protocol_vmb1tcw.pdf" ; # This is the same as protocol_vmb1tc.pdf
-   next if $pdf eq "protocol_vmb1tsw.pdf" ; # This is the same as protocol_vmb1ts.pdf
+      # Skip some duplicate protocol files
+      next if $pdf eq "protocol_vmb1tcw.pdf" ; # This is the same as protocol_vmb1tc.pdf
+      next if $pdf eq "protocol_vmb1tsw.pdf" ; # This is the same as protocol_vmb1ts.pdf
 
-   my $txt = $pdf ;
-   $txt =~ s/\.pdf/.txt/g ;
-   print "   - pdftotext -layout $pdf txt/$txt\n" if defined $global{opts}{verbose} ;
-   `pdftotext -layout $pdf txt/$txt` ;
+      my $txt = $pdf ;
+      $txt =~ s/\.pdf/.txt/g ;
+      print "   - pdftotext -layout $pdf txt/$txt\n" if defined $global{opts}{verbose} ;
+      `pdftotext -layout $pdf txt/$txt` ;
+   }
 }
 
 print "\n" ;
