@@ -689,8 +689,15 @@ foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
       # Delete internal info from the json
       delete $json{ModuleTypes}{$ModuleType}{General} ;
    }
+
    if ( $json{ModuleTypes}{$ModuleType}{Channels} ) {
       foreach my $Channel (sort keys %{$json{ModuleTypes}{$ModuleType}{Channels}}) {
+         # Mark channel name editable, this means it will respond to a channel name request
+         if ( defined $json{ModuleTypes}{$ModuleType}{ChannelsEditable} and (
+              defined $json{ModuleTypes}{$ModuleType}{ChannelsEditable}{$Channel} or $json{ModuleTypes}{$ModuleType}{ChannelsEditable}{ALL} ) ) {
+            $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Editable} = "yes" ;
+         }
+         
          if ( defined $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ) {
             my $ChannelType = $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ;
 
@@ -706,6 +713,11 @@ foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
       }
    } else {
       print "No channels for ModuleType=$ModuleType=$json{ModuleTypes}{$ModuleType}{Type} ($json{ModuleTypes}{$ModuleType}{Info})\n" if defined $global{opts}{verbose} ;
+   }
+
+   # Delete internal info from the json
+   if ( defined $json{ModuleTypes}{$ModuleType}{ChannelsEditable} ) {
+      delete $json{ModuleTypes}{$ModuleType}{ChannelsEditable} ;
    }
 }
 

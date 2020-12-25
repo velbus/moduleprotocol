@@ -428,52 +428,6 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
             $file{ModuleTypes}{$ModuleType}{Info}    = $file{PerFile}{$file}{Info}{ModuleText} ;
             $file{ModuleTypes}{$ModuleType}{Version} = $file{PerFile}{$file}{Info}{Edition} ;
 
-            # Step 3: copy the found data for the modules that are described in the same protocol file
-            # VMBGP1 = 1E: from pdf file
-            # VMBGP2 = 1F: ??
-            # VMBGP4 = 20: from my bus
-            if ( $ModuleType eq "1E" ) {
-               %{$file{ModuleTypes}{'1F'}} = %{$file{ModuleTypes}{'1E'}} ;
-               %{$file{ModuleTypes}{'20'}} = %{$file{ModuleTypes}{'1E'}} ;
-
-               $file{ModuleTypes}{'1E'}{Type} = "VMBGP1" ;
-               $file{ModuleTypes}{'1F'}{Type} = "VMBGP2" ;
-               $file{ModuleTypes}{'20'}{Type} = "VMBGP4" ;
-
-            # VMBEL1 = 34
-            # VMBEL2 = 35
-            # VMBEL4 = 36
-            } elsif ( $ModuleType eq "34" ) {
-               %{$file{ModuleTypes}{'35'}} = %{$file{ModuleTypes}{'34'}} ;
-               %{$file{ModuleTypes}{'36'}} = %{$file{ModuleTypes}{'34'}} ;
-
-               $file{ModuleTypes}{'34'}{Type} = "VMBEL1" ;
-               $file{ModuleTypes}{'35'}{Type} = "VMBEL2" ;
-               $file{ModuleTypes}{'36'}{Type} = "VMBEL4" ;
-
-            # VMBGP1-2 = 3A
-            # VMBGP2-2 = 3B
-            # VMBGP4-2 = 3C
-            } elsif ( $ModuleType eq "3C" ) {
-               %{$file{ModuleTypes}{'3A'}} = %{$file{ModuleTypes}{'3C'}} ;
-               %{$file{ModuleTypes}{'3B'}} = %{$file{ModuleTypes}{'3C'}} ;
-
-               $file{ModuleTypes}{'3A'}{Type} = "VMBGP1-2" ;
-               $file{ModuleTypes}{'3B'}{Type} = "VMBGP2-2" ;
-               $file{ModuleTypes}{'3C'}{Type} = "VMBGP4-2" ;
-
-            # VMBSIG = 39
-            # VMBUSBIP = 40
-            # VMCM3 = 3F
-            } elsif ( $ModuleType eq "3F" ) {
-               %{$file{ModuleTypes}{'39'}} = %{$file{ModuleTypes}{'3F'}} ;
-               %{$file{ModuleTypes}{'40'}} = %{$file{ModuleTypes}{'3F'}} ;
-
-               $file{ModuleTypes}{'39'}{Type} = "VMCM3" ;
-               $file{ModuleTypes}{'3F'}{Type} = "VMBUSBIP" ;
-               $file{ModuleTypes}{'40'}{Type} = "VMBSIG" ;
-            }
-
          } else {
             print "Error: $Module: no matching FF command: $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text}\n" ;
          }
@@ -484,11 +438,66 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
       print "Error: no message FF in $file found!\n" ;
    }
 
+   next if ! defined $ModuleType ; # We need a module type!
+
+   # Parse Command F0 to get all the channels that will response to a name request
+   if ( defined $file{PerCommand}{$file}{'F0'} ) {
+      my @counter = split " ", $file{PerCommand}{$file}{'F0'} ;
+      my $counter = $counter[-1] ; # Take the last occurence of the command, this should be the one for the most recent firmware
+
+      if ( defined $file{PerFile}{$file}{Messages}{$counter} ) {
+         # filter out all possible formats for DATABYTE2
+         if ( defined $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} ) {
+            my $text = $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} ;
+
+            if      ( $text =~ /channel number (\d)…(\d+) or (\d+)/ ) {
+               my $match3 = $3 ;
+               $match3 = 0 . $match3 * 1 if $match3 < 10 ; # Make sure we have 2 digits
+               $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$match3} = $text ;
+               for my $i ($1..$2) {
+                  $i = 0 . $i * 1 if $i < 10 ; # Make sure we have 2 digits
+                  $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$i} = $text ;
+               }
+
+            } elsif ( $text =~ /channel number (\d)…(\d+)/ ) {
+               for my $i ($1..$2) {
+                  $i = 0 . $i * 1 if $i < 10 ; # Make sure we have 2 digits
+                  $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$i} = $text ;
+               }
+
+            } elsif ( $text =~ /channel number \((\d)…(\d+)\)/ ) {
+               for my $i ($1..$2) {
+                  $i = 0 . $i * 1 if $i < 10 ; # Make sure we have 2 digits
+                  $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$i} = $text ;
+               }
+
+            } else {
+               $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{ALL} = $text ;
+            }
+
+            # Sensor channel is +1 in VelusLink
+            if ( $text =~ /(\d+)=temperature sensor name/ ) {
+               my $match = $1 ;
+               delete $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$1} ;
+               $match ++ ;
+               $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$match} = $text ;
+            }
+
+         } else {
+            #print "No DATABYTE2 found in $file for message counter $counter\n" ;
+         }
+      } else {
+         #print "Message counter $counter not found in $file\n" ;
+      }
+   } else {
+      #print "No message F0 in $file found\n" ;
+   }
+
    # Loop all the messages
    foreach my $counter (sort keys (%{$file{PerFile}{$file}{Messages}}) ) {
       # When RTR is 1, we receive an empty request 'Module type request'
       # We ignore this message since this contains no extra HEX code for the command. The answer however, is type FF
-      if (  $file{PerFile}{$file}{Messages}{$counter}{RTR} eq "1" ) {
+      if ( $file{PerFile}{$file}{Messages}{$counter}{RTR} eq "1" ) {
       } else {
          my $MessageAddressType  = $file{PerFile}{$file}{Messages}{$counter}{MessageAddressType} ; # Handier var
          my $Command             = $file{PerFile}{$file}{Messages}{$counter}{Command} ;            # Handier var
@@ -513,6 +522,53 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
          }
       }
    }
+
+   # Copy the found data for the modules that are described in the same protocol file
+   # VMBGP1 = 1E: from pdf file
+   # VMBGP2 = 1F: ??
+   # VMBGP4 = 20: from my bus
+   if ( $ModuleType eq "1E" ) {
+      %{$file{ModuleTypes}{'1F'}} = %{$file{ModuleTypes}{'1E'}} ;
+      %{$file{ModuleTypes}{'20'}} = %{$file{ModuleTypes}{'1E'}} ;
+
+      $file{ModuleTypes}{'1E'}{Type} = "VMBGP1" ;
+      $file{ModuleTypes}{'1F'}{Type} = "VMBGP2" ;
+      $file{ModuleTypes}{'20'}{Type} = "VMBGP4" ;
+
+   # VMBEL1 = 34
+   # VMBEL2 = 35
+   # VMBEL4 = 36
+   } elsif ( $ModuleType eq "34" ) {
+      %{$file{ModuleTypes}{'35'}} = %{$file{ModuleTypes}{'34'}} ;
+      %{$file{ModuleTypes}{'36'}} = %{$file{ModuleTypes}{'34'}} ;
+
+      $file{ModuleTypes}{'34'}{Type} = "VMBEL1" ;
+      $file{ModuleTypes}{'35'}{Type} = "VMBEL2" ;
+      $file{ModuleTypes}{'36'}{Type} = "VMBEL4" ;
+
+   # VMBGP1-2 = 3A
+   # VMBGP2-2 = 3B
+   # VMBGP4-2 = 3C
+   } elsif ( $ModuleType eq "3C" ) {
+      %{$file{ModuleTypes}{'3A'}} = %{$file{ModuleTypes}{'3C'}} ;
+      %{$file{ModuleTypes}{'3B'}} = %{$file{ModuleTypes}{'3C'}} ;
+
+      $file{ModuleTypes}{'3A'}{Type} = "VMBGP1-2" ;
+      $file{ModuleTypes}{'3B'}{Type} = "VMBGP2-2" ;
+      $file{ModuleTypes}{'3C'}{Type} = "VMBGP4-2" ;
+
+   # VMBSIG = 39
+   # VMBUSBIP = 40
+   # VMCM3 = 3F
+   } elsif ( $ModuleType eq "3F" ) {
+      %{$file{ModuleTypes}{'39'}} = %{$file{ModuleTypes}{'3F'}} ;
+      %{$file{ModuleTypes}{'40'}} = %{$file{ModuleTypes}{'3F'}} ;
+
+      $file{ModuleTypes}{'39'}{Type} = "VMCM3" ;
+      $file{ModuleTypes}{'3F'}{Type} = "VMBUSBIP" ;
+      $file{ModuleTypes}{'40'}{Type} = "VMBSIG" ;
+   }
+
 }
 
 print "\n" ;
