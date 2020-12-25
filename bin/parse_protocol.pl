@@ -525,7 +525,7 @@ foreach my $ModuleType (sort keys %{$file{PerCommandLocal}}) {
       } else {
          my @Name = sort keys %{$file{PerCommandLocal}{$ModuleType}{$Command}{CommandText}} ;
          my @Info = sort keys %{$file{PerCommandLocal}{$ModuleType}{$Command}{Info}} ;
-         my @Prio = sort keys %{$file{PerCommandLocal}{$ModuleType}{$Command}{Prio}} ; # TODO: waht if we have different Prio for 1 command?
+         my @Prio = sort keys %{$file{PerCommandLocal}{$ModuleType}{$Command}{Prio}} ; # TODO: what if we have different Prio for 1 command?
 
          my $Name = join ";", @Name ;
          my $Info = join ";", @Info ;
@@ -585,7 +585,7 @@ foreach my $ModuleType (sort keys %{$file{PerCommandLocal}}) {
    }
 }
 
-# We only neede the ModuleTypes information in the json
+# We only need the ModuleTypes information in the json
 %{$json{ModuleTypes}} = %{ merge( \%{$json{ModuleTypes}}, \%{$file{ModuleTypes}} ) };
 
 # Add broadcast messages
