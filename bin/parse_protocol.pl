@@ -53,6 +53,7 @@ sub clean () {
 }
 
 use Hash::Merge qw( merge );
+Hash::Merge::set_behavior('RIGHT_PRECEDENT');
 use JSON ;
 
 # Add a version to the json
