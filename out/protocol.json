@@ -20099,11 +20099,11 @@
                "Type" : "Button"
             },
             "33" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },
             "34" : {
-               "Editable" : "yes",
                "Name" : "Heater",
                "Type" : "ThermostatChannel"
             },
@@ -20918,6 +20918,7 @@
                "Type" : "Sensor"
             },
             "09" : {
+               "Editable" : "yes",
                "Name" : "Temperature",
                "Type" : "Temperature"
             },

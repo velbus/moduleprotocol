@@ -12,7 +12,7 @@ sub print_help {
    print "Possible options:\n" ;
    print "\n" ;
    print "  -v[erbose]: be more verbose\n" ;
-   print "  -k[iptxt]: skip converting pdf to txt\n" ;
+   print "  -s[kiptxt]: skip converting pdf to txt\n" ;
    print "  -h[elp]: this message\n" ;
    print "\n" ;
 
@@ -451,6 +451,8 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
          if ( defined $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} ) {
             my $text = $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} ;
 
+            # VMBKP       42: channel number 1…8
+            # VMBLCDWB    13: channel number (1…32)
             if      ( $text =~ /channel number (\d)…(\d+) or (\d+)/ ) {
                my $match3 = $3 ;
                $match3 = 0 . $match3 * 1 if $match3 < 10 ; # Make sure we have 2 digits
@@ -476,12 +478,41 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
                $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{ALL} = $text ;
             }
 
-            # Sensor channel is +1 in VelusLink
-            if ( $text =~ /(\d+)=temperature sensor name/ ) {
-               my $match = $1 ;
-               delete $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$1} ;
-               $match ++ ;
-               $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{$match} = $text ;
+            # VMBELO      37: channel number 1…33 or 42 (channel 33=temperature sensor name, 42 for output name)
+            if ( $ModuleType eq "37" ) { #
+
+            # Sensor channel is +1 in VelusLink for some modules
+            # VMBGPx      1E: channel number 1…9 (channel 9=temperature sensor name)
+            # VMBGPx-2    3C: channel number 1…9 (channel 9=temperature sensor name)
+            # NOT CONFIRMED!
+            # VMBGP4PIR   2D: channel number 1…4, 9 (channel 9=temperature sensor name)
+            # VMBGP4PIR-2 3E: channel number 1…4, 9 (channel 9=temperature sensor name)
+            } elsif ( $ModuleType eq "1E" or
+                      $ModuleType eq "3C" or
+                      $ModuleType eq "2D" or
+                      $ModuleType eq "3E" ) {
+               delete $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{'09'} ;
+               $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{'10'} = $text ;
+
+            # Sensor channel is +1 in VelusLink for some modules
+            # VMBGPO      21: channel number 1…33 (channel 33=temperature sensor name)
+            # VMBGPOD     28: channel number 1…33 (channel 33=temperature sensor name)
+            # VMBGPOD-2   3D: channel number 1…33 (channel 33=temperature sensor name)
+            } elsif ( $ModuleType eq "21" or
+                      $ModuleType eq "28" or
+                      $ModuleType eq "3D" ) {
+               delete $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{'33'} ;
+               $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{'34'} = $text ;
+
+            # NOT CONFIRMED!
+            # VMBELPIR    38: channel number 1…2 or 18 (channel 9=temperature sensor, channel 18=output)
+            #    Missing '9' in text
+            } elsif ( $ModuleType eq "38" ) {
+               $file{ModuleTypes}{$ModuleType}{ChannelsEditable}{'09'} = $text ;
+
+            # NOT CONFIRMED!
+            # VMBEL1      34: channel number 1…9 or 18 (channel 9=temperature sensor, channel 18=output)
+            } else {
             }
 
          } else {
