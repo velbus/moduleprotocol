@@ -11386,50 +11386,6 @@
          "Memory" : {
             "1" : {
                "Address" : {
-                  "00E4" : {
-                     "Match" : {
-                        "1" : {
-                           "%........" : {
-                              "Channel" : "01",
-                              "SubName" : "Divider",
-                              "Value" : "PulsePerUnits"
-                           }
-                        }
-                     }
-                  },
-                  "00E9" : {
-                     "Match" : {
-                        "1" : {
-                           "%........" : {
-                              "Channel" : "02",
-                              "SubName" : "Divider",
-                              "Value" : "PulsePerUnits"
-                           }
-                        }
-                     }
-                  },
-                  "00EE" : {
-                     "Match" : {
-                        "1" : {
-                           "%........" : {
-                              "Channel" : "03",
-                              "SubName" : "Divider",
-                              "Value" : "PulsePerUnits"
-                           }
-                        }
-                     }
-                  },
-                  "00F3" : {
-                     "Match" : {
-                        "1" : {
-                           "%........" : {
-                              "Channel" : "04",
-                              "SubName" : "Divider",
-                              "Value" : "PulsePerUnits"
-                           }
-                        }
-                     }
-                  },
                   "03AC" : {
                      "ModuleName" : "0:Start"
                   },
@@ -25326,5 +25282,5 @@
          "Version" : "edition 1"
       }
    },
-   "Version" : "20201225"
+   "Version" : "20201226"
 }

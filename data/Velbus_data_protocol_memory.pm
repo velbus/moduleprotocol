@@ -118,21 +118,21 @@ $json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'03FE'}{Match}{'4'}{'%11......'}{
 $json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'03FE'}{Match}{'4'}{'%[01][01]......'}{Channel} = "04" ;
 $json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'03FE'}{Match}{'4'}{'%[01][01]......'}{SubName} = "Unit" ;
 
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E4'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E4'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E4'}{Match}{'1'}{'%........'}{Channel} = "01" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E4'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E4'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E4'}{Match}{'1'}{'%........'}{Channel} = "01" ;
 
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E9'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E9'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E9'}{Match}{'1'}{'%........'}{Channel} = "02" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E9'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E9'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00E9'}{Match}{'1'}{'%........'}{Channel} = "02" ;
 
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00EE'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00EE'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00EE'}{Match}{'1'}{'%........'}{Channel} = "03" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00EE'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00EE'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00EE'}{Match}{'1'}{'%........'}{Channel} = "03" ;
 
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00F3'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00F3'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
-$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00F3'}{Match}{'1'}{'%........'}{Channel} = "04" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00F3'}{Match}{'1'}{'%........'}{Value} = "PulsePerUnits" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00F3'}{Match}{'1'}{'%........'}{SubName} = "Divider" ;
+#$json{ModuleTypes}{'22'}{Memory}{'1'}{Address}{'00F3'}{Match}{'1'}{'%........'}{Channel} = "04" ;
 
 # VMBGPOD
 $json{ModuleTypes}{'28'}{MemoryMatch}{1}{Build}   = ">= 1640" ;
