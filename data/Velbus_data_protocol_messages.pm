@@ -225,6 +225,18 @@ $json{ModuleTypes}{'29'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Name} = "Status" ;
 $json{ModuleTypes}{'29'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Match}{'00000000'}{Value} = "OFF" ;
 $json{ModuleTypes}{'29'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Match}{'00000001'}{Value} = "ON" ;
 
+# Mini 1-kanaals wisselrelaismodule (voor standalone en velbus werking): VMB1RYS
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Name} = "Channel" ;
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Match}{'00000001'}{Channel} = "01" ;
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Match}{'00000010'}{Channel} = "02" ; # Virtual channel
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Match}{'00000100'}{Channel} = "03" ; # Virtual channel
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Match}{'00001000'}{Channel} = "04" ; # Virtual channel
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Match}{'00010000'}{Channel} = "05" ; # Virtual channel
+
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Name} = "Status" ;
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Match}{'00000000'}{Value} = "OFF" ;
+$json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Match}{'00000001'}{Value} = "ON" ;
+
 ################### Dimmers: messages
 # Dimmer module: VMB1DM
 # 0F = COMMAND_SLIDER_STATUS
