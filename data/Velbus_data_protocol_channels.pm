@@ -692,23 +692,42 @@ foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
 
    if ( $json{ModuleTypes}{$ModuleType}{Channels} ) {
       foreach my $Channel (sort keys %{$json{ModuleTypes}{$ModuleType}{Channels}}) {
-         # Mark channel name editable, this means it will respond to a channel name request
-         if ( defined $json{ModuleTypes}{$ModuleType}{ChannelsEditable} and (
-              defined $json{ModuleTypes}{$ModuleType}{ChannelsEditable}{$Channel} or $json{ModuleTypes}{$ModuleType}{ChannelsEditable}{ALL} ) ) {
-            $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Editable} = "yes" ;
-         }
-         
          if ( defined $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ) {
             my $ChannelType = $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Type} ;
+
+            $json{ChannelTypes}{$ChannelType}{ModulesList}{$ModuleType} = "yes" ;  # Remember the channel types per module
 
             # Remember the Temperature channel for the module
             if ( $ChannelType eq "Temperature" ) {
                $json{ModuleTypes}{$ModuleType}{TemperatureChannel} = $Channel ;
             }
 
-            $json{ChannelTypes}{$ChannelType}{ModulesList}{$ModuleType} = "yes" ;  # Remember the channel types per module
+            # Mark channel name editable, this means it will respond to a channel name request
+            if ( $ChannelType eq "Blind" or
+                 $ChannelType eq "Button" or
+                 $ChannelType eq "ButtonCounter" or
+                 $ChannelType eq "Dimmer" or
+                 $ChannelType eq "Relay" or
+                 $ChannelType eq "Temperature" ) {
+               if ( defined $json{ModuleTypes}{$ModuleType}{Messages}{'F0'} ) {
+                  $json{ModuleTypes}{$ModuleType}{Channels}{$Channel}{Editable} = "yes" ;
+               } else {
+                  print "ERROR: ModuleType=$ModuleType=$json{ModuleTypes}{$ModuleType}{Type} ($json{ModuleTypes}{$ModuleType}{Info}), Channel=$Channel marked as Editable but no message F0 found for module type\n" ;
+               }
+            } elsif (
+               # These types are not editable:
+               $ChannelType eq "EdgeLit" or
+               $ChannelType eq "LightSensor" or
+               $ChannelType eq "Memo" or
+               $ChannelType eq "Sensor" or
+               $ChannelType eq "SensorNumber" or
+               $ChannelType eq "ThermostatChannel" ) {
+            } else {
+               print "TODO: mark channel type $ChannelType as Editable or not\n" ;
+            }
+         
          } else {
-            print "ERROR: no TYPE for ModuleType=$ModuleType, Channel = $Channel\n" ;
+            print "ERROR: no channel type for ModuleType=$ModuleType=$json{ModuleTypes}{$ModuleType}{Type} ($json{ModuleTypes}{$ModuleType}{Info}), Channel=$Channel\n" ;
          }
       }
    } else {
