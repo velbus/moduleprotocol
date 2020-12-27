@@ -451,6 +451,8 @@ foreach my $file (sort keys(%{$file{PerFile}})) {
          if ( defined $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} ) {
             my $text = $file{PerFile}{$file}{Messages}{$counter}{byte}{'2'}{text} ;
 
+            #print "$ModuleType  $text\n" ;
+            #
             # VMBKP       42: channel number 1…8
             # VMBLCDWB    13: channel number (1…32)
             if      ( $text =~ /channel number (\d)…(\d+) or (\d+)/ ) {
@@ -707,6 +709,9 @@ foreach my $file (
       close FILE ;
       my $command = join "", @lines ;
       eval $command ;
+      if ( $@ ) {
+         print "Error in $file: $@\n" ;
+      }
    } else {
       print "ERROR: file $file not found!\n" ;
    }
