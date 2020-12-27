@@ -204,6 +204,7 @@
             },
             "41" : {
                "Action" : {
+                  "Get" : "yes",
                   "Set" : "yes"
                }
             }
@@ -374,6 +375,7 @@
             },
             "41" : {
                "Action" : {
+                  "Get" : "yes",
                   "Set" : "yes"
                }
             }
@@ -1090,6 +1092,7 @@
             },
             "41" : {
                "Action" : {
+                  "Get" : "yes",
                   "Set" : "yes"
                }
             }
@@ -14020,42 +14023,34 @@
          },
          "Channels" : {
             "01" : {
-               "Editable" : "yes",
                "Name" : "Dark output",
                "Type" : "Sensor"
             },
             "02" : {
-               "Editable" : "yes",
                "Name" : "Light output",
                "Type" : "Sensor"
             },
             "03" : {
-               "Editable" : "yes",
                "Name" : "Motion output 1",
                "Type" : "Sensor"
             },
             "04" : {
-               "Editable" : "yes",
                "Name" : "Motion output 1 (LD)",
                "Type" : "Sensor"
             },
             "05" : {
-               "Editable" : "yes",
                "Name" : "Motion output 2",
                "Type" : "Sensor"
             },
             "06" : {
-               "Editable" : "yes",
                "Name" : "Motion output 2 (LD)",
                "Type" : "Sensor"
             },
             "07" : {
-               "Editable" : "yes",
                "Name" : "Low alarm",
                "Type" : "Sensor"
             },
             "08" : {
-               "Editable" : "yes",
                "Name" : "High alarm",
                "Type" : "Sensor"
             },
@@ -14065,7 +14060,6 @@
                "Type" : "Temperature"
             },
             "99" : {
-               "Editable" : "yes",
                "Name" : "Light value",
                "Type" : "LightSensor"
             }
@@ -16190,42 +16184,34 @@
          },
          "Channels" : {
             "01" : {
-               "Editable" : "yes",
                "Name" : "Frost alarm",
                "Type" : "Sensor"
             },
             "02" : {
-               "Editable" : "yes",
                "Name" : "Heat alarm",
                "Type" : "Sensor"
             },
             "03" : {
-               "Editable" : "yes",
                "Name" : "Rain alarm",
                "Type" : "Sensor"
             },
             "04" : {
-               "Editable" : "yes",
                "Name" : "Dawn alarm",
                "Type" : "Sensor"
             },
             "05" : {
-               "Editable" : "yes",
                "Name" : "Dusk alarm",
                "Type" : "Sensor"
             },
             "06" : {
-               "Editable" : "yes",
                "Name" : "Sun alarm",
                "Type" : "Sensor"
             },
             "07" : {
-               "Editable" : "yes",
                "Name" : "Wind alarm",
                "Type" : "Sensor"
             },
             "08" : {
-               "Editable" : "yes",
                "Name" : "Storm alarm",
                "Type" : "Sensor"
             },
@@ -16235,17 +16221,14 @@
                "Type" : "Temperature"
             },
             "11" : {
-               "Editable" : "yes",
                "Name" : "Rainfall",
                "Type" : "SensorNumber"
             },
             "12" : {
-               "Editable" : "yes",
                "Name" : "Illuminance",
                "Type" : "SensorNumber"
             },
             "13" : {
-               "Editable" : "yes",
                "Name" : "Wind speed",
                "Type" : "SensorNumber"
             }
@@ -16863,62 +16846,50 @@
          },
          "Channels" : {
             "01" : {
-               "Editable" : "yes",
                "Name" : "Alarm 1",
                "Type" : "Sensor"
             },
             "02" : {
-               "Editable" : "yes",
                "Name" : "Alarm 2",
                "Type" : "Sensor"
             },
             "03" : {
-               "Editable" : "yes",
                "Name" : "Alarm 3",
                "Type" : "Sensor"
             },
             "04" : {
-               "Editable" : "yes",
                "Name" : "Alarm 4",
                "Type" : "Sensor"
             },
             "05" : {
-               "Editable" : "yes",
                "Name" : "Alarm 5",
                "Type" : "Sensor"
             },
             "06" : {
-               "Editable" : "yes",
                "Name" : "Alarm 6",
                "Type" : "Sensor"
             },
             "07" : {
-               "Editable" : "yes",
                "Name" : "Alarm 7",
                "Type" : "Sensor"
             },
             "08" : {
-               "Editable" : "yes",
                "Name" : "Alarm 8",
                "Type" : "Sensor"
             },
             "09" : {
-               "Editable" : "yes",
                "Name" : "Sensor 1",
                "Type" : "SensorNumber"
             },
             "10" : {
-               "Editable" : "yes",
                "Name" : "Sensor 2",
                "Type" : "SensorNumber"
             },
             "11" : {
-               "Editable" : "yes",
                "Name" : "Sensor 3",
                "Type" : "SensorNumber"
             },
             "12" : {
-               "Editable" : "yes",
                "Name" : "Sensor 4",
                "Type" : "SensorNumber"
             }
@@ -24967,6 +24938,37 @@
          "Info" : "1 channel relay module",
          "Messages" : {
             "00" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "pressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "1" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "released"
+                           }
+                        },
+                        "Name" : "Button"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "%." : {
+                              "Convert" : "Channel",
+                              "Value" : "longpressed"
+                           }
+                        },
+                        "Name" : "Button"
+                     }
+                  }
+               },
                "Info" : "Push button status received;Transmits the push button & relay switch status",
                "Name" : "COMMAND_PUSH_BUTTON_STATUS",
                "Prio" : "High"
@@ -25087,6 +25089,41 @@
                "Prio" : "Low"
             },
             "FB" : {
+               "Data" : {
+                  "PerByte" : {
+                     "0" : {
+                        "Match" : {
+                           "00000001" : {
+                              "Channel" : "01"
+                           },
+                           "00000010" : {
+                              "Channel" : "02"
+                           },
+                           "00000100" : {
+                              "Channel" : "03"
+                           },
+                           "00001000" : {
+                              "Channel" : "04"
+                           },
+                           "00010000" : {
+                              "Channel" : "05"
+                           }
+                        },
+                        "Name" : "Channel"
+                     },
+                     "2" : {
+                        "Match" : {
+                           "00000000" : {
+                              "Value" : "OFF"
+                           },
+                           "00000001" : {
+                              "Value" : "ON"
+                           }
+                        },
+                        "Name" : "Status"
+                     }
+                  }
+               },
                "Info" : "Transmits the relay status",
                "Name" : "COMMAND_RELAY_STATUS",
                "Prio" : "Low"
@@ -25293,5 +25330,5 @@
          "Version" : "edition 1"
       }
    },
-   "Version" : "20201226"
+   "Version" : "20201227"
 }
