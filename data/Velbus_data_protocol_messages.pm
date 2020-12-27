@@ -226,6 +226,7 @@ $json{ModuleTypes}{'29'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Match}{'00000000'}{
 $json{ModuleTypes}{'29'}{Messages}{'FB'}{Data}{PerByte}{'2'}{Match}{'00000001'}{Value} = "ON" ;
 
 # Mini 1-kanaals wisselrelaismodule (voor standalone en velbus werking): VMB1RYS
+$json{ModuleTypes}{'41'}{Messages}{'00'}{General} = "ButtonPress" ;
 $json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Name} = "Channel" ;
 $json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Match}{'00000001'}{Channel} = "01" ;
 $json{ModuleTypes}{'41'}{Messages}{'FB'}{Data}{PerByte}{'0'}{Match}{'00000010'}{Channel} = "02" ; # Virtual channel
