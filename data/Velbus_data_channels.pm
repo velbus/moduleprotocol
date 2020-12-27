@@ -183,10 +183,12 @@ foreach my $ChannelType (sort keys %{$json{ChannelTypes}}) {
                     defined $json{ModuleTypes}{$ModuleType}{Messages}{$Message}{Data} ) {
                   $json{ChannelTypes}{$ChannelType}{Module}{$ModuleType}{Action}{Get} = "yes" ;
                } else {
-                  # print "NO MESSAGE: ChannelType=$ChannelType, ModuleType=$ModuleType, Message=$Message\n" ;
+                  print "No message for ModuleType=$ModuleType, ChannelType=$ChannelType, Message=$Message\n" if defined $global{opts}{verbose} ;
                }
             }
          }
+      } else {
+         print "No get for ModuleType=$ModuleType, ChannelType=$ChannelType\n" if defined $global{opts}{verbose} ;
       }
 
       if ( defined $json{ChannelTypes}{$ChannelType}{Set} ) {
