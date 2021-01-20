@@ -24936,6 +24936,59 @@
          },
          "File" : "protocol_vmb1rys.txt",
          "Info" : "1 channel relay module",
+         "Memory" : {
+            "1" : {
+               "Address" : {
+                  "00DD" : {
+                     "ModuleName" : "0:Start"
+                  },
+                  "00DE" : {
+                     "ModuleName" : "1"
+                  },
+                  "00DF" : {
+                     "ModuleName" : "2"
+                  },
+                  "00E0" : {
+                     "ModuleName" : "3"
+                  },
+                  "00E1" : {
+                     "ModuleName" : "4"
+                  },
+                  "00E2" : {
+                     "ModuleName" : "5"
+                  },
+                  "00E3" : {
+                     "ModuleName" : "6"
+                  },
+                  "00E4" : {
+                     "ModuleName" : "7"
+                  },
+                  "00E5" : {
+                     "ModuleName" : "8"
+                  },
+                  "00E6" : {
+                     "ModuleName" : "9"
+                  },
+                  "00E7" : {
+                     "ModuleName" : "10"
+                  },
+                  "00E8" : {
+                     "ModuleName" : "11"
+                  },
+                  "00E9" : {
+                     "ModuleName" : "13:Save"
+                  }
+               },
+               "ModuleName" : "00DD-00E9",
+               "StatusAddress" : "00DD;00DE;00DF;00E0;00E1;00E2;00E3;00E4;00E5;00E6;00E7;00E8;00E9"
+            }
+         },
+         "MemoryMatch" : {
+            "1" : {
+               "Build" : ">= 1",
+               "Version" : "1"
+            }
+         },
          "Messages" : {
             "00" : {
                "Data" : {
@@ -25330,5 +25383,5 @@
          "Version" : "edition 1"
       }
    },
-   "Version" : "20201227"
+   "Version" : "20210120"
 }
