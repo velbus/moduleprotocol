@@ -71,6 +71,9 @@ This repository collects all module protocol manuals.
 | 0x40 | VMBUSBIP | [Module protocol revision 3](protocol_vmbsig_vmbusbip_vmcm3.pdf)
 | 0x41 | VMB1RYS | [Module protocol revision 1](protocol_vmb1rys.pdf)
 | 0x42 | VMBKP | [Module protocol revision 1](protocol_vmbkp.pdf)
+| 0x43 | VMBIN | [Module protocol revision 1](protocol_vmbin.pdf)
+| 0x44 | VMB4PB | [Module protocol revision 2](protocol_vmb4pb.pdf)
+| 0x45 | VMBDALI | [Module protocol revision 3](protocol_vmbdali.pdf)
 
 ## Other manuals
 
