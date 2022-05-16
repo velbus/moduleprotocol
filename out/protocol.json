@@ -25888,6 +25888,212 @@
       "45" : {
          "File" : "protocol_vmbdali.txt",
          "Info" : "DALI gateway module",
+         "Memory" : {
+            "1" : {
+               "Address" : {
+                  "17AC" : {
+                     "ModuleName" : "0:Start"
+                  },
+                  "17AD" : {
+                     "ModuleName" : "1"
+                  },
+                  "17AE" : {
+                     "ModuleName" : "2"
+                  },
+                  "17AF" : {
+                     "ModuleName" : "3"
+                  },
+                  "17B0" : {
+                     "ModuleName" : "4"
+                  },
+                  "17B1" : {
+                     "ModuleName" : "5"
+                  },
+                  "17B2" : {
+                     "ModuleName" : "6"
+                  },
+                  "17B3" : {
+                     "ModuleName" : "7"
+                  },
+                  "17B4" : {
+                     "ModuleName" : "8"
+                  },
+                  "17B5" : {
+                     "ModuleName" : "9"
+                  },
+                  "17B6" : {
+                     "ModuleName" : "10"
+                  },
+                  "17B7" : {
+                     "ModuleName" : "11"
+                  },
+                  "17B8" : {
+                     "ModuleName" : "12"
+                  },
+                  "17B9" : {
+                     "ModuleName" : "13"
+                  },
+                  "17BA" : {
+                     "ModuleName" : "14"
+                  },
+                  "17BB" : {
+                     "ModuleName" : "15"
+                  },
+                  "17BC" : {
+                     "ModuleName" : "16"
+                  },
+                  "17BD" : {
+                     "ModuleName" : "17"
+                  },
+                  "17BE" : {
+                     "ModuleName" : "18"
+                  },
+                  "17BF" : {
+                     "ModuleName" : "19"
+                  },
+                  "17C0" : {
+                     "ModuleName" : "20"
+                  },
+                  "17C1" : {
+                     "ModuleName" : "21"
+                  },
+                  "17C2" : {
+                     "ModuleName" : "22"
+                  },
+                  "17C3" : {
+                     "ModuleName" : "23"
+                  },
+                  "17C4" : {
+                     "ModuleName" : "24"
+                  },
+                  "17C5" : {
+                     "ModuleName" : "25"
+                  },
+                  "17C6" : {
+                     "ModuleName" : "26"
+                  },
+                  "17C7" : {
+                     "ModuleName" : "27"
+                  },
+                  "17C8" : {
+                     "ModuleName" : "28"
+                  },
+                  "17C9" : {
+                     "ModuleName" : "29"
+                  },
+                  "17CA" : {
+                     "ModuleName" : "30"
+                  },
+                  "17CB" : {
+                     "ModuleName" : "31"
+                  },
+                  "17CC" : {
+                     "ModuleName" : "32"
+                  },
+                  "17CD" : {
+                     "ModuleName" : "33"
+                  },
+                  "17CE" : {
+                     "ModuleName" : "34"
+                  },
+                  "17CF" : {
+                     "ModuleName" : "35"
+                  },
+                  "17D0" : {
+                     "ModuleName" : "36"
+                  },
+                  "17D1" : {
+                     "ModuleName" : "37"
+                  },
+                  "17D2" : {
+                     "ModuleName" : "38"
+                  },
+                  "17D3" : {
+                     "ModuleName" : "39"
+                  },
+                  "17D4" : {
+                     "ModuleName" : "40"
+                  },
+                  "17D5" : {
+                     "ModuleName" : "41"
+                  },
+                  "17D6" : {
+                     "ModuleName" : "42"
+                  },
+                  "17D7" : {
+                     "ModuleName" : "43"
+                  },
+                  "17D8" : {
+                     "ModuleName" : "44"
+                  },
+                  "17D9" : {
+                     "ModuleName" : "45"
+                  },
+                  "17DA" : {
+                     "ModuleName" : "46"
+                  },
+                  "17DB" : {
+                     "ModuleName" : "47"
+                  },
+                  "17DC" : {
+                     "ModuleName" : "48"
+                  },
+                  "17DD" : {
+                     "ModuleName" : "49"
+                  },
+                  "17DE" : {
+                     "ModuleName" : "50"
+                  },
+                  "17DF" : {
+                     "ModuleName" : "51"
+                  },
+                  "17E0" : {
+                     "ModuleName" : "52"
+                  },
+                  "17E1" : {
+                     "ModuleName" : "53"
+                  },
+                  "17E2" : {
+                     "ModuleName" : "54"
+                  },
+                  "17E3" : {
+                     "ModuleName" : "55"
+                  },
+                  "17E4" : {
+                     "ModuleName" : "56"
+                  },
+                  "17E5" : {
+                     "ModuleName" : "57"
+                  },
+                  "17E6" : {
+                     "ModuleName" : "58"
+                  },
+                  "17E7" : {
+                     "ModuleName" : "59"
+                  },
+                  "17E8" : {
+                     "ModuleName" : "60"
+                  },
+                  "17E9" : {
+                     "ModuleName" : "61"
+                  },
+                  "17EA" : {
+                     "ModuleName" : "62"
+                  },
+                  "17EB" : {
+                     "ModuleName" : "64:Save"
+                  }
+               },
+               "ModuleName" : "17AC-17EB",
+               "StatusAddress" : "17AC;17AD;17AE;17AF;17B0;17B1;17B2;17B3;17B4;17B5;17B6;17B7;17B8;17B9;17BA;17BB;17BC;17BD;17BE;17BF;17C0;17C1;17C2;17C3;17C4;17C5;17C6;17C7;17C8;17C9;17CA;17CB;17CC;17CD;17CE;17CF;17D0;17D1;17D2;17D3;17D4;17D5;17D6;17D7;17D8;17D9;17DA;17DB;17DC;17DD;17DE;17DF;17E0;17E1;17E2;17E3;17E4;17E5;17E6;17E7;17E8;17E9;17EA;17EB"
+            }
+         },
+         "MemoryMatch" : {
+            "1" : {
+               "Build" : ">= 1",
+               "Version" : "1"
+            }
+         },
          "Messages" : {
             "00" : {
                "Info" : "Transmits the channel A0…7 switch status",
@@ -26141,5 +26347,5 @@
          "Version" : "edition 3"
       }
    },
-   "Version" : "20220323"
+   "Version" : "20220516"
 }
