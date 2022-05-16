@@ -137,6 +137,11 @@
                   "Set" : "yes"
                }
             },
+            "30" : {
+               "Action" : {
+                  "Set" : "yes"
+               }
+            },
             "33" : {
                "Action" : {
                   "Get" : "yes",
@@ -219,7 +224,7 @@
                }
             }
          },
-         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42,43",
+         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,30,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42,43",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -318,6 +323,11 @@
                   "Set" : "yes"
                }
             },
+            "30" : {
+               "Action" : {
+                  "Set" : "yes"
+               }
+            },
             "33" : {
                "Action" : {
                   "Get" : "yes",
@@ -400,7 +410,7 @@
                }
             }
          },
-         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42,43",
+         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,30,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42,43",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -16032,6 +16042,48 @@
          "Version" : "edition 4"
       },
       "30" : {
+         "Channels" : {
+            "01" : {
+               "Editable" : "yes",
+               "Name" : "Push button 1",
+               "Type" : "Button"
+            },
+            "02" : {
+               "Editable" : "yes",
+               "Name" : "Push button 2",
+               "Type" : "Button"
+            },
+            "03" : {
+               "Editable" : "yes",
+               "Name" : "Push button 3",
+               "Type" : "Button"
+            },
+            "04" : {
+               "Editable" : "yes",
+               "Name" : "Push button 4",
+               "Type" : "Button"
+            },
+            "05" : {
+               "Editable" : "yes",
+               "Name" : "Push button 5",
+               "Type" : "Button"
+            },
+            "06" : {
+               "Editable" : "yes",
+               "Name" : "Push button 6",
+               "Type" : "Button"
+            },
+            "07" : {
+               "Editable" : "yes",
+               "Name" : "Push button 7",
+               "Type" : "Button"
+            },
+            "08" : {
+               "Editable" : "yes",
+               "Name" : "Push button 8",
+               "Type" : "Button"
+            }
+         },
          "File" : "protocol_vmbrfr8s.txt",
          "Info" : "8 channel RF receiver module",
          "Messages" : {

@@ -319,6 +319,24 @@ $json{ModuleTypes}{'43'}{Channels}{"07"}{Type} = "Button" ;
 $json{ModuleTypes}{'43'}{Channels}{"08"}{Name} = "Virtual button 7" ;
 $json{ModuleTypes}{'43'}{Channels}{"08"}{Type} = "Button" ;
 
+# RVMBRFR8S (30): 8 channel RF receiver module
+$json{ModuleTypes}{'30'}{Channels}{"01"}{Name} = "Push button 1" ;
+$json{ModuleTypes}{'30'}{Channels}{"01"}{Type} = "Button" ;
+$json{ModuleTypes}{'30'}{Channels}{"02"}{Name} = "Push button 2" ;
+$json{ModuleTypes}{'30'}{Channels}{"02"}{Type} = "Button" ;
+$json{ModuleTypes}{'30'}{Channels}{"03"}{Name} = "Push button 3" ;
+$json{ModuleTypes}{'30'}{Channels}{"03"}{Type} = "Button" ;
+$json{ModuleTypes}{'30'}{Channels}{"04"}{Name} = "Push button 4" ;
+$json{ModuleTypes}{'30'}{Channels}{"04"}{Type} = "Button" ;
+$json{ModuleTypes}{'30'}{Channels}{"05"}{Name} = "Push button 5" ;
+$json{ModuleTypes}{'30'}{Channels}{"05"}{Type} = "Button" ;
+$json{ModuleTypes}{'30'}{Channels}{"06"}{Name} = "Push button 6" ;
+$json{ModuleTypes}{'30'}{Channels}{"06"}{Type} = "Button" ;
+$json{ModuleTypes}{'30'}{Channels}{"07"}{Name} = "Push button 7" ;
+$json{ModuleTypes}{'30'}{Channels}{"07"}{Type} = "Button" ;
+$json{ModuleTypes}{'30'}{Channels}{"08"}{Name} = "Push button 8" ;
+$json{ModuleTypes}{'30'}{Channels}{"08"}{Type} = "Button" ;
+
 ################### PIR Sensors: Channel names
 # Mini PIR sensor: VMBPIRM
 $json{ModuleTypes}{'2A'}{General} = "PIR" ;
