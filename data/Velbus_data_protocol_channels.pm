@@ -89,6 +89,7 @@ $json{ModuleTypes}{'03'}{Channels}{"01"}{Type} = "Blind" ;
 $json{ModuleTypes}{'03'}{ChannelNumbers}{Name}{Map}{'03'} = "01" ; # 00000011 = 03 bin
 
 # 2-channel blind control module: VMB2BL
+# NAKIJKEN $json{ModuleTypes}{'09'}{AllChannelStatus} = "FF" ;
 $json{ModuleTypes}{'09'}{Channels}{"01"}{Name} = "Blind 1" ;
 $json{ModuleTypes}{'09'}{Channels}{"01"}{Type} = "Blind" ;
 $json{ModuleTypes}{'09'}{Channels}{"02"}{Name} = "Blind 2" ;
@@ -405,6 +406,24 @@ $json{ModuleTypes}{'33'}{Channels}{"07"}{Name} = "Virtual button 1" ;
 $json{ModuleTypes}{'33'}{Channels}{"07"}{Type} = "Button" ;
 $json{ModuleTypes}{'33'}{Channels}{"08"}{Name} = "Virtual button 2" ;
 $json{ModuleTypes}{'33'}{Channels}{"08"}{Type} = "Button" ;
+
+# VMBBKP (42): Keypad interface module
+$json{ModuleTypes}{'42'}{Channels}{"01"}{Name} = "User group 1" ;
+$json{ModuleTypes}{'42'}{Channels}{"01"}{Type} = "Button" ;
+$json{ModuleTypes}{'42'}{Channels}{"02"}{Name} = "User group 2" ;
+$json{ModuleTypes}{'42'}{Channels}{"02"}{Type} = "Button" ;
+$json{ModuleTypes}{'42'}{Channels}{"03"}{Name} = "Tamper alarm" ;
+$json{ModuleTypes}{'42'}{Channels}{"03"}{Type} = "Button" ;
+$json{ModuleTypes}{'42'}{Channels}{"04"}{Name} = "Virtual button 1" ;
+$json{ModuleTypes}{'42'}{Channels}{"04"}{Type} = "Button" ;
+$json{ModuleTypes}{'42'}{Channels}{"05"}{Name} = "Virtual button 2" ;
+$json{ModuleTypes}{'42'}{Channels}{"05"}{Type} = "Button" ;
+$json{ModuleTypes}{'42'}{Channels}{"06"}{Name} = "Virtual button 3" ;
+$json{ModuleTypes}{'42'}{Channels}{"06"}{Type} = "Button" ;
+$json{ModuleTypes}{'42'}{Channels}{"07"}{Name} = "Virtual button 4" ;
+$json{ModuleTypes}{'42'}{Channels}{"07"}{Type} = "Button" ;
+$json{ModuleTypes}{'42'}{Channels}{"08"}{Name} = "Virtual button 5" ;
+$json{ModuleTypes}{'42'}{Channels}{"08"}{Type} = "Button" ;
 
 #################### General definitions that can be used in different modules
 # 1 channel relay
