@@ -245,6 +245,11 @@ $json{ModuleTypes}{'41'}{MemoryMatch}{1}{Build}   = ">= 1" ;
 $json{ModuleTypes}{'41'}{MemoryMatch}{1}{Version} = "1" ;
 $json{ModuleTypes}{'41'}{Memory}{1}{ModuleName} = "00DD-00E9;01DD-01E9;02DD-02E9;03DD-03E9;04DD-04E8" ;
 
+# VMBDALI
+$json{ModuleTypes}{'45'}{MemoryMatch}{1}{Build}   = ">= 1" ;
+$json{ModuleTypes}{'45'}{MemoryMatch}{1}{Version} = "1" ;
+$json{ModuleTypes}{'45'}{Memory}{1}{ModuleName} = "17AC-17EB" ;
+
 # Parse and rewrite the memory addresses for ModuleName and SensorName so we know for each possible memory address what it contains.
 foreach my $ModuleType (sort keys %{$json{ModuleTypes}}) {
    if ( defined $json{ModuleTypes}{$ModuleType}{Memory} ) {
