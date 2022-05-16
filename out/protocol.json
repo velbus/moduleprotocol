@@ -212,9 +212,14 @@
                "Action" : {
                   "Set" : "yes"
                }
+            },
+            "43" : {
+               "Action" : {
+                  "Set" : "yes"
+               }
             }
          },
-         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42",
+         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42,43",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -388,9 +393,14 @@
                "Action" : {
                   "Set" : "yes"
                }
+            },
+            "43" : {
+               "Action" : {
+                  "Set" : "yes"
+               }
             }
          },
-         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42",
+         "Modules" : "01,05,0B,16,17,18,1E,1F,20,21,22,28,2D,33,34,35,36,37,38,3A,3B,3C,3D,3E,41,42,43",
          "Set" : {
             "Match" : {
                "OFF" : {
@@ -25588,6 +25598,48 @@
          "Version" : "edition 1"
       },
       "43" : {
+         "Channels" : {
+            "01" : {
+               "Editable" : "yes",
+               "Name" : "Input",
+               "Type" : "Button"
+            },
+            "02" : {
+               "Editable" : "yes",
+               "Name" : "Virtual button 1",
+               "Type" : "Button"
+            },
+            "03" : {
+               "Editable" : "yes",
+               "Name" : "Virtual button 2",
+               "Type" : "Button"
+            },
+            "04" : {
+               "Editable" : "yes",
+               "Name" : "Virtual button 3",
+               "Type" : "Button"
+            },
+            "05" : {
+               "Editable" : "yes",
+               "Name" : "Virtual button 4",
+               "Type" : "Button"
+            },
+            "06" : {
+               "Editable" : "yes",
+               "Name" : "Virtual button 5",
+               "Type" : "Button"
+            },
+            "07" : {
+               "Editable" : "yes",
+               "Name" : "Virtual button 6",
+               "Type" : "Button"
+            },
+            "08" : {
+               "Editable" : "yes",
+               "Name" : "Virtual button 7",
+               "Type" : "Button"
+            }
+         },
          "File" : "protocol_vmbin.txt",
          "Info" : "One channel input module",
          "Messages" : {
