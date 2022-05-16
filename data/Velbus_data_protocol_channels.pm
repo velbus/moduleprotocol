@@ -301,6 +301,24 @@ $json{ModuleTypes}{'0B'}{Channels}{"07"}{Type} = "Button" ;
 $json{ModuleTypes}{'0B'}{Channels}{"08"}{Name} = "Push button 8" ;
 $json{ModuleTypes}{'0B'}{Channels}{"08"}{Type} = "Button" ;
 
+# VMBBKP (43): One channel input module
+$json{ModuleTypes}{'43'}{Channels}{"01"}{Name} = "Input" ;
+$json{ModuleTypes}{'43'}{Channels}{"01"}{Type} = "Button" ;
+$json{ModuleTypes}{'43'}{Channels}{"02"}{Name} = "Virtual button 1" ;
+$json{ModuleTypes}{'43'}{Channels}{"02"}{Type} = "Button" ;
+$json{ModuleTypes}{'43'}{Channels}{"03"}{Name} = "Virtual button 2" ;
+$json{ModuleTypes}{'43'}{Channels}{"03"}{Type} = "Button" ;
+$json{ModuleTypes}{'43'}{Channels}{"04"}{Name} = "Virtual button 3" ;
+$json{ModuleTypes}{'43'}{Channels}{"04"}{Type} = "Button" ;
+$json{ModuleTypes}{'43'}{Channels}{"05"}{Name} = "Virtual button 4" ;
+$json{ModuleTypes}{'43'}{Channels}{"05"}{Type} = "Button" ;
+$json{ModuleTypes}{'43'}{Channels}{"06"}{Name} = "Virtual button 5" ;
+$json{ModuleTypes}{'43'}{Channels}{"06"}{Type} = "Button" ;
+$json{ModuleTypes}{'43'}{Channels}{"07"}{Name} = "Virtual button 6" ;
+$json{ModuleTypes}{'43'}{Channels}{"07"}{Type} = "Button" ;
+$json{ModuleTypes}{'43'}{Channels}{"08"}{Name} = "Virtual button 7" ;
+$json{ModuleTypes}{'43'}{Channels}{"08"}{Type} = "Button" ;
+
 ################### PIR Sensors: Channel names
 # Mini PIR sensor: VMBPIRM
 $json{ModuleTypes}{'2A'}{General} = "PIR" ;
