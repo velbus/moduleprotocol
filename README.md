@@ -69,9 +69,9 @@ This repository collects all module protocol manuals.
 | 0x43 | VMBIN | [Module protocol revision 1](protocol_vmbin.pdf)
 | 0x44 | VMB4PB | [Module protocol revision 2](protocol_vmb4pb.pdf)
 | 0x45 | VMBDALI | [Module protocol revision 3](protocol_vmbdali.pdf)
-| 0x48 | VMB4RYLD_10 | [Module protocol revision 1](protocol_vmb4ryld_10.pdf)
-| 0x49 | VMB4RYNO_10 | [Module protocol revision 1](protocol_vmb4ryno_10.pdf)
-| 0x4A | VMB2BLE_10 | [Module protocol revision 1](protocol_vmb2ble_10.pdf)
+| 0x48 | VMB4RYLD-10 | [Module protocol revision 1](protocol_vmb4ryld_10.pdf)
+| 0x49 | VMB4RYNO-10 | [Module protocol revision 1](protocol_vmb4ryno_10.pdf)
+| 0x4A | VMB2BLE-10 | [Module protocol revision 1](protocol_vmb2ble_10.pdf)
 | 0x4C | VMB6PB-20 | [Module protocol revision 3](protocol_vmb6pb_20.pdf)
 
 ## Other manuals
