@@ -51,9 +51,9 @@ This repository collects all module protocol manuals.
 | 0x31 | VMBMETEO | [Module protocol revision 3](protocol_vmbmeteo.pdf)
 | 0x32 | VMB4AN | [Module protocol revision 3](protocol_vmb4an.pdf)
 | 0x33 | VMBVP01 | [Module protocol revision 1](protocol_vmbvp01.pdf)
-| 0x34 | VMBEL1 | [Module protocol revision 3](protocol_vmbel1_2_4.pdf)
-| 0x35 | VMBEL2 | [Module protocol revision 3](protocol_vmbel1_2_4.pdf)
-| 0x36 | VMBEL4 | [Module protocol revision 3](protocol_vmbel1_2_4.pdf)
+| 0x34 | VMBEL1 | [Module protocol revision 4](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
+| 0x35 | VMBEL2 | [Module protocol revision 4](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
+| 0x36 | VMBEL4 | [Module protocol revision 4](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
 | 0x37 | VMBELO | [Module protocol revision 4](protocol_vmbelo.pdf)
 | 0x38 | VMBELPIR | [Module protocol revision 2](protocol_vmbelpir.pdf)
 | 0x39 | VMBSIG | [Module protocol revision 3](protocol_vmbsig_vmbusbip_vmcm3.pdf)
@@ -73,7 +73,18 @@ This repository collects all module protocol manuals.
 | 0x49 | VMB4RYNO-10 | [Module protocol revision 1](protocol_vmb4ryno_10.pdf)
 | 0x4A | VMB2BLE-10 | [Module protocol revision 1](protocol_vmb2ble_10.pdf)
 | 0x4C | VMB6PB-20 | [Module protocol revision 3](protocol_vmb6pb_20.pdf)
+| 0x4F | VMBEL1-20 | [Module protocol revision 1](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
+| 0x50 | VMBEL2-20 | [Module protocol revision 1](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
+| 0x51 | VMBEL4-20 | [Module protocol revision 1](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
+| 0x52 | VMBELO-20 | [Module protocol revision 1](protocol_vmbelo_vmbelo_20.pdf)
+| 0x54 | VMBGP1-20 | [Module protocol revision 1](protocol_vmbgp1_20_vmbgp2_20_vmbgp4_20.pdf)
+| 0x55 | VMBGP2-20 | [Module protocol revision 1](protocol_vmbgp1_20_vmbgp2_20_vmbgp4_20.pdf)
+| 0x56 | VMBGP4-20 | [Module protocol revision 1](protocol_vmbgp1_20_vmbgp2_20_vmbgp4_20.pdf)
+| 0x57 | VMBGPO-20 | [Module protocol revision 1](protocol_vmbgpo_20.pdf)
 | 0x5A | VMBDALI-20 | [Module protocol revision 1](protocol_vmbdali_vmbdali_20.pdf)
+| 0x5C | VMBEL4PIR-20 | [Module protocol revision 1](protocol_vmbel4pir_20.pdf)
+| 0x5F | VMBGP4PIR-20 | [Module protocol revision 1](protocol_vmbgp4pir_20.pdf)
+
 
 ## Other manuals
 
