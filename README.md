@@ -86,12 +86,12 @@ This repository collects all module protocol manuals.
 | 0x55 | VMBGP2-20 | [Module protocol revision 1](protocol_vmbgp1_20_vmbgp2_20_vmbgp4_20.pdf)
 | 0x56 | VMBGP4-20 | [Module protocol revision 1](protocol_vmbgp1_20_vmbgp2_20_vmbgp4_20.pdf)
 | 0x57 | VMBGPO-20 | [Module protocol revision 1](protocol_vmbgpo_20.pdf)
-| 0x59 | VMBPIRO-20 |
+| 0x59 | VMBPIRO-20 | [Module protocol revision 1](protocol_vmbpiro_20.pdf)
 | 0x5A | VMBDALI-20 | [Module protocol revision 1](protocol_vmbdali_vmbdali_20.pdf)
-| 0x5B | VMBSIG-20 | 
+| 0x5B | VMBSIG-20 | [Module protocol revision 1](protocol_vmbsig_20.pdf)
 | 0x5C | VMBEL4PIR-20 | [Module protocol revision 1](protocol_vmbel4pir_20.pdf)
 | 0x5F | VMBGP4PIR-20 | [Module protocol revision 1](protocol_vmbgp4pir_20.pdf)
-| 0x60 | VMBSIG-21 | 
+| 0x60 | VMBSIG-21 | [Module protocol revision 1](protocol_vmbsig_21.pdf)
 
 
 ## Other manuals
