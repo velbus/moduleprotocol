@@ -8,6 +8,7 @@ This repository collects all module protocol manuals.
 | 0x01 | VMB8PB | [Module protocol revision 2](protocol_vmb8pb.pdf)
 | 0x02 | VMB1RY | [Module protocol revision 4](protocol_vmb1ry.pdf)
 | 0x03 | VMB1BL | [Module protocol revision 4](protocol_vmb1bl.pdf)
+| 0x04 | VMBPSUMNGR-20 | [Module protocol revision 4](protocol_vmbpsumngr_20.pdf)
 | 0x05 | VMB6IN | [Module protocol revision 2](protocol_vmb7in.pdf)
 | 0x06 | VMB4LEDPWM-20 | [Module protocol revision 1](protocol_vmb4ledpwm_20.pdf)
 | 0x07 | VMB1DM | [Module protocol revision 5](protocol_vmb1dm.pdf)
