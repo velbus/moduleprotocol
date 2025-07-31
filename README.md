@@ -39,7 +39,10 @@ This repository collects all module protocol manuals.
 | 0x21 | VMBGPO | [Module protocol revision 3](protocol_vmbgpo_vmbgptc.pdf)
 | 0x22 | VMB7IN | [Module protocol revision 5](protocol_vmb7in.pdf)
 | 0x23 | VMBPIRO-10 | [Module protocol revision 1](protocol_vmbpiro_10.pdf)
+| 0x24 | VMB2DC-20 | [Module protocol revision 1](protocol_vmb2dc_20.pdf)
 | 0x25 | VMBGPTC | [Module protocol revision 2](protocol_vmbgpo_vmbgptc.pdf)
+| 0x26 | VMB4RYLD-20 | [Module protocol revision 1](protocol_vmb4ryld_20.pdf)
+| 0x27 | VMB4RYNO-20 | [Module protocol revision 1](protocol_vmb4ryno_20.pdf)
 | 0x28 | VMBGPOD | [Module protocol revision 5](protocol_vmbgpod.pdf)
 |      |         | [IR protocol](protocol_vmbgpod_ir.pdf)
 |      |         | [IR hexcodes](protocol_vmbgpod_ir_hexcodes.pdf)
@@ -93,6 +96,7 @@ This repository collects all module protocol manuals.
 | 0x5C | VMBEL4PIR-20 | [Module protocol revision 1](protocol_vmbel4pir_20.pdf)
 | 0x5F | VMBGP4PIR-20 | [Module protocol revision 1](protocol_vmbgp4pir_20.pdf)
 | 0x60 | VMBSIG-21 | [Module protocol revision 1](protocol_vmbsig_21.pdf)
+| 0x61 | VMB2BLE-20 | [Module protocol revision 1](protocol_vmb2ble_20.pdf)
 
 
 ## Other manuals
