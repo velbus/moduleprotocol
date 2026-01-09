@@ -81,7 +81,7 @@ This repository collects all module protocol manuals.
 | 0x4B | VMB8DC-20 | [Module protocol revision 3](protocol_vmb8dc_20.pdf)
 | 0x4C | VMB6PB-20 | [Module protocol revision 3](protocol_vmb6pb_20.pdf)
 | 0x4D | VMBPIR-20 | [Module protocol revision 1](protocol_vmbpir_20.pdf)
-| 0x4E | VMB8IN-20 | [Module protocol revision 1](protocol_vmb8in_20.pdf)
+| 0x4E | VMB8IN-20 | [Module protocol revision 2](protocol_vmb8in_20.pdf)
 | 0x4F | VMBEL1-20 | [Module protocol revision 1](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
 | 0x50 | VMBEL2-20 | [Module protocol revision 1](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
 | 0x51 | VMBEL4-20 | [Module protocol revision 1](protocol_vmbel1_vmbel1_20_vmbel2_vmbel2_20_vmbel4_vmbel4_20.pdf)
