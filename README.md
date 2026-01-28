@@ -95,7 +95,7 @@ This repository collects all module protocol manuals.
 | 0x5A | VMBDALI-20 | [last update: 03/04/2025](protocol_vmbdali_vmbdali_20.pdf)
 | 0x5B | VMBSIG-20 | [last update: 08/02/2024](protocol_vmbsig_20.pdf)
 | 0x5C | VMBBEL2PIR-20 | [last update: 08/02/2024](protocol_vmbelpir_vmbel1pir_20_vmbel2pir_vmbel2pir_20.pdf)
-| 0x5C | VMBEL4PIR-20 | [last update: 28/11/2024](protocol_vmbel4pir_20.pdf)
+| 0x5D | VMBEL4PIR-20 | [last update: 28/11/2024](protocol_vmbel4pir_20.pdf)
 | 0x5F | VMBGP4PIR-20 | [last update: 28/11/2024](protocol_vmbgp4pir_20.pdf)
 | 0x60 | VMBSIG-21 | [last update: 10/09/2024](protocol_vmbsig_21.pdf)
 | 0x61 | VMB2BLE-20 | [last update: 26/03/2025](protocol_vmb2ble_20.pdf)
